@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+
+:root {
+	--color-primary: #1D3557;
+	--color-secondary: #E63946;
+	--color-tertiary: #417595;
+	--color-quaternary: #A8DADC;
+	--color-quinary: #F1FAEE;
+	--color-primary-quiet: #233D62;
+	--color-primary-loud: #2A466D;
+	--color-menu-shadow: rgba(2, 12, 27, .7);
+
+	--background-width-left: 58%;
+	--background-width-middle: 14.5%;
+	--background-width-right: 27.5%;
+
+	--content-width: 100px;
+	--content-margin: 0px auto;
+
+	--h1-font-size: 60px;
+	--h2-font-size: 7.5rem;
+	--h3-font-size: 1.6rem;
+
+	--font-family-primary: 'Permanent Marker', cursive;
+	--font-family-secondary: 'Varela', sans-serif;
+
+	--work-spacing-left: 40px;
+	--about-spacing-left: 40px;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	margin: 0px;
+}
+
+h1, h2, h3 {
+	font-family: var(--font-family-primary);
+}
+
+h1 {
+	font-size: var(--h1-font-size);
+	color: var(--color-quinary);
+}
+
+h2 {
+	font-size: var(--h2-font-size);
+	margin: 0px 0px 25px 0px;
+	color: var(--color-quinary);
+	line-height: 1;
+}
+
+h3 {
+	font-size: var(--h3-font-size);
+	color: var(--color-quaternary);
+}
+
+p {
+	font-size: 1.25rem;
+	font-family: var(--font-family-secondary);
+	color: var(--color-quaternary);
+	line-height: 2;
+}
