@@ -41,7 +41,7 @@ export default {
 			<h2>Work</h2>
 		</div>
 		<div class="work-wrapper">
-			<div class="work-canvas">
+			<div class="work-canvas-wrapper">
 				<canvas id="work-canvas">
 					red lines used for flair
 				</canvas>
@@ -81,13 +81,15 @@ export default {
 	grid-template-columns: var(--work-spacing-left) 1fr 30px 1fr 30px 1fr;
 }
 
-.work-canvas {
+.work-canvas-wrapper {
 	grid-row: 1 / span 2;
-	grid-column: 1/ 7;
+	grid-column: 1 / 7;
 }
 
 #work-canvas {
 	display: block;
+	height: 100%;
+	max-width: 100%;
 }
 
 .work-subheader {

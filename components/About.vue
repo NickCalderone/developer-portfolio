@@ -5,13 +5,18 @@ export default {
 
 		let context = canvas.getContext("2d");
 
+		let parent = document.querySelector(".about-canvas-wrapper");
+
 		// make canvas the same size as container
-		var rect = canvas.parentNode.getBoundingClientRect();
+		// var rect = canvas.parentNode.getBoundingClientRect();
+		let rect = parent.getBoundingClientRect();
 		canvas.width = rect.width;
 		canvas.height = rect.height;
 
 		let width = rect.width;
 		let height = rect.height;
+
+		console.log("width: ", width, " height: ", height);
 
 		let offset = 2.5;
 		let radius = 12;
@@ -60,7 +65,6 @@ export default {
 	grid-template-columns: 40% 60%;
 	grid-template-rows: auto auto;
 	margin-top: 200px;
-
 }
 
 .about-header {
@@ -73,7 +77,13 @@ export default {
 .about-canvas-wrapper {
 	grid-row: 2;
 	grid-column: 1 / 3;
-	z-index: 10000;
+	z-index: 10;
+}
+
+#about-canvas {
+	height: 100%;
+	/* for some reason using width: 100% makes it at least 500px tall no matter what? */
+	max-width: 100%;
 }
 
 .about-canvas-wrapper canvas {
@@ -96,6 +106,7 @@ export default {
 	grid-column: 2;
 	grid-row: 2;
 	padding: var(--about-spacing-left);
+	z-index: 20;
 }
 
 .about-text p {
