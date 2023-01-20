@@ -16,6 +16,7 @@
 	--background-width-right: 27.5%;
 
 	--content-margin: 0px auto;
+	--content-gap: 200px;
 
 	--h1-font-size: 60px;
 	--h2-font-size: 7.5rem;
@@ -24,8 +25,11 @@
 	--font-family-primary: 'Permanent Marker', cursive;
 	--font-family-secondary: 'Varela', sans-serif;
 
-	--work-spacing-left: 40px;
-	--about-spacing-left: 40px;
+	--spacing: 40px;
+}
+
+div {
+	box-sizing: border-box;
 }
 
 html {
@@ -55,6 +59,7 @@ h2 {
 h3 {
 	font-size: var(--h3-font-size);
 	color: var(--color-quaternary);
+	margin: 0px;
 }
 
 p {
@@ -62,4 +67,5 @@ p {
 	font-family: var(--font-family-secondary);
 	color: var(--color-quaternary);
 	line-height: 2;
+	margin: 0px;
 }

@@ -75,7 +75,6 @@ export default {
 	font-size: 25px;
 	font-family: 'Varela', sans-serif;
 	grid-area: sub-header;
-	margin: 0px;
 	line-height: 1.2;
 }
 

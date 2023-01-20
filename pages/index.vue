@@ -11,8 +11,8 @@
 				colorR="var(--color-primary)">
 				<div class="content">
 					<Work />
-					<Tools />
 					<About />
+					<Contact />
 				</div>
 			</Background>
 		<MountainsTop class="layout-mountains-top" />
@@ -51,7 +51,9 @@
 
 .content {
 	max-width: 1000px;
-	margin: 300px auto;
-	height: 100%;
+	margin: var(--content-gap) auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--content-gap);
 }
 </style>

@@ -2,13 +2,10 @@
 export default {
 	mounted() {
 		let canvas = document.querySelector("#about-canvas");
-
 		let context = canvas.getContext("2d");
-
 		let parent = document.querySelector(".about-canvas-wrapper");
 
 		// make canvas the same size as container
-		// var rect = canvas.parentNode.getBoundingClientRect();
 		let rect = parent.getBoundingClientRect();
 		canvas.width = rect.width;
 		canvas.height = rect.height;
@@ -16,12 +13,9 @@ export default {
 		let width = rect.width;
 		let height = rect.height;
 
-		console.log("width: ", width, " height: ", height);
-
 		let offset = 2.5;
 		let radius = 12;
 
-		context.lineStyle = "red";
 		context.lineWidth = 5;
 		context.lineCap = "round";
 		context.beginPath();
@@ -54,7 +48,7 @@ export default {
 				municipalities to define problems and build solutions using a variety of technologies.</p>
 		</div>
 		<div class="about-canvas-wrapper">
-			<canvas id="about-canvas"></canvas>
+			<canvas id="about-canvas">Red line used for flair</canvas>
 		</div>
 	</section>
 </template>
@@ -64,14 +58,13 @@ export default {
 	display: grid;
 	grid-template-columns: 40% 60%;
 	grid-template-rows: auto auto;
-	margin-top: 200px;
 }
 
 .about-header {
 	grid-row: 1;
 	grid-column: 2;
 	text-align: left;
-	margin-left: var(--about-spacing-left)
+	margin-left: var(--spacing)
 }
 
 .about-canvas-wrapper {
@@ -98,18 +91,14 @@ export default {
 }
 
 .about-img svg {
-	transform: scalex(-1);
+	transform: scalex(-.94);
 	margin-bottom: -60px;
 }
 
 .about-text {
 	grid-column: 2;
 	grid-row: 2;
-	padding: var(--about-spacing-left);
+	padding: var(--spacing);
 	z-index: 20;
-}
-
-.about-text p {
-	margin: 0px;
 }
 </style>

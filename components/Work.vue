@@ -43,7 +43,7 @@ export default {
 		<div class="work-wrapper">
 			<div class="work-canvas-wrapper">
 				<canvas id="work-canvas">
-					red lines used for flair
+					Red line used for flair
 				</canvas>
 			</div>
 			<div class="work-subheader">
@@ -58,6 +58,7 @@ export default {
 			<div class="example-3">
 				<Example />
 			</div>
+			<Tools class="work-tools" />
 		</div>
 	</section>
 </template>
@@ -72,13 +73,13 @@ export default {
 .work-header-wrapper h2 {
 	grid-row: 1;
 	grid-column: 1;
-	margin-left: var(--work-spacing-left);
+	margin-left: var(--spacing);
 }
 
 .work-wrapper {
 	display: grid;
-	grid-template-rows: 60px 100px 100px;
-	grid-template-columns: var(--work-spacing-left) 1fr 30px 1fr 30px 1fr;
+	grid-template-rows: 60px 100px 100px auto;
+	grid-template-columns: var(--spacing) 1fr 30px 1fr 30px 1fr;
 }
 
 .work-canvas-wrapper {
@@ -101,10 +102,6 @@ export default {
 	text-align: right;
 }
 
-.work-subheader h3 {
-	margin: 0px;
-}
-
 .example-1 {
 	grid-row: 2 / 4;
 	grid-column: 2;
@@ -118,5 +115,10 @@ export default {
 .example-3 {
 	grid-row: 2 / 4;
 	grid-column: 6;
+}
+
+.work-tools {
+	grid-row: 4;
+	grid-column: 1 / 7;
 }
 </style>

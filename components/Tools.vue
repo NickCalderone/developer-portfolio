@@ -23,7 +23,7 @@ export default {
 
 <style>
 .tools-wrapper {
-	padding-left: var(--work-spacing-left);
+	padding-left: var(--spacing);
 }
 
 .tools-wrapper h3 {
@@ -46,9 +46,7 @@ export default {
 }
 
 .tool p {
-	margin: 0px;
 	color: var(--color-quinary);
 	font-size: 18px;
-
 }
 </style>
