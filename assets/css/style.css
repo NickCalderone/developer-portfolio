@@ -25,6 +25,8 @@
 	--font-family-primary: 'Permanent Marker', cursive;
 	--font-family-secondary: 'Varela', sans-serif;
 
+	--canvas-stroke-width: 5px;
+
 	--spacing: 40px;
 }
 

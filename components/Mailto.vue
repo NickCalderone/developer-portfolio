@@ -14,8 +14,6 @@
 <style>
 .mailto-svg {
 	height: 1.5rem;
-	margin-left: .75rem;
 	align-self: center;
-	fill: purple;
 }
 </style>

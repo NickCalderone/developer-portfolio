@@ -78,12 +78,12 @@ export default {
 
 .work-wrapper {
 	display: grid;
-	grid-template-rows: 60px 100px 100px auto;
+	grid-template-rows: auto 100px var(--canvas-stroke-width) 100px auto;
 	grid-template-columns: var(--spacing) 1fr 30px 1fr 30px 1fr;
 }
 
 .work-canvas-wrapper {
-	grid-row: 1 / span 2;
+	grid-row: 1 / span 3;
 	grid-column: 1 / 7;
 }
 
@@ -100,25 +100,27 @@ export default {
 	grid-row: 1;
 	grid-column: 2 / 7;
 	text-align: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .example-1 {
-	grid-row: 2 / 4;
+	grid-row: 2 / 5;
 	grid-column: 2;
 }
 
 .example-2 {
-	grid-row: 2 / 4;
+	grid-row: 2 / 5;
 	grid-column: 4;
 }
 
 .example-3 {
-	grid-row: 2 / 4;
+	grid-row: 2 / 5;
 	grid-column: 6;
 }
 
 .work-tools {
-	grid-row: 4;
+	grid-row: 5;
 	grid-column: 1 / 7;
 }
 </style>

@@ -43,20 +43,20 @@ export default {
 		<h2 class="contact-header">
 			Contact
 		</h2>
+		<div class="contact-canvas-wrapper">
+			<canvas id="contact-canvas">Red line used for flair</canvas>
+		</div>
 		<div class="contact-text-wrapper">
 			<p class="contact-text">
 				Lets talk about your goals and how I could help. I’m available for freelance projects or to hear about
 				new opportunities. Send me a message if you have a question or just to say hi!
 			</p>
 		</div>
-		<div class="contact-canvas-wrapper">
-			<canvas id="contact-canvas">Red line used for flair</canvas>
-		</div>
 		<a class="contact-mailto-a" href="mailto:calderonenick@gmail.com">
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
-				<p>Start a Conversation</p>
 				<Mailto class="mailto-icon"/>
+				<p>Start a Conversation</p>
 			</div>
 		</a>
 	</div>
@@ -65,7 +65,7 @@ export default {
 <style>
 .contact-wrapper {
 	display: grid;
-	grid-template-rows: auto auto 1fr 5px 1fr;
+	grid-template-rows: auto auto 1fr var(--canvas-stroke-width) 1fr;
 	grid-template-columns: auto;
 }
 
@@ -126,6 +126,7 @@ export default {
 
 .mailto-icon {
 	z-index: 10;
+	margin-right: .75rem;
 }
 
 .mailto-icon path {
