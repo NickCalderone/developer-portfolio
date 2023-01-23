@@ -1,11 +1,11 @@
 <script>
 export default {
+	props: ['heroHeight'],
 	mounted() {
 		function delay(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms))
 
 		}
-
 		async function handleWave() {
 			if (!hand.classList.contains("wave")) {
 				await hand.classList.add("wave");
@@ -17,11 +17,7 @@ export default {
 		let hand = document.querySelector("#hand");
 		hand.addEventListener("mouseover", handleWave);
 
-		async function wave() {
-			console.log('in async function');
-			hand.classList.add("wave");
-			await setTimeout(() => { hand.classList.remove("wave"), 2100 }, false);
-		}
+		console.log(this.heroHeight);
 	}
 }
 </script>
@@ -40,8 +36,8 @@ export default {
 <style>
 .hero {
 	max-width: 1000px;
+	height: v-bind(heroHeight);
 	margin: 0 auto;
-	height: 70%;
 	display: flex;
 	justify-content: left;
 	align-items: center;
