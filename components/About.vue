@@ -37,7 +37,7 @@ export default {
 </script>
 <template>
 	<section class="about-wrapper">
-		<h2 class="about-header">About</h2>
+		<h2 id="about" class="about-header">About</h2>
 		<div class="about-img">
 			<Face />
 		</div>

@@ -22,15 +22,17 @@ export default {
 }
 </script>
 <template>
-	<div class="hero">
-		<div class="hero-inner">
-			<img id="hand" src="~/assets/img/wave.png" />
-			<div class="hero-header">
-				<h1>Hello, my<br />name is Nick</h1><span class="period">.</span>
+	<Background colorL="var(--color-primary)" colorM="var(--color-secondary)" colorR="var(--color-quaternary)">
+		<div class="hero">
+			<div class="hero-inner">
+				<img id="hand" src="~/assets/img/wave.png" />
+				<div class="hero-header">
+					<h1>Hello, my<br />name is Nick</h1><span class="period">.</span>
+				</div>
+				<p class="hero-sub-header">I'm a Front-end developer based<br />in Carbondale, Co.</p>
 			</div>
-			<p class="hero-sub-header">I'm a Front-end developer based<br />in Carbondale, Co.</p>
 		</div>
-	</div>
+	</Background>
 </template>
 
 <style>
@@ -48,7 +50,8 @@ export default {
 	grid-template-areas:
 		'wave header'
 		'. sub-header';
-	z-index: 1000;
+	z-index: 11;
+	margin-bottom: 20%
 }
 
 .hero-header {

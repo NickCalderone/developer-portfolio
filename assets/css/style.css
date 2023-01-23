@@ -21,7 +21,7 @@
 	--background-width-right: 27.5%;
 
 	--content-margin: 0px auto;
-	--content-gap: 200px;
+	--content-gap: 150px;
 
 	--h1-font-size: 60px;
 	--h2-font-size: 7.5rem;
@@ -33,10 +33,15 @@
 	--canvas-stroke-width: 5px;
 
 	--spacing: 40px;
+
+	--header-height-top: 90px;
+	--header-height: 70px;
+	--header-shadow: rgba(2, 12, 27, .7);
 }
 
 html {
 	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -63,6 +68,7 @@ h1 {
 h2 {
 	font-size: var(--h2-font-size);
 	margin: 0px 0px 25px 0px;
+	padding-top: 70px;
 	color: var(--color-quinary);
 	line-height: 1;
 }
@@ -79,4 +85,9 @@ p {
 	color: var(--color-quaternary);
 	line-height: 2;
 	margin: 0px;
+}
+
+.header {
+	height: var(--header-height);
+	box-sizing: border-box;
 }

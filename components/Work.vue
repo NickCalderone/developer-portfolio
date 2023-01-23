@@ -38,7 +38,7 @@ export default {
 <template>
 	<section>
 		<div class="work-header-wrapper">
-			<h2>Work</h2>
+			<h2 id="work">Work</h2>
 		</div>
 		<div class="work-wrapper">
 			<div class="work-canvas-wrapper">
