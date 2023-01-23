@@ -91,7 +91,7 @@ export default {
 }
 
 .about-img svg {
-	transform: scalex(-.94);
+	transform: scalex(-.92);
 	margin-bottom: -60px;
 }
 

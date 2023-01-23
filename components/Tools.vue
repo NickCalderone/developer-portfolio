@@ -27,7 +27,8 @@ export default {
 }
 
 .tools-wrapper h3 {
-	margin-top: 30px;
+	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
 .tools {

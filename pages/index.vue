@@ -7,25 +7,30 @@
 			colorR="var(--color-quaternary)">
 			<Hero />
 		</Background>
-			<Background class="layout-background" colorL="var(--color-primary)" colorM="var(--color-primary-loud)"
-				colorR="var(--color-primary)">
-				<div class="content">
-					<Work />
-					<About />
-					<Contact />
-				</div>
-			</Background>
+		<Background class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
+			colorR="var(--color-primary)">
+			<div class="content">
+				<Work />
+				<About />
+				<Contact />
+			</div>
+		</Background>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
+		<Background class="layout-footer" colorL="var(--color-stripe-medium)" colorM="var(--color-stripe-light)"
+			colorR="var(--color-primary-loud)">
+			<Footertest />
+		</Background>
 	</div>
 </template>
 
 <style>
 .layout-wrapper {
 	display: grid;
-	grid-template-rows: auto auto auto;
+	grid-template-rows: auto auto auto auto;
 	grid-template-columns: auto;
 }
+
 
 .layout-hero {
 	grid-row: 1;
@@ -51,7 +56,7 @@
 
 .content {
 	max-width: 1000px;
-	margin: var(--content-gap) auto;
+	margin: 15% auto;
 	display: flex;
 	flex-direction: column;
 	gap: var(--content-gap);

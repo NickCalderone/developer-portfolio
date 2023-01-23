@@ -7,6 +7,11 @@
 	--color-tertiary: #417595;
 	--color-quaternary: #A8DADC;
 	--color-quinary: #F1FAEE;
+
+	--color-stripe-light: #38557e;
+	--color-stripe-medium: #2A466D;
+	--color-stripe-dark: #233D62;
+
 	--color-primary-quiet: #233D62;
 	--color-primary-loud: #2A466D;
 	--color-menu-shadow: rgba(2, 12, 27, .7);
@@ -30,16 +35,20 @@
 	--spacing: 40px;
 }
 
-div {
-	box-sizing: border-box;
-}
-
 html {
 	font-size: 16px;
 }
 
 body {
 	margin: 0px;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+a {
+	color: var(--color-quinary);
 }
 
 h1, h2, h3 {

@@ -56,7 +56,7 @@ export default {
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
 				<Mailto class="mailto-icon"/>
-				<p>Start a Conversation</p>
+				<p>Let's Talk</p>
 			</div>
 		</a>
 	</div>
