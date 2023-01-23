@@ -1,10 +1,10 @@
 <template>
-	<!-- <div class="header"></div> -->
+	<div class="header"></div>
 		<NuxtPage />
 </template>
 
 <style>
-/* .header {
+.header {
 	display: flex;
 	justify-content: space-between;
 	height: 100px;
@@ -13,5 +13,5 @@
 	position: fixed;
 	opacity: .9;
 	padding: 0px 50px;
-} */
+}
 </style>
