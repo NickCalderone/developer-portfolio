@@ -1,14 +1,24 @@
 <script>
+export default {
+	data() {
+		return {
+			heroHeight: this.getScreenHeight()
+		}
+	},
+	methods: {
+		getScreenHeight() {
+			let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
+			// console.log(heroHeight+"px");
+			return heroHeight + "px";
+		}
+	}
+}
 </script>
 
 <template>
 	<div class="layout-wrapper">
-		<Background class="layout-hero" colorL="var(--color-primary)" colorM="var(--color-secondary)"
-			colorR="var(--color-quaternary)">
-			<Hero />
-		</Background>
-		<Background class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
-			colorR="var(--color-primary)">
+		<Hero class="layout-hero" :hero-height="getScreenHeight()" />
+		<Background class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)" colorR="var(--color-primary)">
 			<div class="content">
 				<Work />
 				<About />
@@ -17,10 +27,7 @@
 		</Background>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
-		<Background class="layout-footer" colorL="var(--color-stripe-medium)" colorM="var(--color-stripe-light)"
-			colorR="var(--color-primary-loud)">
-			<Footertest />
-		</Background>
+		<Footer class="layout-footer" />
 	</div>
 </template>
 
@@ -31,11 +38,9 @@
 	grid-template-columns: auto;
 }
 
-
 .layout-hero {
 	grid-row: 1;
 	grid-column: 1;
-	height: 100vh;
 }
 
 .layout-mountains-top {

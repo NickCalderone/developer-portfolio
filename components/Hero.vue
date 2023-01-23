@@ -1,11 +1,11 @@
 <script>
 export default {
+	props: ['heroHeight'],
 	mounted() {
 		function delay(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms))
 
 		}
-
 		async function handleWave() {
 			if (!hand.classList.contains("wave")) {
 				await hand.classList.add("wave");
@@ -17,31 +17,29 @@ export default {
 		let hand = document.querySelector("#hand");
 		hand.addEventListener("mouseover", handleWave);
 
-		async function wave() {
-			console.log('in async function');
-			hand.classList.add("wave");
-			await setTimeout(() => { hand.classList.remove("wave"), 2100 }, false);
-		}
+		console.log(this.heroHeight);
 	}
 }
 </script>
 <template>
-	<div class="hero">
-		<div class="hero-inner">
-			<img id="hand" src="~/assets/img/wave.png" />
-			<div class="hero-header">
-				<h1>Hello, my<br />name is Nick</h1><span class="period">.</span>
+	<Background colorL="var(--color-primary)" colorM="var(--color-secondary)" colorR="var(--color-quaternary)">
+		<div class="hero">
+			<div class="hero-inner">
+				<img id="hand" src="~/assets/img/wave.png" />
+				<div class="hero-header">
+					<h1>Hello, my<br />name is Nick</h1><span class="period">.</span>
+				</div>
+				<p class="hero-sub-header">I'm a Front-end developer based<br />in Carbondale, Co.</p>
 			</div>
-			<p class="hero-sub-header">I'm a Front-end developer based<br />in Carbondale, Co.</p>
 		</div>
-	</div>
+	</Background>
 </template>
 
 <style>
 .hero {
 	max-width: 1000px;
+	height: v-bind(heroHeight);
 	margin: 0 auto;
-	height: 70%;
 	display: flex;
 	justify-content: left;
 	align-items: center;
@@ -52,7 +50,8 @@ export default {
 	grid-template-areas:
 		'wave header'
 		'. sub-header';
-	z-index: 1000;
+	z-index: 11;
+	margin-bottom: 20%
 }
 
 .hero-header {

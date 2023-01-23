@@ -1,46 +1,65 @@
 <script>
 export default {
 	mounted() {
-		let canvas = document.querySelector("#contact-canvas");
-		let context = canvas.getContext("2d");
-		let parent = document.querySelector(".contact-canvas-wrapper");
+		this.draw();
+		window.addEventListener("resize", this.draw);
+	},
+	methods: {
+		draw() {
+			let canvas = document.querySelector("#contact-canvas");
+			let context = canvas.getContext("2d");
+			let parent = document.querySelector(".contact-canvas-wrapper");
 
-		// make canvas the same size as container
-		let rect = parent.getBoundingClientRect();
-		canvas.width = rect.width;
-		canvas.height = rect.height;
+			// make canvas the same size as container
+			let rect = parent.getBoundingClientRect();
+			canvas.width = rect.width;
+			canvas.height = rect.height;
 
-		let width = rect.width;
-		let height = rect.height;
+			let width = rect.width;
+			let height = rect.height;
 
-		let offset = 2.5;
-		let radius = 12;
+			let offset = 2.5;
+			let radius = 12;
 
-		context.lineWidth = 5;
-		// context.lineCap = "round";
-		context.beginPath();
-		context.moveTo(width * .5, offset);
-		context.lineTo(width - offset - radius, offset);
-		context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
-		context.lineTo(width - offset, height - offset - radius);
-		context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
-		context.lineTo(offset + radius, height - offset);
-		context.arcTo(offset, height - offset, offset, height - offset - radius, radius);
-		context.lineTo(offset, radius + offset);
-		context.arcTo(offset, offset, offset + radius, offset, radius);
-		context.closePath();
+			context.lineWidth = 5;
+			// context.lineCap = "round";
+			context.beginPath();
+			context.moveTo(width * .5, offset);
+			context.lineTo(width - offset - radius, offset);
+			context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
+			context.lineTo(width - offset, height - offset - radius);
+			context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
+			context.lineTo(offset + radius, height - offset);
+			context.arcTo(offset, height - offset, offset, height - offset - radius, radius);
+			context.lineTo(offset, radius + offset);
+			context.arcTo(offset, offset, offset + radius, offset, radius);
+			context.closePath();
 
-		let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-		context.strokeStyle = secondaryColor;
+			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
+			context.strokeStyle = secondaryColor;
 
-		context.stroke();
+			context.stroke();
+		},
+		redraw(){
+			let canvas = document.querySelector("#contact-canvas");
+			let context = canvas.getContext("2d");
+			let parent = document.querySelector(".contact-canvas-wrapper");
+
+			// make canvas the same size as container
+			let rect = parent.getBoundingClientRect();
+			let width = rect.width;
+			let height = rect.height;
+
+			context.clearRect(0,0, width, height );
+			this.draw();
+		}
 	}
 }
 </script>
 
 <template>
-	<div class="contact-wrapper">
-		<h2 class="contact-header">
+	<section class="contact-wrapper">
+		<h2 id="contact" class="contact-header">
 			Contact
 		</h2>
 		<div class="contact-canvas-wrapper">
@@ -55,11 +74,11 @@ export default {
 		<a class="contact-mailto-a" href="mailto:calderonenick@gmail.com">
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
-				<Mailto class="mailto-icon"/>
+				<Mailto class="mailto-icon" />
 				<p>Let's Talk</p>
 			</div>
 		</a>
-	</div>
+	</section>
 </template>
 
 <style>
