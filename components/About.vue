@@ -1,68 +1,120 @@
 <script>
 export default {
+	data() {
+		return {
+			parent: undefined,
+			canvas: undefined,
+			ctx: undefined,
+			lineWidth: undefined,
+			radius: undefined,
+			color: undefined,
+			lineCap: "round"
+		}
+	},
 	mounted() {
-		this.canvas = document.querySelector("#about-canvas");
-		this.context = this.canvas.getContext("2d");
 		this.parent = document.querySelector(".about-canvas-wrapper");
-		this.rect = this.parent.getBoundingClientRect();
-		this.drawMobile();
+		this.canvas = document.querySelector("#about-canvas");
+		this.ctx = this.canvas.getContext("2d");
+		this.ctx.lineCap = "round";
+		this.color = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
+		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
 
-		window.addEventListener("resize", this.drawDesktop);
+		let rect = this.parent.getBoundingClientRect();
+		let w = rect.width;
+		let h = rect.height;
+
+
+		this.draw(w, h);
+
+		const observer = new ResizeObserver(entries => {
+
+			let w = entries[0].contentRect.width;
+			let h = entries[0].contentRect.height;
+
+			this.draw(w, h);
+		});
+
+		observer.observe(this.parent);
 	},
 	methods: {
-		drawDesktop() {
-			// make canvas the same size as container
-			this.rect = this.parent.getBoundingClientRect();
-			this.canvas.width = this.rect.width;
-			this.canvas.height = this.rect.height;
-
-			let width = this.rect.width;
-			let height = this.rect.height;
-
-			let offset = 2.5;
-			let radius = 12;
-
-			this.context.lineWidth = 5;
-			this.context.lineCap = "round";
-			this.context.beginPath();
-			this.context.moveTo(width * .40, offset);
-			this.context.lineTo(width - offset - radius, offset);
-			this.context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
-			this.context.lineTo(width - offset, height - offset - radius);
-			this.context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
-			this.context.lineTo(offset, height - offset);
-
-			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-			this.context.strokeStyle = secondaryColor;
-
-			this.context.stroke();
-			console.log('about drew');
+		draw(w, h) {
+			if (window.matchMedia("(max-width:" + this.breakpoint + ")").matches) {
+				this.drawMobile(w, h);
+			} else {
+				this.drawDesktop(w, h);
+			}
 		},
-		drawMobile() {
-			this.rect = this.parent.getBoundingClientRect();
-			this.canvas.width = this.rect.width;
-			this.canvas.height = this.rect.height;
+		getContext(w, h, lineWidth, radius) {
 
-			let width = this.rect.width;
-			let height = this.rect.height;
+			// setup canvas context
+			this.canvas.width = w;
+			this.canvas.height = h;
+			this.lineWidth = lineWidth;
+			this.radius = radius;
 
-			let offset = 2.5;
-			let radius = 12;
+			// setup stroke properties
+			this.ctx.lineWidth = this.lineWidth;
+			this.ctx.strokeStyle = this.color;
+			this.ctx.lineCap = this.lineCap;
 
-			this.context.lineWidth = 5;
-			this.context.lineCap = "round";
-			this.context.beginPath();
-			this.context.moveTo(width - offset, offset);
-			this.context.lineTo(offset + radius, offset);
-			this.context.arcTo(offset, offset, offset, radius + offset, radius);
-			this.context.lineTo(offset, height - offset - radius);
-			this.context.arcTo(offset, height - offset, offset + radius, height - offset, radius);
-			this.context.lineTo(width / 2, height - offset);
+			return this.ctx;
 
-			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-			this.context.strokeStyle = secondaryColor;
+		},
+		drawDesktop(w, h) {
 
-			this.context.stroke();
+			// set up and get canvas context
+			let context = this.getContext(w, h, 5, 12);
+
+			// get drawing variables
+			let width = this.canvas.width;
+			let height = this.canvas.height;
+
+			let offset = this.lineWidth / 2;
+			let radius = this.radius;
+
+			// draw directions
+			context.beginPath();
+			context.moveTo(width * .45, offset);
+			context.lineTo(width - offset - radius, offset);
+			context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
+			context.lineTo(width - offset, height - offset - radius);
+			context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
+			context.lineTo(offset, height - offset);
+
+			// draw
+			context.stroke();
+
+		},
+		drawMobile(w, h) {
+			// set up and get canvas context
+			let context = this.getContext(w, h, 5, 12);
+
+			// get drawing variables
+			let width = this.canvas.width;
+			let height = this.canvas.height;
+
+			let offset = this.lineWidth / 2;
+			let radius = this.radius;
+
+			let spacingVariable = getComputedStyle(document.documentElement).getPropertyValue("--spacing")
+
+			// remove units and change to a number
+			let spacing = Number(spacingVariable.slice(0, -2));
+
+			// draw directions
+			context.beginPath();
+			context.moveTo(width - spacing, offset);
+			context.lineTo(offset + radius, offset);
+			context.arcTo(offset, offset, offset, radius + offset, radius);
+			context.lineTo(offset, height - offset - radius );
+			context.arcTo(offset, height - offset, offset + radius, height - offset, radius );
+			context.lineTo(width - spacing , height - offset );
+			// context.lineTo(offset, height - offset - radius);
+			// context.arcTo(offset, height - offset, offset + radius, height - offset, radius);
+			// context.lineTo(width * .15, height - offset);
+
+			context.stroke();
+
 		}
 	}
 }
@@ -88,8 +140,8 @@ export default {
 <style>
 .about-wrapper {
 	display: grid;
-	grid-template-columns: 40% 60%;
-	grid-template-rows: auto auto;
+	grid-template-columns: 45% 55%;
+	grid-template-rows: auto minmax(0, 1fr);
 }
 
 .about-header {
@@ -100,6 +152,7 @@ export default {
 }
 
 .about-canvas-wrapper {
+	max-height: 100%;
 	grid-row: 2;
 	grid-column: 1 / 3;
 	z-index: 10;
@@ -108,7 +161,7 @@ export default {
 }
 
 #about-canvas {
-	height: 100%;
+	max-height: 100%;
 	/* for some reason using width: 100% makes it at least 500px tall no matter what? */
 	max-width: 100%;
 }
@@ -122,21 +175,40 @@ export default {
 	grid-column: 1;
 	align-self: end;
 	overflow: hidden;
+	min-height: 10px;
 }
 
 .about-img svg {
 	transform: scalex(-.92);
 	margin-bottom: -60px;
+	width: 100%;
 }
 
 .about-text {
 	grid-column: 2;
 	grid-row: 2;
+	align-self: start;
 	padding: var(--spacing);
 	z-index: 20;
+	min-width: 10px;
 }
 
-@media only screen and (max-width: 820px) {
+@media only screen and (max-width: 900px) {
+	.about-wrapper {
+		display: grid;
+		grid-template-rows: auto minmax(0, 1fr);
+	}
+
+	.about-header {
+		margin-left: 20px;
+	}
+
+	.about-text {
+		padding: 20px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
 	.about-wrapper {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -150,7 +222,7 @@ export default {
 	}
 
 	.about-canvas-wrapper {
-		grid-row: 2 / 5;
+		grid-row: 2 / 6;
 		grid-column: 1;
 		z-index: 10;
 		/* prevent the canvas from growing exponentially when the resize handler fires */
@@ -165,11 +237,9 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: var(--color-stripe-medium);
-		border-radius: 1000px;
-		padding: 20px;
-		margin: 0px 20px;
-		z-index: 11;
+		/* background-color: var(--color-stripe-medium);
+		border-radius: 1000px; */
+		padding: 5% 10% 0px 10%;
 	}
 
 	.about-img svg {
@@ -180,8 +250,14 @@ export default {
 	.about-text {
 		grid-column: 1;
 		grid-row: 2;
-		padding: var(--spacing);
 		z-index: 20;
 	}
+}
+
+@media only screen and (max-width: 550px){
+	.about-img {
+		padding: 5% 0 0 0;
+	}
+
 }
 </style>

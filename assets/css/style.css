@@ -33,6 +33,7 @@
 	--canvas-stroke-width: 5px;
 
 	--spacing: 40px;
+	--breakpoint: 700px;
 
 	--header-height-top: 90px;
 	--header-height: 70px;
@@ -90,4 +91,14 @@ p {
 .header {
 	height: var(--header-height);
 	box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px){
+	h2 {
+		font-size: 6rem;
+	}
+
+	p {
+		font-size: 1.15rem;
+	}
 }
