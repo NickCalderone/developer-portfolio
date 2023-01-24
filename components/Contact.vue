@@ -1,60 +1,85 @@
 <script>
 export default {
+	data() {
+		return {
+			parent: undefined,
+			canvas: undefined,
+			ctx: undefined,
+			lineWidth: undefined,
+			radius: undefined,
+			color: undefined,
+			lineCap: "round"
+		}
+	},
 	mounted() {
-		// set up canvas variables
-		this.canvas = document.querySelector("#contact-canvas");
-		this.context = this.canvas.getContext("2d");
 		this.parent = document.querySelector(".contact-canvas-wrapper");
-		this.rect = this.parent.getBoundingClientRect();
+		this.canvas = document.querySelector("#contact-canvas");
+		this.ctx = this.canvas.getContext("2d");
+		this.ctx.lineCap = "round";
+		this.color = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
+		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
 
-		this.draw();
-		window.addEventListener("resize", this.draw);
+		let rect = this.parent.getBoundingClientRect();
+		let w = rect.width;
+		let h = rect.height;
 
+		this.draw(w, h);
+
+		const observer = new ResizeObserver(entries => {
+
+			let w = entries[0].contentRect.width;
+			let h = entries[0].contentRect.height;
+
+			this.draw(w, h);
+		});
+
+		observer.observe(this.parent);
 	},
 	methods: {
-		draw() {
-			this.rect = this.parent.getBoundingClientRect();
-			// make canvas the same size as container
-			this.canvas.width = this.rect.width;
-			this.canvas.height = this.rect.height;
+		draw(w, h) {
 
-			let width = this.rect.width;
-			let height = this.rect.height;
+			// set up and get canvas context
+			let context = this.getContext(w, h, 5, 12);
 
-			let offset = 2.5;
-			let radius = 12;
+			// get drawing variables
+			let width = this.canvas.width;
+			let height = this.canvas.height;
 
-			this.context.lineWidth = 5;
-			// context.lineCap = "round";
-			this.context.beginPath();
-			this.context.moveTo(width * .5, offset);
-			this.context.lineTo(width - offset - radius, offset);
-			this.context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
-			this.context.lineTo(width - offset, height - offset - radius);
-			this.context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
-			this.context.lineTo(offset + radius, height - offset);
-			this.context.arcTo(offset, height - offset, offset, height - offset - radius, radius);
-			this.context.lineTo(offset, radius + offset);
-			this.context.arcTo(offset, offset, offset + radius, offset, radius);
-			this.context.closePath();
+			let offset = this.lineWidth / 2;
+			let radius = this.radius;
 
-			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-			this.context.strokeStyle = secondaryColor;
+			// draw directions
+			context.beginPath();
+			context.moveTo(width * .5, offset);
+			context.lineTo(width - offset - radius, offset);
+			context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
+			context.lineTo(width - offset, height - offset - radius);
+			context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
+			context.lineTo(offset + radius, height - offset);
+			context.arcTo(offset, height - offset, offset, height - offset - radius, radius);
+			context.lineTo(offset, radius + offset);
+			context.arcTo(offset, offset, offset + radius, offset, radius);
+			context.closePath();
 
-			this.context.stroke();
+			// draw
+			context.stroke();
+
 		},
-		redraw() {
-			let canvas = document.querySelector("#contact-canvas");
-			let context = canvas.getContext("2d");
-			let parent = document.querySelector(".contact-canvas-wrapper");
+		getContext(w, h, lineWidth, radius) {
 
-			// make canvas the same size as container
-			let rect = parent.getBoundingClientRect();
-			let width = rect.width;
-			let height = rect.height;
+			// setup canvas context
+			this.canvas.width = w;
+			this.canvas.height = h;
+			this.lineWidth = lineWidth;
+			this.radius = radius;
 
-			context.clearRect(0, 0, width, height);
-			this.draw();
+			// setup stroke properties
+			this.ctx.lineWidth = this.lineWidth;
+			this.ctx.strokeStyle = this.color;
+			this.ctx.lineCap = this.lineCap;
+
+			return this.ctx;
+
 		}
 	}
 }
