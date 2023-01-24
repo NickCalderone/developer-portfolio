@@ -1,46 +1,49 @@
 <script>
 export default {
 	mounted() {
+		// set up canvas variables
+		this.canvas = document.querySelector("#contact-canvas");
+		this.context = this.canvas.getContext("2d");
+		this.parent = document.querySelector(".contact-canvas-wrapper");
+		this.rect = this.parent.getBoundingClientRect();
+
 		this.draw();
 		window.addEventListener("resize", this.draw);
+
 	},
 	methods: {
 		draw() {
-			let canvas = document.querySelector("#contact-canvas");
-			let context = canvas.getContext("2d");
-			let parent = document.querySelector(".contact-canvas-wrapper");
-
+			this.rect = this.parent.getBoundingClientRect();
 			// make canvas the same size as container
-			let rect = parent.getBoundingClientRect();
-			canvas.width = rect.width;
-			canvas.height = rect.height;
+			this.canvas.width = this.rect.width;
+			this.canvas.height = this.rect.height;
 
-			let width = rect.width;
-			let height = rect.height;
+			let width = this.rect.width;
+			let height = this.rect.height;
 
 			let offset = 2.5;
 			let radius = 12;
 
-			context.lineWidth = 5;
+			this.context.lineWidth = 5;
 			// context.lineCap = "round";
-			context.beginPath();
-			context.moveTo(width * .5, offset);
-			context.lineTo(width - offset - radius, offset);
-			context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
-			context.lineTo(width - offset, height - offset - radius);
-			context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
-			context.lineTo(offset + radius, height - offset);
-			context.arcTo(offset, height - offset, offset, height - offset - radius, radius);
-			context.lineTo(offset, radius + offset);
-			context.arcTo(offset, offset, offset + radius, offset, radius);
-			context.closePath();
+			this.context.beginPath();
+			this.context.moveTo(width * .5, offset);
+			this.context.lineTo(width - offset - radius, offset);
+			this.context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
+			this.context.lineTo(width - offset, height - offset - radius);
+			this.context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
+			this.context.lineTo(offset + radius, height - offset);
+			this.context.arcTo(offset, height - offset, offset, height - offset - radius, radius);
+			this.context.lineTo(offset, radius + offset);
+			this.context.arcTo(offset, offset, offset + radius, offset, radius);
+			this.context.closePath();
 
 			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-			context.strokeStyle = secondaryColor;
+			this.context.strokeStyle = secondaryColor;
 
-			context.stroke();
+			this.context.stroke();
 		},
-		redraw(){
+		redraw() {
 			let canvas = document.querySelector("#contact-canvas");
 			let context = canvas.getContext("2d");
 			let parent = document.querySelector(".contact-canvas-wrapper");
@@ -50,7 +53,7 @@ export default {
 			let width = rect.width;
 			let height = rect.height;
 
-			context.clearRect(0,0, width, height );
+			context.clearRect(0, 0, width, height);
 			this.draw();
 		}
 	}
@@ -86,6 +89,8 @@ export default {
 	display: grid;
 	grid-template-rows: auto auto 1fr var(--canvas-stroke-width) 1fr;
 	grid-template-columns: auto;
+	/* prevent the canvas from growing exponentially when the resize handler fires */
+	line-height: 0;
 }
 
 .contact-header {

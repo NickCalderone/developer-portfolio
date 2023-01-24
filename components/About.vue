@@ -1,37 +1,69 @@
 <script>
 export default {
 	mounted() {
-		let canvas = document.querySelector("#about-canvas");
-		let context = canvas.getContext("2d");
-		let parent = document.querySelector(".about-canvas-wrapper");
+		this.canvas = document.querySelector("#about-canvas");
+		this.context = this.canvas.getContext("2d");
+		this.parent = document.querySelector(".about-canvas-wrapper");
+		this.rect = this.parent.getBoundingClientRect();
+		this.drawMobile();
 
-		// make canvas the same size as container
-		let rect = parent.getBoundingClientRect();
-		canvas.width = rect.width;
-		canvas.height = rect.height;
+		window.addEventListener("resize", this.drawDesktop);
+	},
+	methods: {
+		drawDesktop() {
+			// make canvas the same size as container
+			this.rect = this.parent.getBoundingClientRect();
+			this.canvas.width = this.rect.width;
+			this.canvas.height = this.rect.height;
 
-		let width = rect.width;
-		let height = rect.height;
+			let width = this.rect.width;
+			let height = this.rect.height;
 
-		let offset = 2.5;
-		let radius = 12;
+			let offset = 2.5;
+			let radius = 12;
 
-		context.lineWidth = 5;
-		context.lineCap = "round";
-		context.beginPath();
-		context.moveTo(width * .40, offset);
-		context.lineTo(width - offset - radius, offset);
-		context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
-		context.lineTo(width - offset, height - offset - radius);
-		context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
-		context.lineTo(offset, height - offset);
+			this.context.lineWidth = 5;
+			this.context.lineCap = "round";
+			this.context.beginPath();
+			this.context.moveTo(width * .40, offset);
+			this.context.lineTo(width - offset - radius, offset);
+			this.context.arcTo(width - offset, offset, width - offset, offset + radius, radius);
+			this.context.lineTo(width - offset, height - offset - radius);
+			this.context.arcTo(width - offset, height - offset, width - offset - radius, height - offset, radius);
+			this.context.lineTo(offset, height - offset);
 
-		let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-		context.strokeStyle = secondaryColor;
+			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
+			this.context.strokeStyle = secondaryColor;
 
-		context.stroke();
+			this.context.stroke();
+			console.log('about drew');
+		},
+		drawMobile() {
+			this.rect = this.parent.getBoundingClientRect();
+			this.canvas.width = this.rect.width;
+			this.canvas.height = this.rect.height;
 
+			let width = this.rect.width;
+			let height = this.rect.height;
 
+			let offset = 2.5;
+			let radius = 12;
+
+			this.context.lineWidth = 5;
+			this.context.lineCap = "round";
+			this.context.beginPath();
+			this.context.moveTo(width - offset, offset);
+			this.context.lineTo(offset + radius, offset);
+			this.context.arcTo(offset, offset, offset, radius + offset, radius);
+			this.context.lineTo(offset, height - offset - radius);
+			this.context.arcTo(offset, height - offset, offset + radius, height - offset, radius);
+			this.context.lineTo(width / 2, height - offset);
+
+			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
+			this.context.strokeStyle = secondaryColor;
+
+			this.context.stroke();
+		}
 	}
 }
 </script>
@@ -71,6 +103,8 @@ export default {
 	grid-row: 2;
 	grid-column: 1 / 3;
 	z-index: 10;
+	/* prevent the canvas from growing exponentially when the resize handler fires */
+	line-height: 0;
 }
 
 #about-canvas {
@@ -100,5 +134,54 @@ export default {
 	grid-row: 2;
 	padding: var(--spacing);
 	z-index: 20;
+}
+
+@media only screen and (max-width: 820px) {
+	.about-wrapper {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto 1fr 5px 1fr;
+	}
+
+	.about-header {
+		grid-row: 1;
+		grid-column: 1;
+		margin-left: var(--spacing)
+	}
+
+	.about-canvas-wrapper {
+		grid-row: 2 / 5;
+		grid-column: 1;
+		z-index: 10;
+		/* prevent the canvas from growing exponentially when the resize handler fires */
+		line-height: 0;
+	}
+
+	.about-img {
+		grid-row: 3 / 6;
+		grid-column: 1;
+		align-self: end;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--color-stripe-medium);
+		border-radius: 1000px;
+		padding: 20px;
+		margin: 0px 20px;
+		z-index: 11;
+	}
+
+	.about-img svg {
+		transform: scalex(.92);
+		width: 80%;
+	}
+
+	.about-text {
+		grid-column: 1;
+		grid-row: 2;
+		padding: var(--spacing);
+		z-index: 20;
+	}
 }
 </style>
