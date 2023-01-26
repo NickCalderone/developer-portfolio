@@ -18,14 +18,12 @@ export default {
 <template>
 	<div class="layout-wrapper">
 		<Hero class="layout-hero" :hero-height="getScreenHeight()" />
-		<Background class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
+		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
 			colorR="var(--color-primary)">
-			<div class="content">
 				<Work />
 				<About />
 				<Contact />
-			</div>
-		</Background>
+		</Content>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
 		<Footer class="layout-footer" />
@@ -58,19 +56,5 @@ export default {
 .layout-background {
 	grid-row: 2;
 	grid-column: 1;
-}
-
-.content {
-	max-width: 1000px;
-	margin: 15% auto;
-	display: flex;
-	flex-direction: column;
-	gap: var(--content-gap);
-}
-
-@media only screen and (max-width: 1020px){
-	.content {
-		padding: 0px 20px;
-	}
 }
 </style>
