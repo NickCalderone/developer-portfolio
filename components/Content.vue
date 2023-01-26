@@ -6,7 +6,9 @@ export default {
 
 <template>
 	<div class="background-grid">
-		<slot />
+		<div class="content">
+			<slot />
+		</div>
 	</div>
 </template>
 
@@ -15,6 +17,20 @@ export default {
 .background-grid {
 	background: rgb(36,34,0);
 	background: linear-gradient(90deg, v-bind(colorL), v-bind(colorL) 58%, v-bind(colorM) 58%, v-bind(colorM) 72.5%, v-bind(colorR) 72.5%, v-bind(colorR) 100%); 
+}
+
+.content {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--content-gap);
+}
+
+@media only screen and (max-width: 1060px) {
+	.content {
+		padding: 0px 20px;
+	}
 }
 
 </style>
