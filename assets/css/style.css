@@ -102,3 +102,13 @@ p {
 		font-size: 1.15rem;
 	}
 }
+
+@media only screen and (max-width: 500px){
+	h2 {
+		font-size: 4.5rem;
+	}
+
+	p {
+		font-size: 1.15rem;
+	}
+}
