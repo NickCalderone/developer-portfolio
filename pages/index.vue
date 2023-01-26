@@ -33,7 +33,7 @@ export default {
 <style>
 .layout-wrapper {
 	display: grid;
-	grid-template-rows: auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto;
 	grid-template-columns: auto;
 }
 
@@ -56,5 +56,7 @@ export default {
 .layout-background {
 	grid-row: 2;
 	grid-column: 1;
+	padding-top: 200px;
+	padding-bottom: 200px;
 }
 </style>
