@@ -35,6 +35,7 @@ export default {
 	display: grid;
 	grid-template-rows: auto auto auto auto auto;
 	grid-template-columns: auto;
+	overflow: hidden;
 }
 
 .layout-hero {
@@ -56,7 +57,10 @@ export default {
 .layout-background {
 	grid-row: 2;
 	grid-column: 1;
-	padding-top: 200px;
-	padding-bottom: 200px;
+	padding-top: var(--content-gap);
+	padding-bottom: calc(var(--content-gap) + 70px);
+	/* padding-top: 200px;
+	padding-bottom: 200px; */
 }
+
 </style>

@@ -130,15 +130,12 @@ export default {
 			<div class="work-subheader">
 				<h3>A selection of projects</h3>
 			</div>
-			<div class="example-1">
-				<Example />
-			</div>
-			<div class="example-2">
-				<Example />
-			</div>
-			<div class="example-3">
-				<Example />
-			</div>
+			<Example class="example-1" imgSrc="covid.jpg" alt="Pitkin county covid website"
+				imgLink="https://covid19.pitkincounty.com" />
+			<Example class="example-2" imgSrc="timberline.jpg" alt="Timerline Construction website"
+				imgLink="https://www.timberlineconstruct.com/" />
+			<Example class="example-3" imgSrc="emergency.jpg" alt="Pitkin Emergency website"
+				imgLink="https://www.pitkinemergency.org/" />
 			<Tools class="work-tools" />
 		</div>
 	</section>
@@ -168,12 +165,14 @@ export default {
 	grid-column: 1 / 7;
 	/* prevent the canvas from growing exponentially when the resize handler fires */
 	line-height: 0;
+	position: relative;
 }
 
 #work-canvas {
 	display: block;
 	height: 100%;
 	max-width: 100%;
+	position: absolute;
 }
 
 .work-subheader {
@@ -183,23 +182,27 @@ export default {
 	grid-row: 1;
 	grid-column: 2 / 7;
 	text-align: right;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-bottom: 10px;
+	z-index: 11;
 }
 
 .example-1 {
 	grid-row: 2 / 5;
 	grid-column: 2;
+	position: relative;
 }
 
 .example-2 {
 	grid-row: 2 / 5;
 	grid-column: 4;
+	position: relative;
 }
 
 .example-3 {
 	grid-row: 2 / 5;
 	grid-column: 6;
+	position: relative;
 }
 
 .work-tools {
@@ -207,10 +210,17 @@ export default {
 	grid-column: 1 / 7;
 }
 
-@media only screen and (max-width: 700px){
-	
+@media only screen and (max-width: 700px) {
+	.work-header-wrapper {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+
 	.work-header-wrapper h2 {
-		text-align: center;
+		grid-row: 1;
+		grid-column: 1;
+		margin-left: 15%;
 	}
 
 	.work-wrapper {
@@ -246,6 +256,12 @@ export default {
 	.work-tools {
 		grid-column: 1;
 		grid-row: 7;
+	}
+}
+
+@media only screen and (max-width: 550px){
+	.work-subheader h3 {
+		font-size: 1.3rem;
 	}
 }
 </style>

@@ -127,17 +127,19 @@ export default {
 .contact-text-wrapper {
 	grid-row: 2;
 	grid-column: 1;
-	padding: var(--spacing);
+	padding: var(--padding);
 }
 
 .contact-canvas-wrapper {
 	grid-row: 2 / 5;
 	grid-column: 1;
+	position: relative;
 }
 
 #contact-canvas {
 	height: 100%;
 	max-width: 100%;
+	position: absolute;
 }
 
 .contact-mailto-a {
@@ -190,9 +192,7 @@ export default {
 	top: 0;
 	left: 0;
 	z-index: 5;
-	/* background-color: var(--color-tertiary); */
 	background-color: var(--color-quinary);
-	/* background-color: var(--color-primary-loud); */
 	transition: width .3s ease-in-out;
 }
 
@@ -208,5 +208,25 @@ export default {
 .contact-mailto-a:hover .mailto-icon path {
 	/* fill: var(--color-quinary); */
 	fill: var(--color-primary-loud);
+}
+
+@media only screen and (max-width: 700px){
+	.mailto-svg {
+		height: 1.35rem;
+	}
+
+	.contact-mailto p {
+		font-size: 1.35rem;
+	}
+}
+
+@media only screen and (max-width: 5500px){
+	.mailto-svg {
+		height: 1.25rem;
+	}
+
+	.contact-mailto p {
+		font-size: 1.25rem;
+	}
 }
 </style>

@@ -32,6 +32,7 @@
 	--canvas-stroke-width: 5px;
 
 	--spacing: 40px;
+	--padding: 40px;
 	--breakpoint: 700px;
 
 	--header-height-top: 90px;
@@ -91,7 +92,17 @@ p {
 	box-sizing: border-box;
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1020px) {
+	:root {
+		--content-gap: 100px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	:root {
+		--padding: 20px;
+	}
+
 	h2 {
 		font-size: 6rem;
 	}
@@ -101,12 +112,18 @@ p {
 	}
 }
 
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 700px) {
+	:root {
+		--content-gap: 50px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
 	h2 {
 		font-size: 4.5rem;
 	}
 
 	p {
-		font-size: 1.15rem;
+		font-size: 1.10rem;
 	}
 }

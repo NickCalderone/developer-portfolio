@@ -30,7 +30,7 @@ export default {
 					<h1>Hello, <br class="h1-br" />my name<br />is Nick<span class="period">.</span></h1>
 				</div>
 				<div class="hero-sub-header-wrapper">
-					<p class="hero-sub-header">I'm a Front-end developer based in Carbondale, Co.</p>
+					<p class="hero-sub-header">I'm a front-end developer based in Carbondale, Co.</p>
 				</div>
 			</div>
 		</div>

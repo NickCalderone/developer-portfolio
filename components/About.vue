@@ -130,6 +130,7 @@ export default {
 				fascinated by its usefulness and saw coding as a clear path to helping individuals, businesses, and
 				organizations achieve their goals. I have since worked with clients from small businesses to
 				municipalities to define problems and build solutions using a variety of technologies.</p>
+				<Hamburger />
 		</div>
 		<div class="about-canvas-wrapper">
 			<canvas id="about-canvas">Red line used for flair</canvas>
@@ -158,16 +159,15 @@ export default {
 	z-index: 10;
 	/* prevent the canvas from growing exponentially when the resize handler fires */
 	line-height: 0;
+	position: relative;
 }
 
 #about-canvas {
 	max-height: 100%;
 	/* for some reason using width: 100% makes it at least 500px tall no matter what? */
 	max-width: 100%;
-}
-
-.about-canvas-wrapper canvas {
 	display: block;
+	position: absolute;
 }
 
 .about-img {
@@ -204,7 +204,7 @@ export default {
 	}
 
 	.about-text {
-		padding: 20px;
+		padding: var(--padding);
 	}
 }
 
@@ -218,7 +218,7 @@ export default {
 	.about-header {
 		grid-row: 1;
 		grid-column: 1;
-		margin-left: var(--spacing)
+		margin-left: var(--padding);
 	}
 
 	.about-canvas-wrapper {
@@ -239,11 +239,11 @@ export default {
 		align-items: center;
 		/* background-color: var(--color-stripe-medium);
 		border-radius: 1000px; */
-		padding: 5% 10% 0px 10%;
+		padding: 5% 5% 0px 5%;
 	}
 
 	.about-img svg {
-		transform: scalex(.92);
+		transform: scalex(-.92);
 		width: 80%;
 	}
 

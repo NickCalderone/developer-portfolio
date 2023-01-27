@@ -29,7 +29,7 @@ export default {
 
 @media only screen and (max-width: 1060px) {
 	.content {
-		padding: 0px 20px;
+		padding: 0px 25px;
 	}
 }
 

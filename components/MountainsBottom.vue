@@ -1,5 +1,5 @@
 <template>
-	<svg viewBox="0 0 19200 1605" version="1.1" xmlns="http://www.w3.org/2000/svg"
+	<svg class="mountains-bottom" viewBox="0 0 19200 1605" version="1.1" xmlns="http://www.w3.org/2000/svg"
 		xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
 		style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
 		<path
@@ -10,3 +10,19 @@
 			style="fill:#70a3c3;" />
 	</svg>
 </template>
+
+<style>
+@media only screen and (max-width: 900px) {
+	.mountains-bottom {
+		margin-left: -117px;
+		margin-right: -50px;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.mountains-bottom {
+		margin-left: -208px;
+		margin-right: -100px;
+	}
+}
+</style>
