@@ -38,6 +38,8 @@
 	--header-height-top: 90px;
 	--header-height: 70px;
 	--header-shadow: rgba(2, 12, 27, .7);
+
+	--transition-length: .2s;
 }
 
 html {

@@ -130,7 +130,6 @@ export default {
 				fascinated by its usefulness and saw coding as a clear path to helping individuals, businesses, and
 				organizations achieve their goals. I have since worked with clients from small businesses to
 				municipalities to define problems and build solutions using a variety of technologies.</p>
-				<Hamburger />
 		</div>
 		<div class="about-canvas-wrapper">
 			<canvas id="about-canvas">Red line used for flair</canvas>

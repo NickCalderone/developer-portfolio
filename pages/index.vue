@@ -16,6 +16,7 @@ export default {
 </script>
 
 <template>
+	<Menu />
 	<div class="layout-wrapper">
 		<Hero class="layout-hero" :hero-height="getScreenHeight()" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
@@ -26,7 +27,7 @@ export default {
 		</Content>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
-		<Footer class="layout-footer" />
+		<Footer />
 	</div>
 </template>
 
@@ -59,8 +60,6 @@ export default {
 	grid-column: 1;
 	padding-top: var(--content-gap);
 	padding-bottom: calc(var(--content-gap) + 70px);
-	/* padding-top: 200px;
-	padding-bottom: 200px; */
 }
 
 </style>

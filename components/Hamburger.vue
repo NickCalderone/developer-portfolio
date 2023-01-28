@@ -10,8 +10,8 @@ export default {
 }
 </script>
 <template>
-	<button class="mobile-menu-button" @click="clickHandler" aria-label="Main Menu">
-		<svg width="100" height="100" viewBox="0 0 100 100">
+	<button class="mobile-menu-button" @click="clickHandler">
+		<svg width="60" height="60" viewBox="0 0 100 100">
 			<path class="line line1"
 				stroke-linecap="round" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
 			<path class="line line2" stroke-linecap="round" d="M 20,50 H 80" />
@@ -34,8 +34,8 @@ export default {
   fill: none;
   stroke: var(--color-quaternary);
   stroke-width: 5;
-  transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
-    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .line1 {
   stroke-dasharray: 60 207;
