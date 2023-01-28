@@ -7,11 +7,9 @@ export default {
 	<a :href="imgLink" rel="noreferrer noopener">
 		<div class="example">
 			<img v-bind:src="imgSrc" v-bind:alt="alt" />
-			<!-- <div class="example-overlay"> -->
-			<!-- <div class="example-view">
-					View<br />Website
-				</div> -->
-			<!-- </div> -->
+			<div class="example-overlay">
+				<NewTab />
+			</div>
 		</div>
 	</a>
 </template>
@@ -43,8 +41,7 @@ export default {
 	opacity: 0%;
 }
 
-.example::after {
-	content: url(fill-arrow.svg);
+.example-overlay {
 	left: 50%;
 	top: 100%;
 	width: 75px;
@@ -64,7 +61,7 @@ export default {
 	transition: transform .2s ease-in-out, top .2s ease-in-out, color .2s ease-in-out, background-color .2s ease-in-out;
 }
 
-.example:hover::after {
+.example:hover .example-overlay {
 	color: var(--color-primary);
 	background-color: var(--color-quaternary);
 	top: 50%;
@@ -78,24 +75,6 @@ export default {
 	max-height: inherit;
 	height: inherit;
 	width: inherit;
-}
-
-.example-overlay {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 20%;
-	top: 0;
-	left: 0;
-	background-color: var(--color-primary);
-}
-
-.example:hover .example-overlay {
-	opacity: 0%;
-}
-
-.example-view {
-	opacity: 100%;
 }
 
 @media only screen and (max-width: 700px) {
@@ -112,7 +91,7 @@ export default {
 		transition-property: none;
 	}
 
-	.example::after {
+	.example-overlay {
 		top: 50%;
 		color: var(--color-primary);
 		background-color: var(--color-quaternary);
