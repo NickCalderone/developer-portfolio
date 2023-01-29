@@ -2,6 +2,7 @@
 export default {
 	props: ['heroHeight'],
 	mounted() {
+
 		function delay(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms))
 
@@ -17,65 +18,81 @@ export default {
 		let hand = document.querySelector("#hand");
 		hand.addEventListener("mouseover", handleWave);
 
-		console.log(this.heroHeight);
 	}
 }
 </script>
 <template>
-	<Background colorL="var(--color-primary)" colorM="var(--color-secondary)" colorR="var(--color-quaternary)">
+	<Content colorL="var(--color-primary)" colorM="var(--color-secondary)" colorR="var(--color-quaternary)">
 		<div class="hero">
 			<div class="hero-inner">
 				<img id="hand" src="~/assets/img/wave.png" />
-				<div class="hero-header">
-					<h1>Hello, my<br />name is Nick</h1><span class="period">.</span>
+				<div class="hero-header-wrapper">
+					<h1>Hello, <br class="h1-br" />my name<br />is Nick<span class="period">.</span></h1>
 				</div>
-				<p class="hero-sub-header">I'm a Front-end developer based<br />in Carbondale, Co.</p>
+				<div class="hero-sub-header-wrapper">
+					<p class="hero-sub-header">I build intuitive, engaging & accessible interfaces for the web</p>
+				</div>
 			</div>
 		</div>
-	</Background>
+	</Content>
 </template>
 
 <style>
 .hero {
 	max-width: 1000px;
 	height: v-bind(heroHeight);
-	margin: 0 auto;
 	display: flex;
-	justify-content: left;
 	align-items: center;
 }
 
 .hero-inner {
 	display: grid;
+	width: 59%;
 	grid-template-areas:
 		'wave header'
 		'. sub-header';
 	z-index: 11;
-	margin-bottom: 20%
+	margin-bottom: 10vw;
 }
 
-.hero-header {
+.hero-header-wrapper {
 	grid-area: header;
 }
 
-.hero-header h1 {
+.hero-header-wrapper h1 {
 	display: inline;
-	line-height: .95;
-	margin: 0px;
+	line-height: 1;
+	font-size: 3.5rem;
+	margin: 0px 0px 20px 0px;
 }
 
 .period {
 	color: var(--color-secondary);
-	font-size: 60px;
+	font-size: 3.5rem;
+	margin-left: 10px
+}
+
+
+.h1-br {
+	display: none;
+}
+
+.hero-sub-header-wrapper {
+	grid-area: sub-header;
 }
 
 .hero-sub-header {
 	color: var(--color-quaternary);
 	font-size: 25px;
 	font-family: 'Varela', sans-serif;
-	grid-area: sub-header;
-	line-height: 1.2;
+	line-height: 1.5;
+	margin-top: 20px;
 }
+
+.hero-inner br {
+	margin-bottom: 10px;
+}
+
 
 #hand {
 	height: 109px;
@@ -117,6 +134,103 @@ export default {
 
 	90% {
 		transform: rotate(8deg);
+	}
+
+}
+
+@media only screen and (max-width: 1200px) {
+	.hero-inner {
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			'wave header'
+			'. sub-header';
+			max-width: 58%;
+	}
+
+	#hand {
+		margin-bottom: 10px;
+		height: 80px;
+		justify-self: right;
+		margin-top: 30px;
+	}
+
+	.h1-br {
+		display: block;
+	}
+
+	.hero-header-wrapper {
+		text-align: left;
+	}
+
+	.hero-sub-header-wrapper {
+		max-width: 260px;
+		text-align: left;
+		max-width: 260px;
+	}
+
+	.hero-sub-header {
+		font-size: 22px;
+	}
+
+}
+
+@media only screen and (max-width: 900px) {
+	.hero-inner {
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			'. wave'
+			'. header'
+			'. sub-header';
+	}
+
+	#hand {
+		height: 60px;
+		margin: 0 0 10px 0;
+		justify-self: center;
+	}
+
+	.hero-header-wrapper {
+		text-align: center;
+	}
+
+	.hero-sub-header {
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.hero-header-wrapper h1 {
+		font-size: 3rem;
+	}
+
+	.period {
+		font-size: 3rem;
+	}
+
+	.hero-sub-header {
+		font-size: 22px;
+		line-height: 1.5;
+	}
+
+
+}
+
+@media only screen and (max-width: 550px) {
+	.hero-inner {
+		padding: 5px;
+	}
+
+	.hero-header-wrapper h1 {
+		font-size: 2.5rem;
+	}
+
+	.period {
+		font-size: 2.5rem;
+	}
+
+	.hero-sub-header {
+		font-size: 20px;
+		line-height: 1.7;
 	}
 
 }

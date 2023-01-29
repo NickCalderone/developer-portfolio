@@ -1,28 +1,54 @@
 <script>
 export default {
+	data() {
+		return {
+			parent: undefined,
+			canvas: undefined,
+			ctx: undefined,
+			lineWidth: undefined,
+			radius: undefined,
+			color: undefined,
+			lineCap: "round"
+		}
+	},
 	mounted() {
-		this.draw();
-		window.addEventListener("resize", this.draw);
+		this.parent = document.querySelector(".contact-canvas-wrapper");
+		this.canvas = document.querySelector("#contact-canvas");
+		this.ctx = this.canvas.getContext("2d");
+		this.ctx.lineCap = "round";
+		this.color = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
+		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
+
+		let rect = this.parent.getBoundingClientRect();
+		let w = rect.width;
+		let h = rect.height;
+
+		this.draw(w, h);
+
+		const observer = new ResizeObserver(entries => {
+
+			let w = entries[0].contentRect.width;
+			let h = entries[0].contentRect.height;
+
+			this.draw(w, h);
+		});
+
+		observer.observe(this.parent);
 	},
 	methods: {
-		draw() {
-			let canvas = document.querySelector("#contact-canvas");
-			let context = canvas.getContext("2d");
-			let parent = document.querySelector(".contact-canvas-wrapper");
+		draw(w, h) {
 
-			// make canvas the same size as container
-			let rect = parent.getBoundingClientRect();
-			canvas.width = rect.width;
-			canvas.height = rect.height;
+			// set up and get canvas context
+			let context = this.getContext(w, h, 5, 12);
 
-			let width = rect.width;
-			let height = rect.height;
+			// get drawing variables
+			let width = this.canvas.width;
+			let height = this.canvas.height;
 
-			let offset = 2.5;
-			let radius = 12;
+			let offset = this.lineWidth / 2;
+			let radius = this.radius;
 
-			context.lineWidth = 5;
-			// context.lineCap = "round";
+			// draw directions
 			context.beginPath();
 			context.moveTo(width * .5, offset);
 			context.lineTo(width - offset - radius, offset);
@@ -35,23 +61,25 @@ export default {
 			context.arcTo(offset, offset, offset + radius, offset, radius);
 			context.closePath();
 
-			let secondaryColor = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
-			context.strokeStyle = secondaryColor;
-
+			// draw
 			context.stroke();
+
 		},
-		redraw(){
-			let canvas = document.querySelector("#contact-canvas");
-			let context = canvas.getContext("2d");
-			let parent = document.querySelector(".contact-canvas-wrapper");
+		getContext(w, h, lineWidth, radius) {
 
-			// make canvas the same size as container
-			let rect = parent.getBoundingClientRect();
-			let width = rect.width;
-			let height = rect.height;
+			// setup canvas context
+			this.canvas.width = w;
+			this.canvas.height = h;
+			this.lineWidth = lineWidth;
+			this.radius = radius;
 
-			context.clearRect(0,0, width, height );
-			this.draw();
+			// setup stroke properties
+			this.ctx.lineWidth = this.lineWidth;
+			this.ctx.strokeStyle = this.color;
+			this.ctx.lineCap = this.lineCap;
+
+			return this.ctx;
+
 		}
 	}
 }
@@ -86,6 +114,8 @@ export default {
 	display: grid;
 	grid-template-rows: auto auto 1fr var(--canvas-stroke-width) 1fr;
 	grid-template-columns: auto;
+	/* prevent the canvas from growing exponentially when the resize handler fires */
+	line-height: 0;
 }
 
 .contact-header {
@@ -97,17 +127,19 @@ export default {
 .contact-text-wrapper {
 	grid-row: 2;
 	grid-column: 1;
-	padding: var(--spacing);
+	padding: var(--padding);
 }
 
 .contact-canvas-wrapper {
 	grid-row: 2 / 5;
 	grid-column: 1;
+	position: relative;
 }
 
 #contact-canvas {
 	height: 100%;
 	max-width: 100%;
+	position: absolute;
 }
 
 .contact-mailto-a {
@@ -160,9 +192,7 @@ export default {
 	top: 0;
 	left: 0;
 	z-index: 5;
-	/* background-color: var(--color-tertiary); */
 	background-color: var(--color-quinary);
-	/* background-color: var(--color-primary-loud); */
 	transition: width .3s ease-in-out;
 }
 
@@ -178,5 +208,25 @@ export default {
 .contact-mailto-a:hover .mailto-icon path {
 	/* fill: var(--color-quinary); */
 	fill: var(--color-primary-loud);
+}
+
+@media only screen and (max-width: 700px){
+	.mailto-svg {
+		height: 1.35rem;
+	}
+
+	.contact-mailto p {
+		font-size: 1.35rem;
+	}
+}
+
+@media only screen and (max-width: 5500px){
+	.mailto-svg {
+		height: 1.25rem;
+	}
+
+	.contact-mailto p {
+		font-size: 1.25rem;
+	}
 }
 </style>

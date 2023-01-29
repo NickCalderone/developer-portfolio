@@ -2,40 +2,45 @@
 export default {
 	data() {
 		return {
-			heroHeight: this.getScreenHeight()
+			heroHeight: undefined,
+			heroHeightNum: undefined
 		}
 	},
+	mounted(){
+		this.setAppVariables()
+	},
 	methods: {
-		getScreenHeight() {
+		setAppVariables(){
 			let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
-			// console.log(heroHeight+"px");
-			return heroHeight + "px";
+			this.heroHeight = heroHeight + "px";
+			this.heroHeightNum = heroHeight;
 		}
 	}
 }
 </script>
 
 <template>
-	<div class="layout-wrapper">
-		<Hero class="layout-hero" :hero-height="getScreenHeight()" />
-		<Background class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)" colorR="var(--color-primary)">
-			<div class="content">
+	<Menu />
+	<div class="layout-wrapper js-layout-wrapper">
+		<Hero class="layout-hero" :hero-height="this.heroHeight" />
+		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
+			colorR="var(--color-primary)">
 				<Work />
 				<About />
 				<Contact />
-			</div>
-		</Background>
+		</Content>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
-		<Footer class="layout-footer" />
+		<Footer />
 	</div>
 </template>
 
 <style>
 .layout-wrapper {
 	display: grid;
-	grid-template-rows: auto auto auto auto;
+	grid-template-rows: auto auto auto auto auto;
 	grid-template-columns: auto;
+	overflow: hidden;
 }
 
 .layout-hero {
@@ -57,13 +62,10 @@ export default {
 .layout-background {
 	grid-row: 2;
 	grid-column: 1;
+	padding-top: var(--content-gap);
+	padding-bottom: calc(var(--content-gap) + 70px);
+	padding-left: var(--content-padding);
+	padding-right: var(--content-padding);
 }
 
-.content {
-	max-width: 1000px;
-	margin: 15% auto;
-	display: flex;
-	flex-direction: column;
-	gap: var(--content-gap);
-}
 </style>
