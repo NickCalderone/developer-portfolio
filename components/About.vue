@@ -107,9 +107,9 @@ export default {
 			context.moveTo(width - spacing, offset);
 			context.lineTo(offset + radius, offset);
 			context.arcTo(offset, offset, offset, radius + offset, radius);
-			context.lineTo(offset, height - offset - radius );
-			context.arcTo(offset, height - offset, offset + radius, height - offset, radius );
-			context.lineTo(width - spacing , height - offset );
+			context.lineTo(offset, height - offset - radius);
+			context.arcTo(offset, height - offset, offset + radius, height - offset, radius);
+			context.lineTo(width - spacing, height - offset);
 
 			context.stroke();
 
@@ -124,11 +124,15 @@ export default {
 			<Face />
 		</div>
 		<div class="about-text">
-			<h3 class="about-subheader">Front-end developer from Carbonedale, Co</h3>
-			<p>I was introduced to programming by a web developer I met while on a climbing trip to Mexico. I was
-				fascinated by its usefulness and saw coding as a clear path to helping individuals, businesses, and
-				organizations achieve their goals. I have since worked with clients from small businesses to
-				municipalities to define problems and build solutions using a variety of technologies.</p>
+			<h3 class="about-subheader">Front-end web developer</h3>
+			<p>
+				I started building things for the web to help my other interests like saving and sharing recipes, or
+				learning to conjugate Spanish verbs. It soon became clear I should turn this intrigue into a career. I
+				have since worked with clients ranging from small businesses to municipalities, across many industries.
+				I run my freelance business remotely from the beautiful mountains of Carbondale, Colorado. While
+				not exploring the possibilities of programming, I enjoy rock climbing and travel, preferrably at the
+				same time.
+			</p>
 		</div>
 		<div class="about-canvas-wrapper">
 			<canvas id="about-canvas">Red line used for flair</canvas>
@@ -194,7 +198,7 @@ export default {
 	grid-column: 2;
 	grid-row: 2;
 	align-self: start;
-	padding: var(--spacing);
+	padding: 20px;
 	z-index: 20;
 	min-width: 10px;
 }
@@ -260,7 +264,7 @@ export default {
 	}
 }
 
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 550px) {
 	.about-img {
 		padding: 5% 0 0 0;
 	}
