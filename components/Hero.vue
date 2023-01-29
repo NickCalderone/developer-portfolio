@@ -53,7 +53,6 @@ export default {
 		'. sub-header';
 	z-index: 11;
 	margin-bottom: 10vw;
-	background-color: blue;
 }
 
 .hero-header-wrapper {
