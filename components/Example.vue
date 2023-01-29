@@ -80,23 +80,19 @@ export default {
 @media only screen and (max-width: 700px) {
 
 	.example::before {
-		content: '';
-		top: 0;
-		bottom: 0;
-		right: 0;
-		left: 0;
-		position: absolute;
-		background-color: var(--color-primary);
-		opacity: 0%;
 		transition-property: none;
 	}
 
 	.example-overlay {
 		top: 50%;
 		color: var(--color-primary);
-		background-color: var(--color-quaternary);
 		transform: translate(-50%, -50%) scale(100%);
 		transition-property: none
 	}
+
+	.example:hover::before {
+		opacity: 20%;
+	}
+
 }
 </style>

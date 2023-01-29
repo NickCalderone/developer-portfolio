@@ -124,6 +124,7 @@ export default {
 			<Face />
 		</div>
 		<div class="about-text">
+			<h3 class="about-subheader">Front-end developer from Carbonedale, Co</h3>
 			<p>I was introduced to programming by a web developer I met while on a climbing trip to Mexico. I was
 				fascinated by its usefulness and saw coding as a clear path to helping individuals, businesses, and
 				organizations achieve their goals. I have since worked with clients from small businesses to
@@ -179,6 +180,14 @@ export default {
 	transform: scalex(-.92);
 	margin-bottom: -60px;
 	width: 100%;
+}
+
+.about-subheader {
+	color: var(--color-quinary);
+	font-family: var(--font-family-secondary);
+	font-size: 1.25rem;
+	line-height: 2;
+	margin-bottom: 20px;
 }
 
 .about-text {
