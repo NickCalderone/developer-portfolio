@@ -2,14 +2,18 @@
 export default {
 	data() {
 		return {
-			heroHeight: this.getScreenHeight()
+			heroHeight: undefined,
+			heroHeightNum: undefined
 		}
 	},
+	mounted(){
+		this.setAppVariables()
+	},
 	methods: {
-		getScreenHeight() {
+		setAppVariables(){
 			let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
-			// console.log(heroHeight+"px");
-			return heroHeight + "px";
+			this.heroHeight = heroHeight + "px";
+			this.heroHeightNum = heroHeight;
 		}
 	}
 }
@@ -17,8 +21,8 @@ export default {
 
 <template>
 	<Menu />
-	<div class="layout-wrapper">
-		<Hero class="layout-hero" :hero-height="getScreenHeight()" />
+	<div class="layout-wrapper js-layout-wrapper">
+		<Hero class="layout-hero" :hero-height="this.heroHeight" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
 			colorR="var(--color-primary)">
 				<Work />
@@ -60,6 +64,8 @@ export default {
 	grid-column: 1;
 	padding-top: var(--content-gap);
 	padding-bottom: calc(var(--content-gap) + 70px);
+	padding-left: var(--content-padding);
+	padding-right: var(--content-padding);
 }
 
 </style>

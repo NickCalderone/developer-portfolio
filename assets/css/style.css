@@ -40,6 +40,8 @@
 	--header-shadow: rgba(2, 12, 27, .7);
 
 	--transition-length: .2s;
+
+	--content-padding: 25px;
 }
 
 html {

@@ -2,6 +2,7 @@
 export default {
 	props: ['heroHeight'],
 	mounted() {
+
 		function delay(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms))
 
@@ -17,7 +18,6 @@ export default {
 		let hand = document.querySelector("#hand");
 		hand.addEventListener("mouseover", handleWave);
 
-		console.log(this.heroHeight);
 	}
 }
 </script>
@@ -30,7 +30,7 @@ export default {
 					<h1>Hello, <br class="h1-br" />my name<br />is Nick<span class="period">.</span></h1>
 				</div>
 				<div class="hero-sub-header-wrapper">
-					<p class="hero-sub-header">I'm a front-end developer based in Carbondale, Co.</p>
+					<p class="hero-sub-header">I build intuitive, engaging & accessible interfaces for the web</p>
 				</div>
 			</div>
 		</div>
@@ -47,12 +47,13 @@ export default {
 
 .hero-inner {
 	display: grid;
-	width: 57%;
+	width: 59%;
 	grid-template-areas:
 		'wave header'
 		'. sub-header';
 	z-index: 11;
 	margin-bottom: 10vw;
+	background-color: blue;
 }
 
 .hero-header-wrapper {
@@ -66,14 +67,15 @@ export default {
 	margin: 0px 0px 20px 0px;
 }
 
-.h1-br {
-	display: none;
-}
-
 .period {
 	color: var(--color-secondary);
-	font-size: 45px;
+	font-size: 3.5rem;
 	margin-left: 10px
+}
+
+
+.h1-br {
+	display: none;
 }
 
 .hero-sub-header-wrapper {
@@ -84,7 +86,7 @@ export default {
 	color: var(--color-quaternary);
 	font-size: 25px;
 	font-family: 'Varela', sans-serif;
-	line-height: 1.25;
+	line-height: 1.5;
 	margin-top: 20px;
 }
 
@@ -141,39 +143,59 @@ export default {
 	.hero-inner {
 		grid-template-columns: 1fr auto;
 		grid-template-areas:
-			'. wave'
-			'. header'
+			'wave header'
 			'. sub-header';
+			max-width: 58%;
 	}
 
 	#hand {
 		margin-bottom: 10px;
-		height: 70px;
+		height: 80px;
+		justify-self: right;
+		margin-top: 30px;
 	}
 
 	.h1-br {
 		display: block;
 	}
 
-	#hand {
-		justify-self: right;
-	}
-
 	.hero-header-wrapper {
-		text-align: right;
+		text-align: left;
 	}
 
 	.hero-sub-header-wrapper {
-		max-width: 50%;
-		justify-self: right;
-		text-align: right;
+		max-width: 260px;
+		text-align: left;
+		max-width: 260px;
+	}
+
+	.hero-sub-header {
+		font-size: 22px;
 	}
 
 }
 
 @media only screen and (max-width: 900px) {
-	.hero-sub-header-wrapper {
-		max-width: 60%;
+	.hero-inner {
+		grid-template-columns: 1fr auto;
+		grid-template-areas:
+			'. wave'
+			'. header'
+			'. sub-header';
+	}
+
+	#hand {
+		height: 60px;
+		margin: 0 0 10px 0;
+		justify-self: center;
+	}
+
+	.hero-header-wrapper {
+		text-align: center;
+	}
+
+	.hero-sub-header {
+		text-align: center;
 	}
 }
 
@@ -182,36 +204,34 @@ export default {
 		font-size: 3rem;
 	}
 
+	.period {
+		font-size: 3rem;
+	}
+
 	.hero-sub-header {
 		font-size: 22px;
 		line-height: 1.5;
 	}
 
-	.hero-sub-header-wrapper {
-		max-width: 70%;
-	}
+
 }
 
 @media only screen and (max-width: 550px) {
+	.hero-inner {
+		padding: 5px;
+	}
 
 	.hero-header-wrapper h1 {
 		font-size: 2.5rem;
 	}
 
-	.hero-sub-header-wrapper {
-		max-width: 85%;
+	.period {
+		font-size: 2.5rem;
 	}
 
 	.hero-sub-header {
 		font-size: 20px;
-	}
-
-}
-
-@media only screen and (max-width: 430px) {
-
-	.hero-sub-header-wrapper {
-		max-width: 100%;
+		line-height: 1.7;
 	}
 
 }

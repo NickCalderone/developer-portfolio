@@ -48,7 +48,8 @@ export default {
 
 			// setup canvas context
 			this.canvas.width = w;
-			this.canvas.height = h;
+			// prevent svg from showing below flair line by making the canvas 2px taller than section container
+			this.canvas.height = h + 2;
 			this.lineWidth = lineWidth;
 			this.radius = radius;
 
@@ -67,9 +68,9 @@ export default {
 
 			// get drawing variables
 			let width = this.canvas.width;
-			let height = this.canvas.height;
+			let height = this.canvas.height + 2;
 
-			let offset = this.lineWidth / 2;
+			let offset = this.lineWidth;
 			let radius = this.radius;
 
 			// draw directions
@@ -109,9 +110,6 @@ export default {
 			context.lineTo(offset, height - offset - radius );
 			context.arcTo(offset, height - offset, offset + radius, height - offset, radius );
 			context.lineTo(width - spacing , height - offset );
-			// context.lineTo(offset, height - offset - radius);
-			// context.arcTo(offset, height - offset, offset + radius, height - offset, radius);
-			// context.lineTo(width * .15, height - offset);
 
 			context.stroke();
 
@@ -162,7 +160,7 @@ export default {
 }
 
 #about-canvas {
-	max-height: 100%;
+	max-height: 105%;
 	/* for some reason using width: 100% makes it at least 500px tall no matter what? */
 	max-width: 100%;
 	display: block;

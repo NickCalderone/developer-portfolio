@@ -3,162 +3,167 @@ export default {
 	data() {
 		return {
 			lastScrollPosition: 0,
-			mobileMenuOpen: false
+			mobileMenuOpen: false,
+			header: undefined,
+			menu: undefined,
+			background: undefined,
+			button: undefined,
+			modal: undefined,
+			body: undefined
 		}
 	},
 	mounted() {
+		//set up variables
 		this.lastScrollPosition = window.pageYOffset;
+		this.header = document.querySelector(".header");
+		this.menu = document.querySelector(".js-mobile-menu-wrapper");
+		this.background = document.querySelector(".js-layout-wrapper");
+		this.button = document.querySelector(".mobile-menu-button");
+		this.modal = document.querySelector(".mobile-menu-wrapper");
+		this.body = document.body;
+
 		window.addEventListener("scroll", this.headerScrollHandler);
 
+		//set header class
 		if (this.lastScrollPosition != 0) {
-			let myHeader = document.querySelector(".header");
-			myHeader.classList.remove('header-top');
+			this.header.classList.remove('js-header-top');
 		}
 
 	},
 	methods: {
-		headerScrollHandler(event) {
-			let myHeader = document.querySelector(".header");
+		headerScrollHandler() {
+			let myHeader = this.header;
 			let currentScrollPosition = window.pageYOffset;
 
 			// if at the top of the page
 			if (currentScrollPosition == 0) {
-				myHeader.classList.remove('header-hidden');
-				myHeader.classList.remove('header-scrolled');
-				myHeader.classList.add('header-top');
+				myHeader.classList.remove('js-header-hidden');
+				myHeader.classList.remove('js-header-scrolled');
+				myHeader.classList.add('js-header-top');
 			}
 			// if scrolling down 
 			else if (currentScrollPosition > this.lastScrollPosition) {
-				console.log('scrolling');
-				myHeader.classList.remove('header-top');
-				myHeader.classList.add('header-hidden');
-				myHeader.classList.add('header-scrolled');
+				myHeader.classList.remove('js-header-top');
+				myHeader.classList.add('js-header-hidden');
+				myHeader.classList.add('js-header-scrolled');
 			}
 			// if scrolling up 
 			else {
-				myHeader.classList.remove('header-hidden');
-				myHeader.classList.add('header-scrolled');
+				myHeader.classList.remove('js-header-hidden');
+				myHeader.classList.add('js-header-scrolled');
 			}
 
+			// update scroll position
 			this.lastScrollPosition = currentScrollPosition;
 		},
-		mobileMenuHandler() {
-			console.log(!this.mobileMenuOpen);
-			if (!this.mobileMenuOpen) {
-				this.freeze();
+		freezeHandler() {
+
+			let opened = this.mobileMenuOpen;
+			let menu = this.menu;
+			let body = this.body;
+			let background = this.background;
+
+			// open menu
+			if (!opened) {
+
+				menu.classList.add('js-open');
+				body.classList.add('js-frozen');
+				background.classList.add('js-frozen');
+
+				// update mobile menu
+				this.mobileMenuOpen = true;
+
+				// freeze the rest of the app while the menu is open
+				body.addEventListener("click", this.modalControl);
+
+				// close menu
 			} else {
-				this.unFreeze();
+
+				menu.classList.remove('js-open');
+				body.classList.remove('js-frozen');
+				background.classList.remove('js-frozen');
+
+				//update mobile menu
+				this.mobileMenuOpen = false;
+
+				// remove app freeze listener
+				body.removeEventListener("click", this.modalControl);
+
 			}
 		},
-		freeze() {
-			let menu = document.querySelector(".js-mobile-menu-wrapper")
-			let body = document.body;
-			let background = document.querySelector(".layout-wrapper");
+		menuHandler() {
 
-			menu.classList.add('js-open');
-			this.mobileMenuOpen = true;
-			body.classList.add('js-frozen');
-			background.classList.add('js-frozen')
+			this.freezeHandler();
+			this.animateSVG();
 
-			// add handler for clicking outside of the mobile menu
-			document.body.addEventListener("click", this.modalControl);
 		},
-		unFreeze() {
-			let menu = document.querySelector(".js-mobile-menu-wrapper")
-			let body = document.body;
-			let background = document.querySelector(".layout-wrapper");
-
-			menu.classList.remove('js-open');
-			this.mobileMenuOpen = false;
-			body.classList.remove('js-frozen');
-			background.classList.remove('js-frozen')
-
-			document.body.removeEventListener("click", this.modalControl);
-		},
-		linkHandler() {
-
-			//copied fro unFreeze()
-			let menu = document.querySelector(".js-mobile-menu-wrapper")
-			let body = document.body;
-			let background = document.querySelector(".layout-wrapper");
-
-			menu.classList.remove('js-open');
-			this.mobileMenuOpen = false;
-			body.classList.remove('js-frozen');
-			background.classList.remove('js-frozen')
-
-			//copied from clickHandler in Hamburger.vue
-			let myButton = document.querySelector(".mobile-menu-button");
+		animateSVG() {
+			let myButton = this.button;
 			myButton.classList.toggle('opened');
 			myButton.setAttribute('aria-expanded', myButton.classList.contains('opened'))
-			
-			document.body.removeEventListener("click", this.modalControl);
 		},
 		modalControl(e) {
-			let myButton = document.querySelector(".mobile-menu-button");
-			let myModal = document.querySelector(".mobile-menu-wrapper");
-			console.log(e.target);
-			console.log(myButton);
+			let myButton = this.button;
+			let myModal = this.modal;
+			console.log(myModal);
 
 			// if not clicking inside menu, not clicking the menu button, not clicking the svg inside the button...
 			if (!myModal.contains(e.target) && e.target != myButton && !myButton.contains(e.target)) {
-				this.mobileMenuHandler();
 
-				//copied from Hamburger.vue
-				let myButton = document.querySelector(".mobile-menu-button");
-				myButton.classList.toggle('opened');
-				myButton.setAttribute('aria-expanded', myButton.classList.contains('opened'))
+				this.menuHandler();
 			}
 		}
 	}
 }
 </script>
 <template>
-	<header class="header header-top js-header">
-		<div class="header-inner">
-			<div class="logo-wrapper">
-				<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
+	<header>
+		<div class="header js-header-top js-header">
+			<div class="header-inner">
+				<div class="logo-wrapper">
+					<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
+				</div>
+				<nav class="menu-wrapper">
+					<ul class="menu">
+						<li class="menu-item">
+							<a href="#work">Work</a>
+						</li>
+						<li class="menu-separator">
+							<p>/</p>
+						</li>
+						<li class="menu-item">
+							<a href="#about">About</a>
+						</li>
+						<li class="menu-separator">
+							<p>/</p>
+						</li>
+						<li class="menu-item">
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="menu-wrapper">
-				<ul class="menu">
-					<li class="menu-item">
-						<a href="#work">Work</a>
+			<Hamburger :menuHandler="menuHandler" class="hamburger-wrapper js-mobile-button" />
+			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
+				<ul class="mobile-menu">
+					<li class="mobile-menu-item">
+						<a @click="menuHandler" href="#work">Work</a>
 					</li>
-					<li class="menu-separator">
+					<li class="mobile-menu-separator">
 						<p>/</p>
 					</li>
-					<li class="menu-item">
-						<a href="#about">About</a>
+					<li class="mobile-menu-item">
+						<a @click="menuHandler" href="#about">About</a>
 					</li>
-					<li class="menu-separator">
+					<li class="mobile-menu-separator">
 						<p>/</p>
 					</li>
-					<li class="menu-item">
-						<a href="#contact">Contact</a>
+					<li class="mobile-menu-item">
+						<a @click="menuHandler" href="#contact">Contact</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
-		<Hamburger @click="mobileMenuHandler" class="hamburger-wrapper js-mobile-button" />
-		<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
-			<ul class="mobile-menu">
-				<li class="mobile-menu-item">
-					<a @click="linkHandler" href="#work">Work</a>
-				</li>
-				<li class="mobile-menu-separator">
-					<p>/</p>
-				</li>
-				<li class="mobile-menu-item">
-					<a @click="linkHandler" href="#about">About</a>
-				</li>
-				<li class="mobile-menu-separator">
-					<p>/</p>
-				</li>
-				<li class="mobile-menu-item">
-					<a @click="linkHandler" href="#contact">Contact</a>
-				</li>
-			</ul>
-		</nav>
 	</header>
 </template>
 
@@ -172,7 +177,7 @@ export default {
 	transition: box-shadow .3s ease-in-out, transform .4s ease-in-out, height .3s ease-in-out;
 }
 
-.header-hidden {
+.js-header-hidden {
 	box-shadow: none;
 	transform: translateY(calc(var(--header-height) * -1));
 }
@@ -192,11 +197,11 @@ export default {
 	display: none;
 }
 
-.header-top {
+.js-header-top {
 	height: var(--header-height-top);
 }
 
-.header-scrolled {
+.js-header-scrolled {
 	height: var(--header-height);
 }
 
