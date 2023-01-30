@@ -1,5 +1,5 @@
 <template>
-	<svg viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	<svg class="example-icon" viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 		xml:space="preserve" xmlns:serif="http://www.serif.com/"
 		style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
 		<g transform="matrix(1.84796,0,0,1.84632,21.1639,24.2897)">
@@ -24,3 +24,9 @@
 		</g>
 	</svg>
 </template>
+
+<style>
+.example-icon {
+	z-index: 50;
+}
+</style>
