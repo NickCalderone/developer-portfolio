@@ -8,9 +8,8 @@ export default {
 		<div class="example">
 			<img v-bind:src="imgSrc" v-bind:alt="alt" />
 			<div class="example-overlay">
-				<NewTab />
-				<Face />
-				<p style="color: var(--color-primary) !important">test</p>
+				<img src="fill-arrow.svg" />
+				<!-- <NewTab /> -->
 			</div>
 		</div>
 	</a>
