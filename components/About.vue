@@ -260,7 +260,6 @@ export default {
 	.about-text {
 		grid-column: 1;
 		grid-row: 2;
-		z-index: 20;
 	}
 }
 
