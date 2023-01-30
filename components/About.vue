@@ -199,7 +199,7 @@ export default {
 	grid-row: 2;
 	align-self: start;
 	padding: 20px;
-	z-index: 20;
+	z-index: 10;
 	min-width: 10px;
 }
 
