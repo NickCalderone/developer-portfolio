@@ -22,7 +22,6 @@ export default {
 	methods: {
 		setDevice() {
 			this.mobileDevice = window.matchMedia("(max-width:" + this.breakpoint + ")").matches ? true : false;
-			console.log("index.vue output mobile device", this.mobileDevice);
 		}
 	}
 }
