@@ -233,7 +233,6 @@ export default {
 	.about-canvas-wrapper {
 		grid-row: 2 / 6;
 		grid-column: 1;
-		z-index: 10;
 		/* prevent the canvas from growing exponentially when the resize handler fires */
 		line-height: 0;
 	}
