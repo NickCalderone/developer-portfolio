@@ -201,7 +201,7 @@ export default {
 @media only screen and (max-width: 700px) {
 	.hero {
 		max-width: 1000px;
-		height: calc(v-bind(heroHeight) - 50px);
+		height: calc(v-bind(heroHeight) - 25px);
 		display: flex;
 		align-items: center;
 	}
@@ -216,7 +216,6 @@ export default {
 
 	.hero-sub-header {
 		font-size: 22px;
-		line-height: 1.5;
 	}
 
 
@@ -237,7 +236,6 @@ export default {
 
 	.hero-sub-header {
 		font-size: 20px;
-		line-height: 1.7;
 	}
 
 }
