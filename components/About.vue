@@ -127,7 +127,7 @@ export default {
 			<h3 class="about-subheader">Front-end developer</h3>
 			<p>
 				I started building things for the web to solve problems such as how to save and share all my favorite
-				recipes, and how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a great
+				recipes and how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a great
 				starting point, but I have been lucky enough to use what I have learned to benefit others. The solutions
 				I have built have helped clients from small businesses to municipalities get to where they want to be.
 				It is this process of solving very human problems with technology that drives me as a programmer. <a
