@@ -120,6 +120,10 @@ p {
 	:root {
 		--content-gap: 50px;
 	}
+
+	h2 {
+		padding-top: 40px;
+	}
 }
 
 @media only screen and (max-width: 550px) {
@@ -128,6 +132,6 @@ p {
 	}
 
 	p {
-		font-size: 1.10rem;
+		font-size: 1.13rem;
 	}
 }
