@@ -71,12 +71,12 @@ export default {
 	}
 
 	.tools {
-		gap: 10px;
+		gap: 15px;
 	}
 
 
 	.tool {
-		padding: 3px 12px 3px 7px;
+		padding: 5px 12px 5px 7px;
 	}
 }
 
