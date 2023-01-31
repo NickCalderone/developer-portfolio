@@ -126,12 +126,12 @@ export default {
 		<div class="about-text">
 			<h3 class="about-subheader">Front-end web developer</h3>
 			<p>
-				I started building things for the web to help my other interests like saving and sharing recipes, or
-				learning to conjugate Spanish verbs. It soon became clear I should turn this intrigue into a career. I
-				have since worked with clients ranging from small businesses to municipalities, across many industries.
-				I run my freelance business remotely from the beautiful mountains of Carbondale, Colorado. While
-				not exploring the possibilities of programming, I enjoy rock climbing and travel, preferrably at the
-				same time.
+				I started building things for the web to solve problems. Problems such as how to save and share all my
+				favorite recipes. Or how to easily quiz myself on Spanish verb conjugations. Its this process I love.
+				The process of solving very human problems with technology. I have been lucky enough to help clients
+				from small businesses to municipalities through my freelance business that I run remotely from the
+				beautiful mountains of Carbondale, Colorado. While I’m not exploring the possibilities of programming, I
+				enjoy rock climbing and travel, usually at the same time.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
@@ -158,7 +158,6 @@ export default {
 	max-height: 100%;
 	grid-row: 2;
 	grid-column: 1 / 3;
-	z-index: 10;
 	/* prevent the canvas from growing exponentially when the resize handler fires */
 	line-height: 0;
 	position: relative;

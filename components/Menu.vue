@@ -1,8 +1,10 @@
 <script>
 export default {
+	props: ["mobileDevice"],
 	data() {
 		return {
 			lastScrollPosition: 0,
+			displayMobile: undefined,
 			mobileMenuOpen: false,
 			header: undefined,
 			menu: undefined,
@@ -25,32 +27,61 @@ export default {
 		window.addEventListener("scroll", this.headerScrollHandler);
 
 		//set header class
-		if (this.lastScrollPosition != 0) {
-			this.header.classList.remove('js-header-top');
-		}
-
 	},
 	methods: {
+		logoHandler() {
+			//copied from freezeHandler
+			let opened = this.mobileMenuOpen;
+			let menu = this.menu;
+			let body = this.body;
+			let background = this.background;
+
+			if (opened) {
+				// copied from freeze handler
+				menu.classList.remove('js-open');
+				body.classList.remove('js-frozen');
+				background.classList.remove('js-frozen');
+
+				//update mobile menu
+				this.mobileMenuOpen = false;
+
+				// remove app freeze listener
+				body.removeEventListener("click", this.modalControl);
+
+				//not in freeze hanlder
+				this.animateSVG();
+
+			}
+		},
 		headerScrollHandler() {
 			let myHeader = this.header;
 			let currentScrollPosition = window.pageYOffset;
 
+			console.log(this.mobileDevice);
+
+
 			// if at the top of the page
-			if (currentScrollPosition == 0) {
+			if (currentScrollPosition < 50) {
+
 				myHeader.classList.remove('js-header-hidden');
 				myHeader.classList.remove('js-header-scrolled');
 				myHeader.classList.add('js-header-top');
+
 			}
 			// if scrolling down 
 			else if (currentScrollPosition > this.lastScrollPosition) {
+
 				myHeader.classList.remove('js-header-top');
 				myHeader.classList.add('js-header-hidden');
 				myHeader.classList.add('js-header-scrolled');
+
 			}
 			// if scrolling up 
 			else {
+
 				myHeader.classList.remove('js-header-hidden');
 				myHeader.classList.add('js-header-scrolled');
+
 			}
 
 			// update scroll position
@@ -118,11 +149,13 @@ export default {
 </script>
 <template>
 	<header>
-		<div class="header js-header-top js-header">
+		<div class="header js-header js-header-top">
 			<div class="header-inner">
-				<div class="logo-wrapper">
-					<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
-				</div>
+				<a class="logo-anchor" href="#" @click="logoHandler">
+					<div class="logo-wrapper">
+						<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
+					</div>
+				</a>
 				<nav class="menu-wrapper">
 					<ul class="menu">
 						<li class="menu-item">
@@ -143,7 +176,7 @@ export default {
 					</ul>
 				</nav>
 			</div>
-			<Hamburger :menuHandler="menuHandler" class="hamburger-wrapper js-mobile-button" />
+			<Hamburger :menu-handler="menuHandler" class="hamburger-wrapper js-mobile-button" />
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
 					<li class="mobile-menu-item">
@@ -203,6 +236,10 @@ export default {
 
 .js-header-scrolled {
 	height: var(--header-height);
+}
+
+.logo-anchor {
+	text-decoration: none;
 }
 
 .logo {
@@ -331,11 +368,6 @@ export default {
 
 	.mobile-menu-separator {
 		display: none;
-	}
-
-	.js-resize-animation-stopper {
-		animation: none !important;
-		transition: none !important;
 	}
 
 }

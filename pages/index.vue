@@ -3,31 +3,41 @@ export default {
 	data() {
 		return {
 			heroHeight: undefined,
-			heroHeightNum: undefined
+			heroHeightNum: undefined,
+			breakpoint: undefined,
+			mobileDevice: undefined
 		}
 	},
-	mounted(){
-		this.setAppVariables()
+	mounted() {
+		let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
+		this.heroHeight = heroHeight + "px";
+		this.heroHeightNum = heroHeight;
+		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
+
+		this.setDevice();
+
+		window.addEventListener("resize", this.setDevice);
+
 	},
 	methods: {
-		setAppVariables(){
-			let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
-			this.heroHeight = heroHeight + "px";
-			this.heroHeightNum = heroHeight;
+		setDevice() {
+			this.mobileDevice = window.matchMedia("(max-width:" + this.breakpoint + ")").matches ? true : false;
+			console.log("index.vue output mobile device", this.mobileDevice);
 		}
 	}
 }
 </script>
 
 <template>
-	<Menu />
+	<NuxtLoadingIndicator />
+	<Menu :mobile-device="mobileDevice" />
 	<div class="layout-wrapper js-layout-wrapper">
 		<Hero class="layout-hero" :hero-height="heroHeight" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
 			colorR="var(--color-primary)">
-				<Work />
-				<About />
-				<Contact />
+			<Work />
+			<About />
+			<Contact />
 		</Content>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
@@ -67,5 +77,4 @@ export default {
 	padding-left: var(--content-padding);
 	padding-right: var(--content-padding);
 }
-
 </style>

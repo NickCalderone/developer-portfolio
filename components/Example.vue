@@ -4,11 +4,10 @@ export default {
 }
 </script>
 <template>
-	<a :href="imgLink" rel="noreferrer noopener">
+	<a :href="imgLink" rel="noreferrer noopener" target="_blank">
 		<div class="example">
 			<img v-bind:src="imgSrc" v-bind:alt="alt" />
 			<div class="example-overlay">
-				<!-- <img src="~/public/fill-arrow.svg" /> -->
 				<NewTab />
 			</div>
 		</div>

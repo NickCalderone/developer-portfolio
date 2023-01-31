@@ -87,7 +87,7 @@ p {
 	font-size: 1.25rem;
 	font-family: var(--font-family-secondary);
 	color: var(--color-quaternary);
-	line-height: 2;
+	line-height: 1.6;
 	margin: 0px;
 }
 
