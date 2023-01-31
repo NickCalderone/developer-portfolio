@@ -4,7 +4,6 @@ export default {
 	data() {
 		return {
 			lastScrollPosition: 0,
-			displayMobile: undefined,
 			mobileMenuOpen: false,
 			header: undefined,
 			menu: undefined,
@@ -25,30 +24,29 @@ export default {
 		this.body = document.body;
 
 		window.addEventListener("scroll", this.headerScrollHandler);
+		window.addEventListener("resize", () => {
+
+			// if resizing while mobile menu is open, close it and reset the button animation
+			if (!this.mobileDevice && this.mobileMenuOpen){
+				this.resetMenu();
+			}
+		});
 
 		//set header class
 	},
 	methods: {
-		logoHandler() {
-			//copied from freezeHandler
+		resetMenu() {
+
 			let opened = this.mobileMenuOpen;
-			let menu = this.menu;
-			let body = this.body;
-			let background = this.background;
 
 			if (opened) {
-				// copied from freeze handler
-				menu.classList.remove('js-open');
-				body.classList.remove('js-frozen');
-				background.classList.remove('js-frozen');
 
-				//update mobile menu
-				this.mobileMenuOpen = false;
+				let menu = this.menu;
+				let body = this.body;
+				let background = this.background;
 
-				// remove app freeze listener
-				body.removeEventListener("click", this.modalControl);
+				this.closeMenu(menu, body, background);
 
-				//not in freeze hanlder
 				this.animateSVG();
 
 			}
@@ -56,9 +54,6 @@ export default {
 		headerScrollHandler() {
 			let myHeader = this.header;
 			let currentScrollPosition = window.pageYOffset;
-
-			console.log(this.mobileDevice);
-
 
 			// if at the top of the page
 			if (currentScrollPosition < 50) {
@@ -97,30 +92,40 @@ export default {
 			// open menu
 			if (!opened) {
 
-				menu.classList.add('js-open');
-				body.classList.add('js-frozen');
-				background.classList.add('js-frozen');
-
-				// update mobile menu
-				this.mobileMenuOpen = true;
-
-				// freeze the rest of the app while the menu is open
-				body.addEventListener("click", this.modalControl);
+				this.openMenu(menu, body, background);
 
 				// close menu
 			} else {
 
-				menu.classList.remove('js-open');
-				body.classList.remove('js-frozen');
-				background.classList.remove('js-frozen');
-
-				//update mobile menu
-				this.mobileMenuOpen = false;
-
-				// remove app freeze listener
-				body.removeEventListener("click", this.modalControl);
+				this.closeMenu(menu, body, background);
 
 			}
+		},
+		openMenu(menu, body, background) {
+
+			menu.classList.add('js-open');
+			body.classList.add('js-frozen');
+			background.classList.add('js-frozen');
+
+			// update mobile menu
+			this.mobileMenuOpen = true;
+
+			// freeze the rest of the app while the menu is open
+			body.addEventListener("click", this.modalControl);
+
+		},
+		closeMenu(menu, body, background) {
+
+			menu.classList.remove('js-open');
+			body.classList.remove('js-frozen');
+			background.classList.remove('js-frozen');
+
+			//update mobile menu
+			this.mobileMenuOpen = false;
+
+			// remove app freeze listener
+			body.removeEventListener("click", this.modalControl);
+
 		},
 		menuHandler() {
 
@@ -136,7 +141,6 @@ export default {
 		modalControl(e) {
 			let myButton = this.button;
 			let myModal = this.modal;
-			console.log(myModal);
 
 			// if not clicking inside menu, not clicking the menu button, not clicking the svg inside the button...
 			if (!myModal.contains(e.target) && e.target != myButton && !myButton.contains(e.target)) {
@@ -151,7 +155,7 @@ export default {
 	<header>
 		<div class="header js-header js-header-top">
 			<div class="header-inner">
-				<a class="logo-anchor" href="#top" @click="logoHandler">
+				<a class="logo-anchor" href="#top" @click="resetMenu">
 					<div class="logo-wrapper">
 						<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
 					</div>
@@ -180,19 +184,19 @@ export default {
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
 					<li class="mobile-menu-item">
-						<a @click="menuHandler" href="#work">Work</a>
+						<a @click="resetMenu" href="#work">Work</a>
 					</li>
 					<li class="mobile-menu-separator">
 						<p>/</p>
 					</li>
 					<li class="mobile-menu-item">
-						<a @click="menuHandler" href="#about">About</a>
+						<a @click="resetMenu" href="#about">About</a>
 					</li>
 					<li class="mobile-menu-separator">
 						<p>/</p>
 					</li>
 					<li class="mobile-menu-item">
-						<a @click="menuHandler" href="#contact">Contact</a>
+						<a @click="resetMenu" href="#contact">Contact</a>
 					</li>
 				</ul>
 			</nav>
@@ -331,7 +335,8 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: var(--color-tertiary);
+		background-color: var(--color-primary);
+		box-shadow: none;
 		opacity: .98;
 		position: fixed;
 		top: 0;
@@ -341,16 +346,19 @@ export default {
 
 	.js-mobile-menu-wrapper {
 		transform: translateX(100%);
-		transition: .25s transform ease-in-out;
+		transition: .25s transform ease-in-out, .25s box-shadow ease-in-out;
 	}
 
 	.js-mobile-menu-wrapper.js-open {
 		transform: translateX(0%);
+		box-shadow: 0 10px 30px -10px var(--header-shadow);
 	}
 
 	.mobile-menu {
 		padding-left: 0;
-		flex-direction: column
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
 	}
 
 	.mobile-menu li {
@@ -361,6 +369,7 @@ export default {
 
 	.mobile-menu li a {
 		text-decoration: none;
+		padding: 15px;
 		color: var(--color-quaternary);
 		font-family: var(--font-family-primary);
 		transition: color .3s ease-in-out;
