@@ -144,7 +144,7 @@ export default {
 		grid-template-areas:
 			'wave header'
 			'. sub-header';
-			max-width: 58%;
+		max-width: 58%;
 	}
 
 	#hand {
@@ -199,6 +199,13 @@ export default {
 }
 
 @media only screen and (max-width: 700px) {
+	.hero {
+		max-width: 1000px;
+		height: calc(v-bind(heroHeight) - 50px);
+		display: flex;
+		align-items: center;
+	}
+
 	.hero-header-wrapper h1 {
 		font-size: 3rem;
 	}
