@@ -31,7 +31,7 @@ export default {
 <template>
 	<NuxtLoadingIndicator />
 	<Menu :mobile-device="mobileDevice" />
-	<div class="layout-wrapper js-layout-wrapper">
+	<div id="top" class="layout-wrapper js-layout-wrapper">
 		<Hero class="layout-hero" :hero-height="heroHeight" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
 			colorR="var(--color-primary)">

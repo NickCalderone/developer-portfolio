@@ -151,7 +151,7 @@ export default {
 	<header>
 		<div class="header js-header js-header-top">
 			<div class="header-inner">
-				<a class="logo-anchor" href="#" @click="logoHandler">
+				<a class="logo-anchor" href="#top" @click="logoHandler">
 					<div class="logo-wrapper">
 						<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
 					</div>
