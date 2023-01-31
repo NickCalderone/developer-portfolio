@@ -130,8 +130,9 @@ export default {
 				recipes, and how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a great
 				starting point, but I have been lucky enough to use what I have learned to benefit others. The solutions
 				I have built have helped clients from small businesses to municipalities get to where they want to be.
-				It is this process of solving very human problems with technology that drives me as a programmer. Is
-				there something getting in the way of reaching your goals? <a href="#contact">Let me know</a> so we can get there together.
+				It is this process of solving very human problems with technology that drives me as a programmer. <a
+					href="#contact">Let me know</a> if there is something getting in the way of reaching your goals so
+				we can get there together.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
