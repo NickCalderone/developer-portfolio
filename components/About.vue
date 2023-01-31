@@ -124,14 +124,14 @@ export default {
 			<Face />
 		</div>
 		<div class="about-text">
-			<h3 class="about-subheader">Front-end web developer</h3>
+			<h3 class="about-subheader">Front-end developer</h3>
 			<p>
-				I started building things for the web to solve problems. Problems such as how to save and share all my
-				favorite recipes. Or how to easily quiz myself on Spanish verb conjugations. Its this process I love.
-				The process of solving very human problems with technology. I have been lucky enough to help clients
-				from small businesses to municipalities through my freelance business that I run remotely from the
-				beautiful mountains of Carbondale, Colorado. While I’m not exploring the possibilities of programming, I
-				enjoy rock climbing and travel, usually at the same time.
+				I started building things for the web to solve problems such as how to save and share all my favorite
+				recipes, and how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a great
+				starting point, but I have been lucky enough to use what I have learned to benefit others. The solutions
+				I have built have helped clients from small businesses to municipalities get to where they want to be.
+				It is this process of solving very human problems with technology that drives me as a programmer. What
+				is getting in the way of reaching your goals? <a href="/#contact">Let me know</a> so we can get there together.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
@@ -191,6 +191,7 @@ export default {
 	font-size: 1.25rem;
 	line-height: 2;
 	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 .about-text {
