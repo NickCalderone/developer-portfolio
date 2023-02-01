@@ -126,13 +126,12 @@ export default {
 		<div class="about-text">
 			<h3 class="about-subheader">Front-end developer</h3>
 			<p>
-				I started building things for the web to solve problems such as how to save and share all my favorite
+				I started building things for the web to solve problems such as how to save and share my favorite
 				recipes and how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a great
-				starting point, but I have been lucky enough to use what I have learned to benefit others. The solutions
-				I have built have helped clients from small businesses to municipalities get to where they want to be.
-				It is this process of solving very human problems with technology that drives me as a programmer. <a
-					class="link" href="#contact">Let me know</a> if there is something getting in the way of reaching
-				your goals so we can get there together.
+				starting point, but I now use what I’ve learned to help others get to where they want to be. I have
+				built solutions for clients from small businesses to municipalities. It is this process of solving very
+				human problems with technology that drives me as a programmer. Is there something getting in the way of
+				reaching your goals? <a href=#contact>Let me know</a> so we can build the solution together.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
@@ -199,31 +198,10 @@ export default {
 	grid-column: 2;
 	grid-row: 2;
 	align-self: start;
-	padding: 20px;
+	padding: 20px 20px 30px 20px;
 	z-index: 10;
 	min-width: 10px;
 }
-
-.link {
-	position: relative;
-}
-
-/* .link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: -3px;
-	width: calc(100% + 6px);
-	border-radius: 3px;
-	height: 10px;
-	background-color: var(--color-tertiary);
-	z-index: -1;
-	transition: .07s height ease-in-out;
-}
-
-.link:hover::after {
-	height: 100%;
-} */
 
 @media only screen and (max-width: 900px) {
 	.about-wrapper {
