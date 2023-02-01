@@ -151,7 +151,7 @@ export default {
 	grid-row: 1;
 	grid-column: 2;
 	text-align: left;
-	margin-left: var(--spacing)
+	margin-left: 20px;
 }
 
 .about-canvas-wrapper {
@@ -209,10 +209,6 @@ export default {
 		grid-template-rows: auto minmax(0, 1fr);
 	}
 
-	.about-header {
-		margin-left: 20px;
-	}
-
 	.about-text {
 		padding: var(--padding);
 	}
@@ -228,7 +224,6 @@ export default {
 	.about-header {
 		grid-row: 1;
 		grid-column: 1;
-		margin-left: var(--padding);
 	}
 
 	.about-canvas-wrapper {
