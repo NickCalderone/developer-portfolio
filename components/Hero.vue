@@ -23,7 +23,7 @@ export default {
 </script>
 <template>
 	<Content colorL="var(--color-primary)" colorM="var(--color-secondary)" colorR="var(--color-quaternary)">
-		<div class="hero">
+		<section class="hero">
 			<div class="hero-inner">
 				<img id="hand" src="~/assets/img/wave.png" alt="A waving hand" />
 				<div class="hero-header-wrapper">
@@ -33,7 +33,7 @@ export default {
 					<p class="hero-sub-header">I build intuitive, engaging, & accessible interfaces for the web</p>
 				</div>
 			</div>
-		</div>
+		</section>
 	</Content>
 </template>
 
