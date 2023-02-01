@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-	<div class="background-grid">
+	<div class="background">
 		<div class="content">
 			<slot />
 		</div>
@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 
-.background-grid {
+.background {
 	background: rgb(36,34,0);
 	background: linear-gradient(90deg, v-bind(colorL), v-bind(colorL) 58%, v-bind(colorM) 58%, v-bind(colorM) 72.5%, v-bind(colorR) 72.5%, v-bind(colorR) 100%); 
 }
@@ -26,9 +26,4 @@ export default {
 	flex-direction: column;
 	gap: var(--content-gap);
 }
-
-@media only screen and (max-width: 1060px) {
-
-}
-
 </style>

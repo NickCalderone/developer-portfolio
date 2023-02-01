@@ -30,7 +30,7 @@ export default {
 <template>
 	<NuxtLoadingIndicator />
 	<Menu :mobile-device="mobileDevice" />
-	<div id="top" class="layout-wrapper js-layout-wrapper">
+	<main id="top" class="layout-wrapper js-layout-wrapper">
 		<Hero class="layout-hero" :hero-height="heroHeight" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
 			colorR="var(--color-primary)">
@@ -40,8 +40,8 @@ export default {
 		</Content>
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
-		<Footer />
-	</div>
+	</main>
+	<Footer />
 </template>
 
 <style>

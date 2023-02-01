@@ -3,10 +3,13 @@
 
 :root {
 	--color-primary: #1D3557;
+	--color-primary-test: #04224D;
 	--color-secondary: #E63946;
 	--color-tertiary: #417595;
 	--color-quaternary: #A8DADC;
+	--color-quaternary-test: #F1FAEE;
 	--color-quinary: #F1FAEE;
+	--color-quinary-test: #5C94B7;
 
 	--color-stripe-light: #38557e;
 	--color-stripe-medium: #2A466D;

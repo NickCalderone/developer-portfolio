@@ -131,8 +131,8 @@ export default {
 				starting point, but I have been lucky enough to use what I have learned to benefit others. The solutions
 				I have built have helped clients from small businesses to municipalities get to where they want to be.
 				It is this process of solving very human problems with technology that drives me as a programmer. <a
-					href="#contact">Let me know</a> if there is something getting in the way of reaching your goals so
-				we can get there together.
+					class="link" href="#contact">Let me know</a> if there is something getting in the way of reaching
+				your goals so we can get there together.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
@@ -203,6 +203,27 @@ export default {
 	z-index: 10;
 	min-width: 10px;
 }
+
+.link {
+	position: relative;
+}
+
+/* .link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: -3px;
+	width: calc(100% + 6px);
+	border-radius: 3px;
+	height: 10px;
+	background-color: var(--color-tertiary);
+	z-index: -1;
+	transition: .07s height ease-in-out;
+}
+
+.link:hover::after {
+	height: 100%;
+} */
 
 @media only screen and (max-width: 900px) {
 	.about-wrapper {
