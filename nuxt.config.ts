@@ -7,13 +7,14 @@ export default defineNuxtConfig({
 			meta: [
 				{ name: "viewport", content: "width=device-width, initial-scale=1" },
 				{ charset: "utf-8" },
-				{ "http-equiv": "X-UA-Compatible", content: "IE=edge"}
+				{ "http-equiv": "X-UA-Compatible", content: "IE=edge" }
 			],
-			link: [],
-			style: [], 
-			script: [], 
+			link: [
+				{ rel: "icon", type: "image/svg", sizes: "any", href: "logo-icon.svg" }
+			],
+			style: [],
+			script: [],
 			noscript: []
 		}
-		// title: "Nick Calderone's Developer Portfolio"
 	}
 })
