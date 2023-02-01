@@ -126,12 +126,12 @@ export default {
 		<div class="about-text">
 			<h3 class="about-subheader">Front-end developer</h3>
 			<p>
-				I started building things for the web to solve problems such as how to save and share my favorite
-				recipes and how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a great
-				starting point, but I now use what I’ve learned to help others get to where they want to be. I have
-				built solutions for clients from small businesses to municipalities. It is this process of solving very
-				human problems with technology that drives me as a programmer. Is there something getting in the way of
-				reaching your goals? <a href=#contact>Let me know</a> so we can build the solution together.
+				I started building things for the web to solve problems. Problems such as how to save and share my
+				favorite recipes or how to quickly quiz myself on Spanish verb conjugations. Improving my own life was a
+				great starting point, but now I use programming to build solutions for people and businesses. My work
+				has helped clients from individuals to municipalities. It is this process of solving very human problems
+				with technology that drives me as a programmer. Is there something getting in the way of reaching your
+				goals? Let me know so we can build the solution together.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
