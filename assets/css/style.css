@@ -99,6 +99,18 @@ p {
 	box-sizing: border-box;
 }
 
+/* Great post by Eric Bailey (https://css-tricks.com/revisiting-prefers-reduced-motion/) */
+@media screen and (prefers-reduced-motion: reduce),
+(update: slow) {
+	* {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		/* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion/#comment-1700170) */
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
 @media only screen and (max-width: 1020px) {
 	:root {
 		--content-gap: 100px;
@@ -122,10 +134,6 @@ p {
 @media only screen and (max-width: 700px) {
 	:root {
 		--content-gap: 50px;
-	}
-
-	h2 {
-		padding-top: 40px;
 	}
 }
 
