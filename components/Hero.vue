@@ -17,6 +17,7 @@ export default {
 
 		let hand = document.querySelector("#hand");
 		hand.addEventListener("mouseover", handleWave);
+		hand.addEventListener("click", handleWave);
 
 	}
 }
