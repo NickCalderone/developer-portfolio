@@ -1,5 +1,5 @@
 <template>
-	<img src="/fill-arrow-flat.svg" alt="open in a new tab icon" />
+	<img src="/fill-arrow-flat.svg" alt="open in a new tab icon" width="75" height="75" />
 	<!-- <svg viewBox="0 0 75 75"
 		style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
 		<path class="newtab-path-1"
