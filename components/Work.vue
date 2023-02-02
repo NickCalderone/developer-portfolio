@@ -130,11 +130,11 @@ export default {
 			<div class="work-subheader">
 				<h3>A selection of projects</h3>
 			</div>
-			<Example class="example-1" imgSrc="covid-compressed.webp" alt="Pitkin county covid website"
+			<Example class="example-1" imgSrc="covid-small.webp" alt="Pitkin county covid website"
 				imgLink="https://covid19.pitkincounty.com" img-width="700" img-height="465" />
-			<Example class="example-2" imgSrc="timberline-compressed.webp" alt="Timerline Construction website"
+			<Example class="example-2" imgSrc="timberline-small.webp" alt="Timerline Construction website"
 				imgLink="https://www.timberlineconstruct.com/" img-width="700" img-height="465"/>
-			<Example class="example-3" imgSrc="emergency-compressed.webp" alt="Pitkin Emergency website"
+			<Example class="example-3" imgSrc="emergency-small.webp" alt="Pitkin Emergency website"
 				imgLink="https://www.pitkinemergency.org/" img-width="700" img-height="465" />
 			<Tools class="work-tools" />
 		</div>
