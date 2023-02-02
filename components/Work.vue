@@ -131,11 +131,11 @@ export default {
 				<h3>A selection of projects</h3>
 			</div>
 			<Example class="example-1" imgSrc="covid.jpg" alt="Pitkin county covid website"
-				imgLink="https://covid19.pitkincounty.com" img-width="700" img-height="465"/>
+				imgLink="https://covid19.pitkincounty.com" img-width="700" img-height="465" sizes="sm:100vw md:50vw lg:400px" />
 			<Example class="example-2" imgSrc="timberline.jpg" alt="Timerline Construction website"
-				imgLink="https://www.timberlineconstruct.com/" img-width="700" img-height="465" />
+				imgLink="https://www.timberlineconstruct.com/" img-width="700" img-height="465" sizes="sm:100vw md:50vw lg:400px"/>
 			<Example class="example-3" imgSrc="emergency.jpg" alt="Pitkin Emergency website"
-				imgLink="https://www.pitkinemergency.org/" img-width="700" img-height="465" />
+				imgLink="https://www.pitkinemergency.org/" img-width="700" img-height="465" sizes="sm:100vw md:50vw lg:400px"/>
 			<Tools class="work-tools" />
 		</div>
 	</section>
