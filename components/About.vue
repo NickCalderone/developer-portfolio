@@ -128,10 +128,10 @@ export default {
 			<p>
 				I started building things for the web to solve problems. Problems such as how to save and share my
 				favorite recipes, or how to quickly quiz myself on Spanish verb conjugations. Improving my life was a
-				great starting point, but I now spend my time understanding the goals of others, and building solutions
-				to reach them. It is this process of solving very human problems with technology that drives me as a
-				programmer.<br><br>Is there something getting in the way of you reaching your goals? <a href="#contact">Let me
-					know</a> so we can build the solution together.
+				great starting point, but I now spend my time building things to get others to their goals. The process
+				of understanding very human problems and using technology to solve them is what drives me as a
+				programmer.<br><br>Is there something getting in the way of you reaching your goals? <a
+					href="#contact">Let me know</a> so we can build the solution together.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
