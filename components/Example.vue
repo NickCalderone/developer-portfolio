@@ -1,12 +1,13 @@
 <script>
 export default {
-	props: ['imgSrc', 'alt', 'imgLink'],
+	props: ['imgSrc', 'alt', 'imgLink', 'imgWidth', 'imgHeight'],
 }
 </script>
 <template>
 	<a :href="imgLink" rel="noreferrer noopener" target="_blank">
 		<div class="example">
-			<img v-bind:src="imgSrc" v-bind:alt="alt" />
+			<nuxt-img format="webp" v-bind:src="imgSrc" v-bind:alt="alt" :width="imgWidth" :height="imgHeight" />
+			<nuxt-img src="/covid.jpg" />
 			<div class="example-overlay">
 				<NewTab />
 			</div>
