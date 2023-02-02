@@ -6,7 +6,7 @@ export default {
 <template>
 	<a :href="imgLink" rel="noreferrer noopener" target="_blank">
 		<div class="example">
-			<nuxt-img format="webp" v-bind:src="imgSrc" v-bind:alt="alt" :width="imgWidth" :height="imgHeight" sizes="sm:100vw md:50vw lg:400px" />
+			<img v-bind:src="imgSrc" v-bind:alt="alt" :width="imgWidth" :height="imgHeight" />
 			<div class="example-overlay">
 				<NewTab />
 			</div>
