@@ -26,7 +26,8 @@ export default {
 	<Content colorL="var(--color-primary)" colorM="var(--color-secondary)" colorR="var(--color-quaternary)">
 		<section class="hero">
 			<div class="hero-inner">
-				<img id="hand" src="~/assets/img/wave.png" alt="A waving hand" />
+				<Hand id="hand" />
+				<!-- <img id="hand" src="~/assets/img/wave.png" alt="A waving hand" /> -->
 				<div class="hero-header-wrapper">
 					<h1>Hello, <br class="h1-br" />my name<br />is Nick<span class="period">.</span></h1>
 				</div>
