@@ -1,12 +1,31 @@
 <script>
 export default {
-	props: ['imgSrc', 'alt', 'imgLink', 'imgWidth', 'imgHeight'],
+	props: ['imgName','imgSrc', 'alt', 'imgLink'],
+	methods: {
+		makeSetString(size){
+			return `${this.imgName}-${size}.webp ${size}w`;
+
+		}
+	},
+	computed: {
+		makeSrcset(){
+			let set = this.makeSetString;
+			return `${set(300)}, ${set(400)}, ${set(500)}, ${set(600)}, ${set(700)}`;
+		}
+	}
 }
 </script>
 <template>
 	<a :href="imgLink" rel="noreferrer noopener" target="_blank">
 		<div class="example">
-			<img v-bind:src="imgSrc" v-bind:alt="alt" :width="imgWidth" :height="imgHeight" />
+			<img :alt="alt" :srcset="this.makeSrcset" sizes="
+				(max-width: 300px) 300px,
+				(max-width: 400px) 400px,
+				(max-width: 500px) 500px,
+				(max-width: 600px) 600px,
+				(max-width: 700px) 700px,
+				(min-width: 701px) 300px"
+				:src="imgSrc" /> 
 			<div class="example-overlay">
 				<NewTab />
 			</div>
