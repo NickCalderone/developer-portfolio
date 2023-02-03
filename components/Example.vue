@@ -1,6 +1,6 @@
 <script>
 export default {
-	props: ['imgName', 'imgSrc', 'alt', 'imgLink'],
+	props: ['imgName', 'imgSrc', 'alt', 'imgLink', 'imgWidth', 'imgHeight'],
 	methods: {
 		makeSrcset() {
 			let set = this.makeSetString;
@@ -22,7 +22,10 @@ export default {
 				(max-width: 500px) 500px,
 				(max-width: 600px) 600px,
 				(max-width: 700px) 700px,
-				(min-width: 701px) 300px" :src="imgSrc" />
+				(min-width: 701px) 300px" :src="imgSrc" 
+				:width="imgWidth"
+				:height="imgHeight"
+				/>
 			<div class="example-overlay">
 				<NewTab />
 			</div>
@@ -89,8 +92,8 @@ export default {
 	object-position: 50% 0%;
 	max-width: inherit;
 	max-height: inherit;
-	height: 100%;
-	width: 100%;
+	height: inherit;
+	width: inherit;
 }
 
 @media only screen and (max-width: 700px) {
