@@ -7,8 +7,8 @@ export default {
 
 		},
 		makeSrcset() {
-			let set = this.makeSetString;
-			return `${set(300)}, ${set(400)}, ${set(500)}, ${set(600)}, ${set(700)}`;
+			// let set = this.makeSetString;
+			return `${this.makeSetString(300)}, ${this.makeSetString(400)}, ${this.makeSetString(500)}, ${this.makeSetString(600)}, ${this.makeSetString(700)}`;
 		}
 	}
 }
