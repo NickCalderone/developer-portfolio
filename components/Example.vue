@@ -89,8 +89,8 @@ export default {
 	object-position: 50% 0%;
 	max-width: inherit;
 	max-height: inherit;
-	height: inherit;
-	width: inherit;
+	height: 100%;
+	width: 100%;
 }
 
 @media only screen and (max-width: 700px) {
