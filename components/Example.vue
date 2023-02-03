@@ -16,7 +16,7 @@ export default {
 <template>
 	<a :href="imgLink" rel="noreferrer noopener" target="_blank">
 		<div class="example">
-			<img :alt="alt" :srcset="this.makeSrcset()" sizes="
+			<img :alt="alt" :srcset="makeSrcset()" sizes="
 				(max-width: 300px) 300px,
 				(max-width: 400px) 400px,
 				(max-width: 500px) 500px,
