@@ -1,173 +1,158 @@
-  /* latin */
-  @font-face {
-  	font-family: 'Permanent Marker';
-  	font-style: normal;
-  	font-weight: 400;
-  	font-display: swap;
-  	src: local("PermanentMarker-Regular") url('~assets/fonts/PermanentMarker-Regular.ttf') format('woff2');
-  	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
+@font-face {
+	font-family: 'permanent_markerregular';
+	src: url('assets/fonts/PermanentMarker-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 
-  /* latin-ext */
-  @font-face {
-  	font-family: 'Varela';
-  	font-style: normal;
-  	font-weight: 400;
-  	font-display: swap;
-  	src: local("Varela-Regular") url('~assets/fonts/Varela-Regular.ttf') format('woff2');
-  	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
+@font-face {
+	font-family: 'varelaregular';
+	src: url('assets/fonts/varela-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
-  /* latin */
-  @font-face {
-  	font-family: 'Varela';
-  	font-style: normal;
-  	font-weight: 400;
-  	font-display: swap;
-  	src: local("Varela-Regular") url(~assets/fonts/Varela-Regular.ttf) format('woff2');
-  	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
+}
 
-  :root {
-  	--color-primary: #1D3557;
-  	--color-secondary: #E63946;
-  	--color-tertiary: #417595;
-  	--color-quaternary: #A8DADC;
-  	--color-quinary: #F1FAEE;
+:root {
+	--color-primary: #1D3557;
+	--color-secondary: #E63946;
+	--color-tertiary: #417595;
+	--color-quaternary: #A8DADC;
+	--color-quinary: #F1FAEE;
 
-  	--color-stripe-light: #38557e;
-  	--color-stripe-medium: #2A466D;
-  	--color-stripe-dark: #233D62;
+	--color-stripe-light: #38557e;
+	--color-stripe-medium: #2A466D;
+	--color-stripe-dark: #233D62;
 
-  	--color-primary-quiet: #233D62;
-  	--color-primary-loud: #2A466D;
-  	--color-menu-shadow: rgba(2, 12, 27, .7);
+	--color-primary-quiet: #233D62;
+	--color-primary-loud: #2A466D;
+	--color-menu-shadow: rgba(2, 12, 27, .7);
 
-  	--background-width-left: 58%;
-  	--background-width-middle: 14.5%;
-  	--background-width-right: 27.5%;
+	--background-width-left: 58%;
+	--background-width-middle: 14.5%;
+	--background-width-right: 27.5%;
 
-  	--content-margin: 0px auto;
-  	--content-gap: 150px;
+	--content-margin: 0px auto;
+	--content-gap: 150px;
 
-  	--h2-font-size: 7.5rem;
-  	--h3-font-size: 1.6rem;
+	--h2-font-size: 7.5rem;
+	--h3-font-size: 1.6rem;
 
-  	--font-family-primary: 'Permanent Marker', cursive;
-  	--font-family-secondary: 'Varela', sans-serif;
+	--font-family-primary: 'permanent_markerregular', cursive;
+	--font-family-secondary: 'varelaregular', sans-serif;
 
-  	--canvas-stroke-width: 5px;
+	--canvas-stroke-width: 5px;
 
-  	--spacing: 40px;
-  	--padding: 40px;
-  	--breakpoint: 700px;
+	--spacing: 40px;
+	--padding: 40px;
+	--breakpoint: 700px;
 
-  	--header-height-top: 90px;
-  	--header-height: 70px;
-  	--header-shadow: rgba(2, 12, 27, .7);
+	--header-height-top: 90px;
+	--header-height: 70px;
+	--header-shadow: rgba(2, 12, 27, .7);
 
-  	--transition-length: .2s;
+	--transition-length: .2s;
 
-  	--content-padding: 25px;
-  }
+	--content-padding: 25px;
+}
 
-  html {
-  	font-size: 16px;
-  	scroll-behavior: smooth;
-  }
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+}
 
-  body {
-  	margin: 0px;
-  }
+body {
+	margin: 0px;
+}
 
-  div {
-  	box-sizing: border-box;
-  }
+div {
+	box-sizing: border-box;
+}
 
-  a {
-  	color: var(--color-quinary);
-  }
+a {
+	color: var(--color-quinary);
+}
 
-  h1, h2, h3 {
-  	font-family: var(--font-family-primary);
-  }
+h1, h2, h3 {
+	font-family: var(--font-family-primary);
+}
 
-  h1 {
-  	color: var(--color-quinary);
-  }
+h1 {
+	color: var(--color-quinary);
+}
 
-  h2 {
-  	font-size: var(--h2-font-size);
-  	margin: 0px 0px 25px 0px;
-  	padding-top: 70px;
-  	color: var(--color-quinary);
-  	line-height: 1;
-  }
+h2 {
+	font-size: var(--h2-font-size);
+	margin: 0px 0px 25px 0px;
+	padding-top: 70px;
+	color: var(--color-quinary);
+	line-height: 1;
+}
 
-  h3 {
-  	font-size: var(--h3-font-size);
-  	color: var(--color-quaternary);
-  	margin: 0px;
-  }
+h3 {
+	font-size: var(--h3-font-size);
+	color: var(--color-quaternary);
+	margin: 0px;
+}
 
-  p {
-  	font-size: 1.15rem;
-  	font-family: var(--font-family-secondary);
-  	color: var(--color-quaternary);
-  	line-height: 1.5;
-  	margin: 0px;
-  }
+p {
+	font-size: 1.15rem;
+	font-family: var(--font-family-secondary);
+	color: var(--color-quaternary);
+	line-height: 1.5;
+	margin: 0px;
+}
 
-  .header {
-  	height: var(--header-height);
-  	box-sizing: border-box;
-  }
+.header {
+	height: var(--header-height);
+	box-sizing: border-box;
+}
 
-  /* Great post by Eric Bailey (https://css-tricks.com/revisiting-prefers-reduced-motion/) */
-  @media screen and (prefers-reduced-motion: reduce),
-  (update: slow) {
-  	* {
-  		animation-duration: 0.001ms !important;
-  		animation-iteration-count: 1 !important;
-  		/* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion/#comment-1700170) */
-  		transition-duration: 0.001ms !important;
-  		scroll-behavior: auto !important;
-  	}
-  }
+/* Great post by Eric Bailey (https://css-tricks.com/revisiting-prefers-reduced-motion/) */
+@media screen and (prefers-reduced-motion: reduce),
+(update: slow) {
+	* {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		/* Hat tip Nick/cssremedy (https://css-tricks.com/revisiting-prefers-reduced-motion/#comment-1700170) */
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
+	}
+}
 
-  @media only screen and (max-width: 1020px) {
-  	:root {
-  		--content-gap: 100px;
-  	}
-  }
+@media only screen and (max-width: 1020px) {
+	:root {
+		--content-gap: 100px;
+	}
+}
 
-  @media only screen and (max-width: 900px) {
-  	:root {
-  		--padding: 20px;
-  	}
+@media only screen and (max-width: 900px) {
+	:root {
+		--padding: 20px;
+	}
 
-  	h2 {
-  		font-size: 6rem;
-  	}
+	h2 {
+		font-size: 6rem;
+	}
 
-  	p {
-  		font-size: 1.15rem;
-  	}
-  }
+	p {
+		font-size: 1.15rem;
+	}
+}
 
-  @media only screen and (max-width: 700px) {
-  	:root {
-  		--content-gap: 50px;
-  	}
+@media only screen and (max-width: 700px) {
+	:root {
+		--content-gap: 50px;
+	}
 
-  }
+}
 
-  @media only screen and (max-width: 550px) {
-  	h2 {
-  		font-size: 4.5rem;
-  	}
+@media only screen and (max-width: 550px) {
+	h2 {
+		font-size: 4.5rem;
+	}
 
-  	p {
-  		font-size: 1.13rem;
-  	}
-  }
+	p {
+		font-size: 1.13rem;
+	}
+}
