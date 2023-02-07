@@ -205,10 +205,7 @@ export default {
 
 @media only screen and (max-width: 700px) {
 	.hero {
-		max-width: 1000px;
-		height: calc(v-bind(heroHeight) - 25px);
-		display: flex;
-		align-items: center;
+		height: max(calc(100vh - 20px), 750px);
 	}
 
 	.hero-header-wrapper h1 {
