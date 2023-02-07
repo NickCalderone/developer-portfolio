@@ -214,7 +214,6 @@ header .js-header-scrolled {
 
 .header {
 	position: fixed;
-	/* height: var(--header-height-top); */
 	width: 100%;
 	z-index: 15;
 	top: 0;
