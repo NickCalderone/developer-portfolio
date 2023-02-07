@@ -1,16 +1,15 @@
 @font-face {
-	font-family: 'permanent_markerregular';
-	src: url('assets/fonts/PermanentMarker-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+	font-family: "Permanent Marker";
+	font-weight: 400;
+	src:	url('assets/fonts/permanentmarker-regular-webfont.woff2') format('woff2'),
+			url('assets/fonts/permanentmarker-regular-webfont.woff') format('woff')
 }
 
 @font-face {
-	font-family: 'varelaregular';
-	src: url('assets/fonts/varela-regular-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-
+	font-family: "Varela";
+	font-weight: 400;
+	src:	url('assets/fonts/varela-regular-webfont.woff2') format('woff2'),
+			url('assets/fonts/varela-regular-webfont.woff') format('woff')
 }
 
 :root {
@@ -38,8 +37,8 @@
 	--h2-font-size: 7.5rem;
 	--h3-font-size: 1.6rem;
 
-	--font-family-primary: 'permanent_markerregular', cursive;
-	--font-family-secondary: 'varelaregular', sans-serif;
+	--font-family-primary: 'Permanent Marker', cursive;
+	--font-family-secondary: 'Varela', sans-serif;
 
 	--canvas-stroke-width: 5px;
 
