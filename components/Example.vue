@@ -25,6 +25,7 @@ export default {
 				(min-width: 701px) 300px" :src="imgSrc" 
 				:width="imgWidth"
 				:height="imgHeight"
+				loading="lazy"
 				/>
 			<div class="example-overlay">
 				<NewTab />
