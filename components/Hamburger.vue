@@ -20,7 +20,6 @@ export default {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  /* display: flex; */
   display: none;
   padding: 0;
   width: 75px;
