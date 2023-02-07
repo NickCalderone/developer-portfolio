@@ -17,6 +17,5 @@ export default defineNuxtConfig({
 			script: [],
 			noscript: []
 		}
-	},
-	modules: ['@nuxt/image-edge']
+	}
 })
