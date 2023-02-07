@@ -2,14 +2,16 @@
 	font-family: "Permanent Marker";
 	font-weight: 400;
 	src:	url('assets/fonts/permanentmarker-regular-webfont.woff2') format('woff2'),
-			url('assets/fonts/permanentmarker-regular-webfont.woff') format('woff')
+			url('assets/fonts/permanentmarker-regular-webfont.woff') format('woff');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Varela";
 	font-weight: 400;
 	src:	url('assets/fonts/varela-regular-webfont.woff2') format('woff2'),
-			url('assets/fonts/varela-regular-webfont.woff') format('woff')
+			url('assets/fonts/varela-regular-webfont.woff') format('woff');
+	font-display: swap;
 }
 
 :root {
