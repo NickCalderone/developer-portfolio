@@ -1,6 +1,10 @@
 <script>
 export default {
 	props: ['heroHeight'],
+	beforeMount(){
+		let hero = document.querySelector(".hero");
+		hero.style.height = this.heroHeight;
+	},
 	mounted() {
 
 		function delay(ms) {
@@ -18,7 +22,6 @@ export default {
 		let hand = document.querySelector("#hand");
 		hand.addEventListener("mouseover", handleWave);
 		hand.addEventListener("click", handleWave);
-
 	}
 }
 </script>
@@ -42,7 +45,7 @@ export default {
 <style>
 .hero {
 	max-width: 1000px;
-	height: v-bind(heroHeight);
+	height: max(100vh, 750px);
 	display: flex;
 	align-items: center;
 }
