@@ -27,12 +27,10 @@ export default {
 		window.addEventListener("resize", () => {
 
 			// if resizing while mobile menu is open, close it and reset the button animation
-			if (!this.mobileDevice && this.mobileMenuOpen){
+			if (!this.mobileDevice && this.mobileMenuOpen) {
 				this.resetMenu();
 			}
 		});
-
-		//set header class
 	},
 	methods: {
 		resetMenu() {
@@ -128,6 +126,7 @@ export default {
 
 		},
 		menuHandler() {
+			console.log("hey");
 
 			this.freezeHandler();
 			this.animateSVG();
@@ -205,13 +204,26 @@ export default {
 </template>
 
 <style>
+header .js-header-top {
+	height: var(--header-height-top);
+}
+
+header .js-header-scrolled {
+	height: var(--header-height);
+}
+
 .header {
 	position: fixed;
+	/* height: var(--header-height-top); */
 	width: 100%;
 	z-index: 15;
 	top: 0;
 	box-shadow: 0 10px 30px -10px var(--header-shadow);
-	transition: box-shadow .3s ease-in-out, transform .4s ease-in-out, height .3s ease-in-out;
+	transition: box-shadow .3s ease-in-out, transform .3s ease-in-out, height .3s ease-in-out;
+}
+
+.mobile-menu-wrapper {
+	display: none;
 }
 
 .js-header-hidden {
@@ -232,14 +244,6 @@ export default {
 
 .hamburger-wrapper {
 	display: none;
-}
-
-.js-header-top {
-	height: var(--header-height-top);
-}
-
-.js-header-scrolled {
-	height: var(--header-height);
 }
 
 .logo-anchor {
@@ -287,11 +291,22 @@ export default {
 	color: var(--color-quinary);
 }
 
-.mobile-menu-wrapper {
-	display: none;
-}
-
 @media only screen and (max-width: 700px) {
+	.mobile-menu-wrapper {
+		padding: 30px 30px;
+		min-width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--color-primary);
+		box-shadow: none;
+		opacity: .98;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+	}
+
 	body.js-frozen {
 		overflow: hidden;
 	}
@@ -327,21 +342,6 @@ export default {
 
 	.menu-wrapper {
 		display: none;
-	}
-
-	.mobile-menu-wrapper {
-		padding: 30px 30px;
-		min-width: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: var(--color-primary);
-		box-shadow: none;
-		opacity: .98;
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
 	}
 
 	.js-mobile-menu-wrapper {
