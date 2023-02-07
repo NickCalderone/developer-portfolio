@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-	<NuxtLoadingIndicator />
+	<!-- <NuxtLoadingIndicator /> -->
 	<Menu :mobile-device="mobileDevice" />
 	<main id="top" class="layout-wrapper js-layout-wrapper">
 		<Hero class="layout-hero" :hero-height="heroHeight"/>
