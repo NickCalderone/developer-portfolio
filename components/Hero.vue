@@ -210,7 +210,7 @@ export default {
 @media only screen and (max-width: 700px) {
 
 	.hero {
-		height: max(calc(100vh - 70px), 750px);
+		height: calc(100vh - 20px);
 	}
 
 	.hero-header-wrapper h1 {
