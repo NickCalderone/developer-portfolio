@@ -1,36 +1,45 @@
 <script>
 export default {
+
 	data() {
+		
 		return {
-			// heroHeight: undefined,
+			
 			breakpoint: undefined,
 			mobileDevice: undefined
+
 		}
-	},
-	beforeMount(){
-
-		// let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
-		// this.heroHeight = heroHeight + "px";
 
 	},
+
 	mounted() {
 
+		// get mobile breakpoint from css variable
 		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
-		this.setDevice();
-		window.addEventListener("resize", this.setDevice);
+
+		// set device state
+		this.setDevice(this.breakpoint);
+
+ 		// update device state when window resizes
+		window.addEventListener("resize", () => this.setDevice(this.breakpoint));
 
 	},
+
 	methods: {
-		setDevice() {
-			this.mobileDevice = window.matchMedia("(max-width:" + this.breakpoint + ")").matches ? true : false;
+
+		setDevice(breakpoint) {
+
+			// set device state based on mobile breakpoint
+			this.mobileDevice = window.matchMedia("(max-width:" + breakpoint + ")").matches ? true : false;
+
 		}
+
 	}
 }
 </script>
 
 <template>
-	<!-- <NuxtLoadingIndicator /> -->
-	<Menu :mobile-device="mobileDevice" />
+	<SiteMenu :mobile-device="mobileDevice" />
 	<main id="top" class="layout-wrapper js-layout-wrapper">
 		<Hero class="layout-hero" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
@@ -42,7 +51,7 @@ export default {
 		<MountainsTop class="layout-mountains-top" />
 		<MountainsBottom class="layout-mountains-bottom" />
 	</main>
-	<Footer />
+	<SiteFooter />
 </template>
 
 <style>
