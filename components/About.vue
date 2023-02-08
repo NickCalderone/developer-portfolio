@@ -1,6 +1,8 @@
 <script>
 export default {
+
 	data() {
+
 		return {
 			parent: undefined,
 			canvas: undefined,
@@ -10,22 +12,29 @@ export default {
 			color: undefined,
 			lineCap: "round"
 		}
+
 	},
+
 	mounted() {
-		this.parent = document.querySelector(".about-canvas-wrapper");
+
+		// set up canvas state variables
 		this.canvas = document.querySelector("#about-canvas");
-		this.ctx = this.canvas.getContext("2d");
-		this.ctx.lineCap = "round";
 		this.color = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
 		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
+		this.parent = document.querySelector(".about-canvas-wrapper");
 
+		// set up canvas context
+		this.ctx = this.canvas.getContext("2d");
+		this.ctx.lineCap = "round";
+
+		// set up drawing variables
 		let rect = this.parent.getBoundingClientRect();
 		let w = rect.width;
 		let h = rect.height;
 
-
 		this.draw(w, h);
 
+		// redraw on resize with new drawing variables
 		const observer = new ResizeObserver(entries => {
 
 			let w = entries[0].contentRect.width;
@@ -35,16 +44,27 @@ export default {
 		});
 
 		observer.observe(this.parent);
+
 	},
+
 	methods: {
+
 		draw(w, h) {
+
+			// choose what device layout to draw
 			if (window.matchMedia("(max-width:" + this.breakpoint + ")").matches) {
+
 				this.drawMobile(w, h);
+
 			} else {
+
 				this.drawDesktop(w, h);
+
 			}
+
 		},
-		getContext(w, h, lineWidth, radius) {
+
+		setContext(w, h, lineWidth, radius) {
 
 			// setup canvas context
 			this.canvas.width = w;
@@ -61,15 +81,15 @@ export default {
 			return this.ctx;
 
 		},
+
 		drawDesktop(w, h) {
 
-			// set up and get canvas context
-			let context = this.getContext(w, h, 5, 12);
+			// set canvas context
+			let context = this.setContext(w, h, 5, 12);
 
-			// get drawing variables
+			// set drawing variables
 			let width = this.canvas.width;
 			let height = this.canvas.height + 2;
-
 			let offset = this.lineWidth;
 			let radius = this.radius;
 
@@ -86,20 +106,19 @@ export default {
 			context.stroke();
 
 		},
-		drawMobile(w, h) {
-			// set up and get canvas context
-			let context = this.getContext(w, h, 5, 12);
 
-			// get drawing variables
+		drawMobile(w, h) {
+			// set canvas context
+			let context = this.setContext(w, h, 5, 12);
+
+			// set drawing variables
 			let width = this.canvas.width;
 			let height = this.canvas.height;
-
 			let offset = this.lineWidth / 2;
 			let radius = this.radius;
-
 			let spacingVariable = getComputedStyle(document.documentElement).getPropertyValue("--spacing")
 
-			// remove units and change to a number
+			// change spacing css variable into a number
 			let spacing = Number(spacingVariable.slice(0, -2));
 
 			// draw directions
@@ -111,12 +130,15 @@ export default {
 			context.arcTo(offset, height - offset, offset + radius, height - offset, radius);
 			context.lineTo(width - spacing, height - offset);
 
+			// draw
 			context.stroke();
 
 		}
+
 	}
 }
 </script>
+
 <template>
 	<section class="about-wrapper">
 		<h2 id="about" class="about-header">About</h2>
@@ -159,15 +181,12 @@ export default {
 	max-height: 100%;
 	grid-row: 2;
 	grid-column: 1 / 3;
-	/* prevent the canvas from growing exponentially when the resize handler fires */
-	line-height: 0;
 	position: relative;
 }
 
 #about-canvas {
 	max-height: 105%;
-	/* for some reason using width: 100% makes it at least 500px tall no matter what? */
-	max-width: 100%;
+	width: 100%;
 	display: block;
 	position: absolute;
 }
@@ -230,8 +249,6 @@ export default {
 	.about-canvas-wrapper {
 		grid-row: 2 / 6;
 		grid-column: 1;
-		/* prevent the canvas from growing exponentially when the resize handler fires */
-		line-height: 0;
 	}
 
 	.about-img {
@@ -242,8 +259,6 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		/* background-color: var(--color-stripe-medium);
-		border-radius: 1000px; */
 		padding: 5% 5% 0px 5%;
 	}
 

@@ -1,7 +1,10 @@
 <script>
 export default {
+
 	data() {
+
 		return {
+
 			parent: undefined,
 			canvas: undefined,
 			ctx: undefined,
@@ -9,23 +12,31 @@ export default {
 			radius: undefined,
 			color: undefined,
 			lineCap: "round"
+
 		}
+
 	},
+
 	mounted() {
-		this.parent = document.querySelector(".work-canvas-wrapper");
+
+		// set up canvas state variables
 		this.canvas = document.querySelector("#work-canvas");
-		this.ctx = this.canvas.getContext("2d");
-		this.ctx.lineCap = "round";
 		this.color = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
 		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
+		this.parent = document.querySelector(".work-canvas-wrapper");
 
+		// set up canvas context
+		this.ctx = this.canvas.getContext("2d");
+		this.ctx.lineCap = "round";
+
+		// set up drawing variables
 		let rect = this.parent.getBoundingClientRect();
 		let w = rect.width;
 		let h = rect.height;
 
-
 		this.draw(w, h);
 
+		// redraw on resize with new drawing variables
 		const observer = new ResizeObserver(entries => {
 
 			let w = entries[0].contentRect.width;
@@ -35,16 +46,27 @@ export default {
 		});
 
 		observer.observe(this.parent);
+
 	},
+
 	methods: {
+
 		draw(w, h) {
+
+			// choose what device layout to draw
 			if (window.matchMedia("(max-width:" + this.breakpoint + ")").matches) {
+
 				this.drawMobile(w, h);
+
 			} else {
+
 				this.drawDesktop(w, h);
+
 			}
+
 		},
-		getContext(w, h, lineWidth, radius) {
+
+		setContext(w, h, lineWidth, radius) {
 
 			// setup canvas context
 			this.canvas.width = w;
@@ -63,12 +85,11 @@ export default {
 		drawDesktop(w, h) {
 
 			// set up and get canvas context
-			let context = this.getContext(w, h, 5, 12);
+			let context = this.setContext(w, h, 5, 12);
 
 			// get drawing variables
 			let width = this.canvas.width;
 			let height = this.canvas.height;
-
 			let offset = this.lineWidth / 2;
 			let radius = this.radius;
 
@@ -86,19 +107,17 @@ export default {
 
 		},
 		drawMobile(w, h) {
-			// set up and get canvas context
-			let context = this.getContext(w, h, 5, 12);
+			// set canvas context
+			let context = this.setContext(w, h, 5, 12);
 
-			// get drawing variables
+			// set drawing variables
 			let width = this.canvas.width;
 			let height = this.canvas.height;
-
 			let offset = this.lineWidth / 2;
 			let radius = this.radius;
-
 			let spacingVariable = getComputedStyle(document.documentElement).getPropertyValue("--spacing")
 
-			// remove units and change to a number
+			// change spacing css variable into a number
 			let spacing = Number(spacingVariable.slice(0, -2));
 
 			// draw directions
@@ -108,9 +127,11 @@ export default {
 			context.arcTo(width * .15 + offset, offset, width * .15 + offset, offset + radius, radius);
 			context.lineTo(width * .15 + offset, height - offset - 20);
 
+			// draw
 			context.stroke();
 
 		}
+
 	}
 }
 

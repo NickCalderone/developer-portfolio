@@ -1,6 +1,8 @@
 <script>
 export default {
+
 	data() {
+
 		return {
 			parent: undefined,
 			canvas: undefined,
@@ -10,21 +12,29 @@ export default {
 			color: undefined,
 			lineCap: "round"
 		}
+
 	},
+
 	mounted() {
-		this.parent = document.querySelector(".contact-canvas-wrapper");
+
+		// set up canvas state variables
 		this.canvas = document.querySelector("#contact-canvas");
-		this.ctx = this.canvas.getContext("2d");
-		this.ctx.lineCap = "round";
 		this.color = getComputedStyle(document.documentElement).getPropertyValue("--color-secondary");
 		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
+		this.parent = document.querySelector(".contact-canvas-wrapper");
 
+		// set up canvas context
+		this.ctx = this.canvas.getContext("2d");
+		this.ctx.lineCap = "round";
+
+		// set up drawing variables
 		let rect = this.parent.getBoundingClientRect();
 		let w = rect.width;
 		let h = rect.height;
 
 		this.draw(w, h);
 
+		// redraw on resize with new drawing variables
 		const observer = new ResizeObserver(entries => {
 
 			let w = entries[0].contentRect.width;
@@ -34,17 +44,19 @@ export default {
 		});
 
 		observer.observe(this.parent);
+
 	},
+
 	methods: {
+
 		draw(w, h) {
 
 			// set up and get canvas context
-			let context = this.getContext(w, h, 5, 12);
+			let context = this.setContext(w, h, 5, 12);
 
-			// get drawing variables
+			// set drawing variables
 			let width = this.canvas.width;
 			let height = this.canvas.height;
-
 			let offset = this.lineWidth / 2;
 			let radius = this.radius;
 
@@ -65,7 +77,8 @@ export default {
 			context.stroke();
 
 		},
-		getContext(w, h, lineWidth, radius) {
+
+		setContext(w, h, lineWidth, radius) {
 
 			// setup canvas context
 			this.canvas.width = w;
@@ -81,6 +94,7 @@ export default {
 			return this.ctx;
 
 		}
+
 	}
 }
 </script>
@@ -114,8 +128,6 @@ export default {
 	display: grid;
 	grid-template-rows: auto auto 1fr var(--canvas-stroke-width) 1fr;
 	grid-template-columns: auto;
-	/* prevent the canvas from growing exponentially when the resize handler fires */
-	line-height: 0;
 }
 
 .contact-header {
@@ -201,12 +213,10 @@ export default {
 }
 
 .contact-mailto-a:hover p {
-	/* color: var(--color-quinary); */
 	color: var(--color-primary-loud);
 }
 
 .contact-mailto-a:hover .mailto-icon path {
-	/* fill: var(--color-quinary); */
 	fill: var(--color-primary-loud);
 }
 
