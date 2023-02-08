@@ -1,5 +1,18 @@
 <script>
 export default {
+	beforeMount(){
+
+		// set up variables
+		let root = document.querySelector(":root");
+		let desktopHeroHeight = (window.innerHeight > 750 ? window.innerHeight : 750) + "px";
+		let mobileHeroHeight = (window.innerHeight > 650 ? window.innerHeight - 20 : 630 ) + "px";
+
+		// update css variables
+		root.style.setProperty("--desktop-hero-height", desktopHeroHeight);
+		root.style.setProperty("--mobile-hero-height", mobileHeroHeight);
+
+	},
+
 	mounted() {
 
 		// add waving easter egg handler 
@@ -48,7 +61,7 @@ export default {
 
 .hero {
 	max-width: 1000px;
-	height: max(100vh, 750px);
+	height: var(--desktop-hero-height);
 	display: flex;
 	align-items: center;
 }
@@ -210,7 +223,7 @@ export default {
 @media only screen and (max-width: 700px) {
 
 	.hero {
-		height: calc(100vh - 20px);
+		height: var(--mobile-hero-height);
 	}
 
 	.hero-header-wrapper h1 {
