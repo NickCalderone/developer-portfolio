@@ -55,6 +55,9 @@
 	--transition-length: .2s;
 
 	--content-padding: 25px;
+	
+	--desktop-hero-height: max(100vh, 750px);
+	--mobile-hero-height: max(630px, calc(100vh - 20px));
 }
 
 html {
