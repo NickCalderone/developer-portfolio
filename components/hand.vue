@@ -17,8 +17,11 @@
 			style="fill:none;stroke:#e48c15;stroke-width:2.5px;" />
 	</svg>
 </template>
+
 <style>
+
 .movement {
 	stroke: var(--color-tertiary);
 }
+
 </style>
