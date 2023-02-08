@@ -1,31 +1,30 @@
 <script>
 export default {
-	// props: ['heroHeight'],
-	// data() {
-	// 	return {
-	// 		height: this.heroHeight
-	// 	}
-	// },
 	mounted() {
-		// let hero = document.querySelector(".hero");
-		// console.log(hero, this.height, 'here');
-		// hero.style.height = this.heroHeight;
 
-		function delay(ms) {
+		// add waving easter egg handler 
+		let hand = document.querySelector("#hand");
+		["mouseover", "click"].forEach(e => hand.addEventListener(e, this.handleWave, false));
+
+	},
+
+	methods: {
+
+		// wait for the wave to finish
+		delay(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms))
 
-		}
-		async function handleWave() {
+		},
+
+		// make the hand wave
+		async handleWave() {
 			if (!hand.classList.contains("wave")) {
 				await hand.classList.add("wave");
-				await delay(1800);
+				await this.delay(1800);
 				await hand.classList.remove("wave");
 			}
 		}
 
-		let hand = document.querySelector("#hand");
-		hand.addEventListener("mouseover", handleWave);
-		hand.addEventListener("click", handleWave);
 	}
 }
 </script>
@@ -34,7 +33,6 @@ export default {
 		<section class="hero">
 			<div class="hero-inner">
 				<Hand id="hand" />
-				<!-- <img id="hand" src="~/assets/img/wave.png" alt="A waving hand" /> -->
 				<div class="hero-header-wrapper">
 					<h1>Hello, <br class="h1-br" />my name<br />is Nick<span class="period">.</span></h1>
 				</div>
@@ -47,6 +45,7 @@ export default {
 </template>
 
 <style>
+
 .hero {
 	max-width: 1000px;
 	height: max(100vh, 750px);
@@ -81,7 +80,6 @@ export default {
 	margin-left: 10px
 }
 
-
 .h1-br {
 	display: none;
 }
@@ -101,7 +99,6 @@ export default {
 .hero-inner br {
 	margin-bottom: 10px;
 }
-
 
 #hand {
 	height: 109px;
@@ -148,6 +145,7 @@ export default {
 }
 
 @media only screen and (max-width: 1200px) {
+
 	.hero-inner {
 		grid-template-columns: 1fr auto;
 		grid-template-areas:
@@ -184,6 +182,7 @@ export default {
 }
 
 @media only screen and (max-width: 900px) {
+
 	.hero-inner {
 		grid-template-columns: 1fr auto;
 		grid-template-areas:
@@ -205,9 +204,11 @@ export default {
 	.hero-sub-header {
 		text-align: center;
 	}
+
 }
 
 @media only screen and (max-width: 700px) {
+
 	.hero {
 		height: max(calc(100vh - 20px), 750px);
 	}
@@ -224,10 +225,10 @@ export default {
 		font-size: 22px;
 	}
 
-
 }
 
 @media only screen and (max-width: 550px) {
+
 	.hero-inner {
 		padding: 5px;
 	}
@@ -245,4 +246,5 @@ export default {
 	}
 
 }
+
 </style>
