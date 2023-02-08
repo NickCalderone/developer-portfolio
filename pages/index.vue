@@ -2,15 +2,15 @@
 export default {
 	data() {
 		return {
-			heroHeight: undefined,
+			// heroHeight: undefined,
 			breakpoint: undefined,
 			mobileDevice: undefined
 		}
 	},
 	beforeMount(){
 
-		let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
-		this.heroHeight = heroHeight + "px";
+		// let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
+		// this.heroHeight = heroHeight + "px";
 
 	},
 	mounted() {
@@ -32,7 +32,7 @@ export default {
 	<!-- <NuxtLoadingIndicator /> -->
 	<Menu :mobile-device="mobileDevice" />
 	<main id="top" class="layout-wrapper js-layout-wrapper">
-		<Hero class="layout-hero" :hero-height="heroHeight"/>
+		<Hero class="layout-hero" />
 		<Content class="layout-background" colorL="var(--color-primary)" colorM="var(--color-stripe-medium)"
 			colorR="var(--color-primary)">
 			<Work />
