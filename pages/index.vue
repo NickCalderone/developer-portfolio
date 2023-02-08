@@ -3,19 +3,20 @@ export default {
 	data() {
 		return {
 			heroHeight: undefined,
-			heroHeightNum: undefined,
 			breakpoint: undefined,
 			mobileDevice: undefined
 		}
 	},
-	mounted() {
+	beforeMount(){
+
 		let heroHeight = window.innerHeight > 750 ? window.innerHeight : 750;
 		this.heroHeight = heroHeight + "px";
-		this.heroHeightNum = heroHeight;
+
+	},
+	mounted() {
+
 		this.breakpoint = getComputedStyle(document.documentElement).getPropertyValue("--breakpoint");
-
 		this.setDevice();
-
 		window.addEventListener("resize", this.setDevice);
 
 	},

@@ -1,11 +1,15 @@
 <script>
 export default {
 	props: ['heroHeight'],
-	beforeMount(){
-		let hero = document.querySelector(".hero");
-		hero.style.height = this.heroHeight;
+	data() {
+		return {
+			height: this.heroHeight
+		}
 	},
 	mounted() {
+		let hero = document.querySelector(".hero");
+		console.log(hero, this.height, 'here');
+		hero.style.height = this.heroHeight;
 
 		function delay(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms))
