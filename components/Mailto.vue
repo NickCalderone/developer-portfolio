@@ -12,8 +12,10 @@
 </template>
 
 <style>
+
 .mailto-svg {
 	height: 1.5rem;
 	align-self: center;
 }
+
 </style>

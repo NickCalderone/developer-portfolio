@@ -1,15 +1,23 @@
 <script>
 export default {
+
 	props: ['imgName', 'imgSrc', 'alt', 'imgLink', 'imgWidth', 'imgHeight'],
+
 	methods: {
+
 		makeSrcset() {
+
 			let set = this.makeSetString;
 			return `${set(300)}, ${set(400)}, ${set(500)}, ${set(600)}, ${set(700)}`;
+
 		},
+
 		makeSetString(size) {
+
 			return `${this.imgName}-${size}.webp ${size}w`;
 
 		}
+
 	}
 }
 </script>
@@ -33,6 +41,7 @@ export default {
 		</div>
 	</a>
 </template>
+
 
 <style>
 .example {

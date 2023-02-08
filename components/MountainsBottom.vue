@@ -14,17 +14,23 @@
 </template>
 
 <style>
+
 @media only screen and (max-width: 900px) {
+
 	.mountains-bottom {
 		margin-left: -117px;
 		margin-right: -50px;
 	}
+
 }
 
 @media only screen and (max-width: 700px) {
+
 	.mountains-bottom {
 		margin-left: -208px;
 		margin-right: -100px;
 	}
+
 }
+
 </style>

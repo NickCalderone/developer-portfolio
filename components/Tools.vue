@@ -1,10 +1,16 @@
 <script>
 export default {
+
 	data() {
+
 		return {
+
 			tools: ["Vue", "Svelte", "React", "WordPress", "Drupal", "Accessible", "Responsive", "Figma", "Git/Github", "Google Analytics"]
+
 		}
+
 	}
+
 }
 </script>
 
@@ -22,6 +28,7 @@ export default {
 </template>
 
 <style>
+
 .tools-wrapper {
 	padding-left: var(--spacing);
 }
@@ -52,6 +59,7 @@ export default {
 }
 
 @media only screen and (max-width: 1020px) {
+
 	.tools {
 		gap: 16px;
 	}
@@ -63,9 +71,11 @@ export default {
 	.tool p {
 		font-size: 16px;
 	}
+
 }
 
 @media only screen and (max-width: 700px) {
+
 	.tools-wrapper {
 		padding-left: 0;
 	}
@@ -78,6 +88,7 @@ export default {
 	.tool {
 		padding: 5px 12px 5px 7px;
 	}
+
 }
 
 @media only screen and (max-width: 550px) {
@@ -91,4 +102,5 @@ export default {
 	}
 
 }
+
 </style>
