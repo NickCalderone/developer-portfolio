@@ -116,8 +116,8 @@ export default {
 		<a class="contact-mailto-a" href="mailto:calderonenick@gmail.com">
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
-				<Mailto class="mailto-icon" />
 				<p>Let's Talk</p>
+				<Mailto class="mailto-icon" />
 			</div>
 		</a>
 	</section>
@@ -189,7 +189,7 @@ export default {
 
 .mailto-icon {
 	z-index: 10;
-	margin-right: .75rem;
+	margin-left: .75rem;
 }
 
 .mailto-icon path {
