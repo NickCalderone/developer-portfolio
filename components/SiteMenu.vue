@@ -1,8 +1,12 @@
 <script>
 export default {
+
 	props: ["mobileDevice"],
+
 	data() {
+
 		return {
+
 			lastScrollPosition: 0,
 			mobileMenuOpen: false,
 			header: undefined,
@@ -11,9 +15,13 @@ export default {
 			button: undefined,
 			modal: undefined,
 			body: undefined
+
 		}
+
 	},
+
 	mounted() {
+
 		//set up variables
 		this.lastScrollPosition = window.pageYOffset;
 		this.header = document.querySelector(".header");
@@ -23,37 +31,41 @@ export default {
 		this.modal = document.querySelector(".mobile-menu-wrapper");
 		this.body = document.body;
 
+		// handle header on scroll event listener
 		window.addEventListener("scroll", this.headerScrollHandler);
+		// handle menu on resize event listener
 		window.addEventListener("resize", () => {
 
 			// if resizing while mobile menu is open, close it and reset the button animation
 			if (!this.mobileDevice && this.mobileMenuOpen) {
 				this.resetMenu();
 			}
+
 		});
+
 	},
+
 	methods: {
+
 		resetMenu() {
 
-			let opened = this.mobileMenuOpen;
+			// if the mobile menu is open, close it and reset the menu button animation
+			if (this.mobileMenuOpen) {
 
-			if (opened) {
-
-				let menu = this.menu;
-				let body = this.body;
-				let background = this.background;
-
-				this.closeMenu(menu, body, background);
-
+				this.closeMenu(this.menu, this.body, this.background);
 				this.animateSVG();
 
 			}
+
 		},
+
 		headerScrollHandler() {
+
+			// set up variables
 			let myHeader = this.header;
 			let currentScrollPosition = window.pageYOffset;
 
-			// if at the top of the page
+			// if at the top of the page, increase header height
 			if (currentScrollPosition < 50) {
 
 				myHeader.classList.remove('js-header-hidden');
@@ -61,7 +73,8 @@ export default {
 				myHeader.classList.add('js-header-top');
 
 			}
-			// if scrolling down 
+
+			// if scrolling down, hide the header
 			else if (currentScrollPosition > this.lastScrollPosition) {
 
 				myHeader.classList.remove('js-header-top');
@@ -69,7 +82,8 @@ export default {
 				myHeader.classList.add('js-header-scrolled');
 
 			}
-			// if scrolling up 
+
+			// if scrolling up show the header
 			else {
 
 				myHeader.classList.remove('js-header-hidden');
@@ -77,76 +91,115 @@ export default {
 
 			}
 
-			// update scroll position
+			// update scroll position state
 			this.lastScrollPosition = currentScrollPosition;
-		},
-		freezeHandler() {
 
-			let opened = this.mobileMenuOpen;
+		},
+
+		doorman() {
+
+			// set up variables
 			let menu = this.menu;
 			let body = this.body;
 			let background = this.background;
 
-			// open menu
-			if (!opened) {
+			// if the mobile menu is not open, open it
+			if (!this.mobileMenuOpen) {
 
 				this.openMenu(menu, body, background);
 
-				// close menu
-			} else {
+			} 
+			
+			// if the menu is open, close it
+			else {
 
 				this.closeMenu(menu, body, background);
 
 			}
+
 		},
+		
 		openMenu(menu, body, background) {
 
+			// add menu opened classes
 			menu.classList.add('js-open');
 			body.classList.add('js-frozen');
 			background.classList.add('js-frozen');
 
-			// update mobile menu
+			// update state
 			this.mobileMenuOpen = true;
 
-			// freeze the rest of the app while the menu is open
+			// add listener that will close and reset the menu if clicked off of the menu
 			body.addEventListener("click", this.modalControl);
 
 		},
+
 		closeMenu(menu, body, background) {
 
+			// remove menu opened classes
 			menu.classList.remove('js-open');
 			body.classList.remove('js-frozen');
 			background.classList.remove('js-frozen');
 
-			//update mobile menu
+			//update state
 			this.mobileMenuOpen = false;
 
-			// remove app freeze listener
+			// remove the exit mobile menu listener 
 			body.removeEventListener("click", this.modalControl);
 
 		},
-		menuHandler() {
-			console.log("hey");
 
-			this.freezeHandler();
+		menuHandler() {
+
+			// open or close the mobile menu
+			this.doorman();
+
+			// check menu state and update hamburger to match
 			this.animateSVG();
 
 		},
+
 		animateSVG() {
+
+			// set up variables
 			let myButton = this.button;
-			myButton.classList.toggle('opened');
+
+			// if the menu is open, add class
+			if (this.mobileMenuOpen){
+				myButton.classList.add('opened');
+			}
+
+			//if the menu is closed, remove class
+			else {
+				myButton.classList.remove('opened');
+			}
+
+			// set the aria attribute accordingly
 			myButton.setAttribute('aria-expanded', myButton.classList.contains('opened'))
+
 		},
+
 		modalControl(e) {
+
+			// set up variables
 			let myButton = this.button;
 			let myModal = this.modal;
 
-			// if not clicking inside menu, not clicking the menu button, not clicking the svg inside the button...
-			if (!myModal.contains(e.target) && e.target != myButton && !myButton.contains(e.target)) {
+			if (
+				// if not clicking inside mobile menu container
+				!myModal.contains(e.target) && 
 
+				// if not clicking the menu button
+				e.target != myButton 
+
+				// if not clicking the menu button svg
+				&& !myButton.contains(e.target)) {
+
+				// exit menu and update state
 				this.menuHandler();
 			}
 		}
+
 	}
 }
 </script>
@@ -204,6 +257,7 @@ export default {
 </template>
 
 <style>
+
 header .js-header-top {
 	height: var(--header-height-top);
 }
@@ -291,6 +345,7 @@ header .js-header-scrolled {
 }
 
 @media only screen and (max-width: 700px) {
+
 	.mobile-menu-wrapper {
 		padding: 30px 30px;
 		min-width: 50%;
