@@ -185,8 +185,6 @@ export default {
 .work-canvas-wrapper {
 	grid-row: 1 / span 3;
 	grid-column: 1 / 7;
-	/* prevent the canvas from growing exponentially when the resize handler fires */
-	line-height: 0;
 	position: relative;
 }
 
