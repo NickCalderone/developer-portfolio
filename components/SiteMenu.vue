@@ -233,7 +233,7 @@ export default {
 							<p>/</p>
 						</li>
 						<li class="menu-item">
-							<a @click="resetMenu" href="https://github.com/NickCalderone" target="_blank" rel="noreferrer noopener">
+							<a @click="resetMenu" href="https://github.com/NickCalderone" aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
 								<GithubMark class="github-icon-desktop" />
 							</a>
 						</li>
