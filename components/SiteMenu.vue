@@ -234,7 +234,7 @@ export default {
 						</li>
 						<li class="menu-item">
 							<a @click="resetMenu" href="https://github.com/NickCalderone" aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
-								<GithubMark class="github-icon-desktop" />
+								<GithubMark class="github-icon-desktop" title-id="desktop-github-title" desc-id="desktop-github-desc" />
 							</a>
 						</li>
 					</ul>
@@ -253,8 +253,8 @@ export default {
 						<a @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a @click="resetMenu" href="https://github.com/NickCalderone" target="_blank" rel="noreferrer noopener">
-							<GithubMark class="github-icon-mobile" />
+						<a @click="resetMenu" href="https://github.com/NickCalderone" aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
+							<GithubMark class="github-icon-mobile" title-id="mobile-github-title" desc-id="mobile-github-desc" />
 						</a>
 					</li>
 				</ul>
