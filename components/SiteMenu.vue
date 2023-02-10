@@ -108,8 +108,8 @@ export default {
 
 				this.openMenu(menu, body, background);
 
-			} 
-			
+			}
+
 			// if the menu is open, close it
 			else {
 
@@ -118,7 +118,7 @@ export default {
 			}
 
 		},
-		
+
 		openMenu(menu, body, background) {
 
 			// add menu opened classes
@@ -165,7 +165,7 @@ export default {
 			let myButton = this.button;
 
 			// if the menu is open, add class
-			if (this.mobileMenuOpen){
+			if (this.mobileMenuOpen) {
 				myButton.classList.add('opened');
 			}
 
@@ -187,10 +187,10 @@ export default {
 
 			if (
 				// if not clicking inside mobile menu container
-				!myModal.contains(e.target) && 
+				!myModal.contains(e.target) &&
 
 				// if not clicking the menu button
-				e.target != myButton 
+				e.target != myButton
 
 				// if not clicking the menu button svg
 				&& !myButton.contains(e.target)) {
@@ -229,6 +229,14 @@ export default {
 						<li class="menu-item">
 							<a href="#contact">Contact</a>
 						</li>
+						<li class="menu-separator">
+							<p>/</p>
+						</li>
+						<li class="menu-item">
+							<a @click="resetMenu" href="https://github.com/NickCalderone" target="_blank" rel="noreferrer noopener">
+								<GithubMark class="github-icon-desktop" />
+							</a>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -238,17 +246,16 @@ export default {
 					<li class="mobile-menu-item">
 						<a @click="resetMenu" href="#work">Work</a>
 					</li>
-					<li class="mobile-menu-separator">
-						<p>/</p>
-					</li>
 					<li class="mobile-menu-item">
 						<a @click="resetMenu" href="#about">About</a>
 					</li>
-					<li class="mobile-menu-separator">
-						<p>/</p>
-					</li>
 					<li class="mobile-menu-item">
 						<a @click="resetMenu" href="#contact">Contact</a>
+					</li>
+					<li class="mobile-menu-item">
+						<a @click="resetMenu" href="https://github.com/NickCalderone" target="_blank" rel="noreferrer noopener">
+							<GithubMark class="github-icon-mobile" />
+						</a>
 					</li>
 				</ul>
 			</nav>
@@ -257,7 +264,6 @@ export default {
 </template>
 
 <style>
-
 header .js-header-top {
 	height: var(--header-height-top);
 }
@@ -327,6 +333,7 @@ header .js-header-scrolled {
 	list-style: none;
 	color: var(--color-quaternary);
 	font-size: 22px;
+	line-height: 0;
 }
 
 .menu li a {
@@ -342,6 +349,10 @@ header .js-header-scrolled {
 
 .menu li a:hover {
 	color: var(--color-quinary);
+}
+
+.github-icon-desktop {
+	height: 22px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -429,8 +440,8 @@ header .js-header-scrolled {
 		transition: color .3s ease-in-out;
 	}
 
-	.mobile-menu-separator {
-		display: none;
+	.github-icon-mobile {
+		height: 30px;
 	}
 
 }
