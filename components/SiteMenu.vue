@@ -215,26 +215,35 @@ export default {
 				<nav class="menu-wrapper">
 					<ul class="menu">
 						<li class="menu-item">
-							<a href="#work">Work</a>
+							<a class="menu-github-anchor" @click="resetMenu" href="https://github.com/NickCalderone"
+								aria-label="See Nick Calderone's GitHub profile" target="_blank"
+								rel="noreferrer noopener">
+								<GithubMark class="github-icon-desktop" title-id="desktop-github-title"
+									desc-id="desktop-github-desc" />
+							</a>
 						</li>
 						<li class="menu-separator">
 							<p>/</p>
 						</li>
 						<li class="menu-item">
-							<a href="#about">About</a>
+							<a class="menu-anchor" href="#work">Work</a>
 						</li>
 						<li class="menu-separator">
 							<p>/</p>
 						</li>
 						<li class="menu-item">
-							<a href="#contact">Contact</a>
+							<a class="menu-anchor" href="#about">About</a>
 						</li>
 						<li class="menu-separator">
 							<p>/</p>
 						</li>
 						<li class="menu-item">
-							<a @click="resetMenu" href="https://github.com/NickCalderone" aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
-								<GithubMark class="github-icon-desktop" title-id="desktop-github-title" desc-id="desktop-github-desc" />
+							<a class="menu-anchor" href="#contact">Contact</a>
+						</li>
+						<li class="menu-item">
+							<a class="resume" href="/NickCalderone202302-3.pdf" target="_blank">
+								<p class="resume-text">Resume</p>
+								<NewTabResume class="resume-new-tab" />
 							</a>
 						</li>
 					</ul>
@@ -244,17 +253,25 @@ export default {
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
 					<li class="mobile-menu-item">
-						<a @click="resetMenu" href="#work">Work</a>
+						<a @click="resetMenu" href="https://github.com/NickCalderone"
+							aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
+							<GithubMark class="github-icon-mobile" title-id="mobile-github-title"
+								desc-id="mobile-github-desc" />
+						</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a @click="resetMenu" href="#about">About</a>
+						<a class="mobile-menu-anchor" @click="resetMenu" href="#work">Work</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a @click="resetMenu" href="#contact">Contact</a>
+						<a class="mobile-menu-anchor" @click="resetMenu" href="#about">About</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a @click="resetMenu" href="https://github.com/NickCalderone" aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
-							<GithubMark class="github-icon-mobile" title-id="mobile-github-title" desc-id="mobile-github-desc" />
+						<a class="mobile-menu-anchor" @click="resetMenu" href="#contact">Contact</a>
+					</li>
+					<li class="mobile-menu-item">
+						<a class="resume-mobile" href="/NickCalderone202302-3.pdf" target="_blank">
+							<p class="resume-mobile-text">Resume</p>
+							<NewTabResume class="resume-new-tab" />
 						</a>
 					</li>
 				</ul>
@@ -336,7 +353,7 @@ header .js-header-scrolled {
 	line-height: 0;
 }
 
-.menu li a {
+.menu li .menu-anchor {
 	text-decoration: none;
 	color: var(--color-quaternary);
 	font-family: var(--font-family-primary);
@@ -347,15 +364,15 @@ header .js-header-scrolled {
 	cursor: default;
 }
 
-.menu li a:hover {
+.menu .menu-anchor:hover {
 	color: var(--color-quinary);
 }
 
-.menu li a > .github-icon path {
+.github-icon-desktop path {
 	transition: fill .3s ease-in-out;
 }
 
-.menu li a:hover > .github-icon path {
+.menu-github-anchor:hover .github-icon-desktop path {
 	fill: var(--color-quinary);
 }
 
@@ -363,7 +380,38 @@ header .js-header-scrolled {
 	height: 22px;
 }
 
-@media only screen and (max-width: 700px) {
+.resume {
+	display: flex;
+	align-items: center;
+	border-style: solid;
+	border-width: 2px;
+	border-color: var(--color-quinary);
+	border-radius: 12px;
+	padding: 6px 12px;
+	font-family: var(--font-family-primary);
+	text-decoration: none;
+	margin-left: 30px;
+	transition: background-color .3s ease-in-out;
+}
+
+.resume-text {
+	font-family: inherit;
+	font-size: inherit;
+	padding-bottom: 1px;
+	color: var(--color-quinary);
+}
+
+.resume:hover {
+	background-color: rgba(168, 218, 220, .1);
+}
+
+.resume-new-tab {
+	height: 18px;
+	width: 18px;
+	margin-left: 10px;
+}
+
+@media only screen and (max-width: 800px) {
 
 	.mobile-menu-wrapper {
 		padding: 30px 30px;
@@ -431,6 +479,7 @@ header .js-header-scrolled {
 		padding-left: 0;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 60px;
 	}
 
@@ -440,7 +489,7 @@ header .js-header-scrolled {
 		font-size: 30px;
 	}
 
-	.mobile-menu li a {
+	.mobile-menu li .mobile-menu-anchor {
 		text-decoration: none;
 		padding: 15px;
 		color: var(--color-quaternary);
@@ -450,6 +499,36 @@ header .js-header-scrolled {
 
 	.github-icon-mobile {
 		height: 30px;
+	}
+
+	.resume-mobile {
+		display: flex;
+		align-items: center;
+		border-style: solid;
+		border-width: 2px;
+		border-color: var(--color-quinary);
+		border-radius: 12px;
+		padding: 6px 12px;
+		font-family: var(--font-family-primary);
+		text-decoration: none;
+		transition: background-color .3s ease-in-out;
+	}
+
+	.resume-mobile-text {
+		font-family: inherit;
+		font-size: inherit;
+		padding-bottom: 1px;
+		color: var(--color-quinary);
+	}
+
+	.resume-mobile:hover {
+		background-color: rgba(168, 218, 220, .1);
+	}
+
+	.resume-new-tab {
+		height: 18px;
+		width: 18px;
+		margin-left: 10px;
 	}
 
 }
