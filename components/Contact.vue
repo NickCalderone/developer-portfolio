@@ -113,7 +113,7 @@ export default {
 				new opportunities. Send a message if you have a question or just to say hi!
 			</p>
 		</div>
-		<a class="contact-mailto-a" href="mailto:calderonenick@gmail.com">
+		<a class="contact-button" href="mailto:calderonenick@gmail.com">
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
 				<p>Let's Talk</p>
@@ -154,10 +154,10 @@ export default {
 	position: absolute;
 }
 
-.contact-mailto-a {
-	box-sizing: border-box;
+.contact-button {
 	grid-row: 3 / 6;
 	grid-column: 1;
+	box-sizing: border-box;
 	margin: 0 auto;
 	display: block;
 	height: 100%;
@@ -165,7 +165,7 @@ export default {
 	border: solid 5px var(--color-secondary);
 	border-radius: 12px;
 	overflow: hidden;
-	z-index: 500000;
+	z-index: 50;
 }
 
 .contact-mailto {
@@ -208,19 +208,19 @@ export default {
 	transition: width .3s ease-in-out;
 }
 
-.contact-mailto-a:hover .background-hover {
+.contact-button:hover .background-hover {
 	width: 100%;
 }
 
-.contact-mailto-a:hover p {
+.contact-button:hover p {
 	color: var(--color-primary-loud);
 }
 
-.contact-mailto-a:hover .mailto-icon path {
+.contact-button:hover .mailto-icon path {
 	fill: var(--color-primary-loud);
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
 	.mailto-svg {
 		height: 1.35rem;
 	}
@@ -230,7 +230,7 @@ export default {
 	}
 }
 
-@media only screen and (max-width: 5500px){
+@media only screen and (max-width: 5500px) {
 	.mailto-svg {
 		height: 1.25rem;
 	}
