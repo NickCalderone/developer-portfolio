@@ -351,6 +351,14 @@ header .js-header-scrolled {
 	color: var(--color-quinary);
 }
 
+.menu li a > .github-icon path {
+	transition: fill .3s ease-in-out;
+}
+
+.menu li a:hover > .github-icon path {
+	fill: var(--color-quinary);
+}
+
 .github-icon-desktop {
 	height: 22px;
 }
