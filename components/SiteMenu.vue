@@ -241,8 +241,8 @@ export default {
 							<a class="menu-anchor" href="#contact">Contact</a>
 						</li>
 						<li class="menu-item">
-							<a class="resume" href="/NickCalderone202302-3.pdf" target="_blank">
-								<p class="resume-text">Resume</p>
+							<a class="resume" href="/NickCalderone202302-4.pdf" target="_blank">
+								<span class="resume-text">Resume</span>
 								<NewTabResume class="resume-new-tab" />
 							</a>
 						</li>
@@ -269,8 +269,8 @@ export default {
 						<a class="mobile-menu-anchor" @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="resume-mobile" href="/NickCalderone202302-3.pdf" target="_blank">
-							<p class="resume-mobile-text">Resume</p>
+						<a class="resume-mobile" href="/NickCalderone202302-4.pdf" target="_blank">
+							<span class="resume-mobile-text">Resume</span>
 							<NewTabResume class="resume-new-tab" />
 						</a>
 					</li>
@@ -386,8 +386,8 @@ header .js-header-scrolled {
 	border-style: solid;
 	border-width: 2px;
 	border-color: var(--color-quinary);
-	border-radius: 12px;
-	padding: 6px 12px;
+	border-radius: 8px;
+	padding: 12px 14px;
 	font-family: var(--font-family-primary);
 	text-decoration: none;
 	margin-left: 30px;
@@ -399,6 +399,7 @@ header .js-header-scrolled {
 	font-size: inherit;
 	padding-bottom: 1px;
 	color: var(--color-quinary);
+	cursor: pointer;
 }
 
 .resume:hover {
@@ -511,7 +512,6 @@ header .js-header-scrolled {
 		padding: 6px 12px;
 		font-family: var(--font-family-primary);
 		text-decoration: none;
-		transition: background-color .3s ease-in-out;
 	}
 
 	.resume-mobile-text {
@@ -519,10 +519,7 @@ header .js-header-scrolled {
 		font-size: inherit;
 		padding-bottom: 1px;
 		color: var(--color-quinary);
-	}
-
-	.resume-mobile:hover {
-		background-color: rgba(168, 218, 220, .1);
+		cursor: pointer;
 	}
 
 	.resume-new-tab {
