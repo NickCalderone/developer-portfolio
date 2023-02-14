@@ -112,7 +112,7 @@ p {
 	box-sizing: border-box;
 }
 
-:focus {
+:focus-visible {
 	outline: solid 2px var(--color-quinary);
 	border-radius: 12px;
 }
