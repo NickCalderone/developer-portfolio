@@ -112,6 +112,11 @@ p {
 	box-sizing: border-box;
 }
 
+:focus {
+	outline: solid 2px var(--color-quinary);
+	border-radius: 12px;
+}
+
 /* Great post by Eric Bailey (https://css-tricks.com/revisiting-prefers-reduced-motion/) */
 @media screen and (prefers-reduced-motion: reduce),
 (update: slow) {
