@@ -26,6 +26,7 @@ export default {
 
 	mounted() {
 		let focusable = document.querySelectorAll(".js-mobile-menu-focusable")
+		let menuLinks = document.querySelectorAll(".logo-anchor, .menu-wrapper a, .js-mobile-button");
 
 		//set up variables
 		this.lastScrollPosition = window.pageYOffset;
@@ -43,11 +44,12 @@ export default {
 		this.mobileMenuFirst.addEventListener("keydown", this.focusBottom);
 		this.mobileMenuLast.addEventListener("keydown", this.focusTop);
 
-		// handle shift+tabbing into the navbar
-		this.button.addEventListener("focus", this.tabHeaderHandler);
-
 		// handle header on scroll event listener
 		window.addEventListener("scroll", this.headerScrollHandler);
+
+		// handle navbar when shift+tabbing into it after scrolling down
+		menuLinks.forEach(e => { e.addEventListener("focus", this.tabHeaderHandler)});
+
 		// handle menu on resize event listener
 		window.addEventListener("resize", () => {
 
