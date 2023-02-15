@@ -9,6 +9,9 @@ export default {
 
 			lastScrollPosition: 0,
 			mobileMenuOpen: false,
+			mobileMenuItems: undefined,
+			mobileMenuFirst: undefined,
+			mobileMenuLast: undefined,
 			header: undefined,
 			menu: undefined,
 			background: undefined,
@@ -21,15 +24,26 @@ export default {
 	},
 
 	mounted() {
+		let focusable = document.querySelectorAll(".js-mobile-menu-focusable")
 
 		//set up variables
 		this.lastScrollPosition = window.pageYOffset;
 		this.header = document.querySelector(".header");
 		this.menu = document.querySelector(".js-mobile-menu-wrapper");
+		this.mobileMenuItems = document.querySelectorAll(".mobile-menu a");
+		this.mobileMenuFirst = focusable[0];
+		this.mobileMenuLast = focusable[focusable.length - 1];
 		this.background = document.querySelector(".js-layout-wrapper");
 		this.button = document.querySelector(".mobile-menu-button");
 		this.modal = document.querySelector(".mobile-menu-wrapper");
 		this.body = document.body;
+
+		console.log(this.mobileMenuFirst);
+		// console.log(this.mobileMenuLast);
+		// console.log("items", this.mobileMenuItems);
+
+		this.mobileMenuFirst.addEventListener("keydown", this.focusBottom);
+		this.mobileMenuLast.addEventListener("keydown", this.focusTop);
 
 		// handle header on scroll event listener
 		window.addEventListener("scroll", this.headerScrollHandler);
@@ -126,6 +140,11 @@ export default {
 			body.classList.add('js-frozen');
 			background.classList.add('js-frozen');
 
+			// allow focusing
+			this.mobileMenuItems.forEach(node => {
+				node.tabIndex = 0;
+			})
+
 			// update state
 			this.mobileMenuOpen = true;
 
@@ -140,6 +159,11 @@ export default {
 			menu.classList.remove('js-open');
 			body.classList.remove('js-frozen');
 			background.classList.remove('js-frozen');
+
+			// prevent focusing
+			this.mobileMenuItems.forEach(node => {
+				node.tabIndex = -1;
+			})
 
 			//update state
 			this.mobileMenuOpen = false;
@@ -198,6 +222,32 @@ export default {
 				// exit menu and update state
 				this.menuHandler();
 			}
+		},
+
+		focusBottom(e){
+			
+			// if menu is open and shift+tab is pressed
+			if( this.mobileMenuOpen && e.key == "Tab" && e.shiftKey ){
+				
+				e.preventDefault();
+
+				// move focus to the last menu item
+				this.mobileMenuLast.focus();
+			}
+
+		},
+
+		focusTop(e){
+
+			// if menu is open and tab is pressed
+			if( this.mobileMenuOpen && e.key == "Tab" && !e.shiftKey ){
+
+				e.preventDefault();
+
+				// move focus to the first item
+				this.mobileMenuFirst.focus();
+
+			}
 		}
 
 	}
@@ -249,27 +299,27 @@ export default {
 					</ul>
 				</nav>
 			</div>
-			<Hamburger :menu-handler="menuHandler" class="hamburger-wrapper js-mobile-button" />
+			<Hamburger :menu-handler="menuHandler" class="hamburger-wrapper js-mobile-button js-mobile-menu-focusable" />
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
 					<li class="mobile-menu-item">
-						<a @click="resetMenu" href="https://github.com/NickCalderone"
+						<a class="js-mobile-focusable" tabindex="-1" @click="resetMenu" href="https://github.com/NickCalderone"
 							aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
 							<GithubMark class="github-icon-mobile" title-id="mobile-github-title"
 								desc-id="mobile-github-desc" />
 						</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="mobile-menu-anchor" @click="resetMenu" href="#work">Work</a>
+						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#work">Work</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="mobile-menu-anchor" @click="resetMenu" href="#about">About</a>
+						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#about">About</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="mobile-menu-anchor" @click="resetMenu" href="#contact">Contact</a>
+						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="resume-mobile" href="/NickCalderone202302-4.pdf" target="_blank">
+						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone202302-4.pdf" target="_blank">
 							<span class="resume-mobile-text">Resume</span>
 							<NewTabResume class="resume-new-tab" />
 						</a>
