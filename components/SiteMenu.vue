@@ -329,7 +329,7 @@ export default {
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
 					<li class="mobile-menu-item">
-						<a class="js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="https://github.com/NickCalderone"
+						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="https://github.com/NickCalderone"
 							aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
 							<GithubMark class="github-icon-mobile" title-id="mobile-github-title"
 								desc-id="mobile-github-desc" />
