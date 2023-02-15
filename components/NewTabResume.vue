@@ -1,5 +1,7 @@
 <template>
-	<svg viewBox="0 0 20 20" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+	<svg viewBox="0 0 20 20" aria-labelledby="new-tab-resume-title new-tab-resume-description" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+		<title id="new-tab-resume-title">New tab icon</title>
+		<desc id="new-tab-resume-description">An icon showing this link will open in a new browser tab</desc>
 		<g>
 			<path class="new-tab-resume-path"
 				d="M10.572,5.054C10.572,4.743 10.316,4.487 10.005,4.487L2.477,4.487C1.544,4.487 0.775,5.254 0.775,6.187L0.775,17.521C0.775,18.454 1.544,19.221 2.477,19.221L13.821,19.221C14.755,19.221 15.523,18.454 15.523,17.521L15.523,10C15.523,9.689 15.267,9.433 14.956,9.433C14.645,9.433 14.389,9.689 14.389,10L14.389,17.521C14.389,17.832 14.132,18.088 13.821,18.088L2.477,18.088C2.166,18.088 1.91,17.832 1.91,17.521L1.91,6.187C1.91,5.876 2.166,5.62 2.477,5.62L10.005,5.62C10.316,5.62 10.572,5.365 10.572,5.054Z"

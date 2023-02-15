@@ -1,7 +1,9 @@
 <template>
-	<svg class="mailto-svg" viewBox="0 0 65 50" version="1.1" xmlns="http://www.w3.org/2000/svg"
+	<svg class="mailto-svg" aria-labelledby="mail-to-new-tab-title mail-to-new-tab-description" viewBox="0 0 65 50" version="1.1" xmlns="http://www.w3.org/2000/svg"
 		xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
 		style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+		<title id="mail-to-new-tab-title">New tab icon</title>
+		<desc id="mail-to-new-tab-description">An icon showing this link will open in a new browser tab</desc>
 		<path
 			d="M51.913,6.597C51.913,6.156 51.54,5.794 51.087,5.794L40.122,5.794C38.762,5.794 37.643,6.882 37.643,8.204L37.643,24.269C37.643,25.591 38.762,26.679 40.122,26.679L56.645,26.679C58.005,26.679 59.123,25.591 59.123,24.269L59.123,13.608C59.123,13.168 58.751,12.805 58.297,12.805C57.844,12.805 57.471,13.168 57.471,13.608L57.471,24.269C57.471,24.71 57.098,25.073 56.645,25.073L40.122,25.073C39.668,25.073 39.296,24.71 39.296,24.269L39.296,8.204C39.296,7.763 39.668,7.4 40.122,7.4L51.087,7.4C51.54,7.4 51.913,7.038 51.913,6.597Z" />
 		<path
