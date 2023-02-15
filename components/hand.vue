@@ -1,5 +1,5 @@
 <template>
-	<svg viewBox="0 0 92 100" aria-labelledby="new-tab-resume-title new-tab-resume-description"
+	<svg viewBox="0 0 92 100" aria-labelledby="hand-title hand-description"
 		style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
 		<title id="hand-title">Waving hand</title>
 		<desc id="hand-description">An image of a hand with waving action lines</desc>
