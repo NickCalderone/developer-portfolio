@@ -319,7 +319,7 @@ export default {
 						<li class="menu-item">
 							<a class="resume" href="/NickCalderone202302-4.pdf" target="_blank">
 								<span class="resume-text">Resume</span>
-								<NewTabResume class="resume-new-tab" />
+								<NewTabResume title-id="desktop-new-tab-icon-title" desc-id="desktop-new-tab-icon-description" class="resume-new-tab" />
 							</a>
 						</li>
 					</ul>
@@ -347,7 +347,7 @@ export default {
 					<li class="mobile-menu-item">
 						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone202302-4.pdf" target="_blank">
 							<span class="resume-mobile-text">Resume</span>
-							<NewTabResume class="resume-new-tab" />
+							<NewTabResume title-id="mobile-new-tab-icon-title" desc-id="mobile-new-tab-icon-description" class="resume-new-tab" />
 						</a>
 					</li>
 				</ul>
