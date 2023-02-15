@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-  <button class="mobile-menu-button" aria-label="menu" aria-labelledby="headshot-title headshot-description" @click="menuHandler">
+  <button class="mobile-menu-button" aria-label="menu" aria-labelledby="mobile-menu-button-title mobile-menu-button-description" @click="menuHandler">
     <svg width="60" height="60" viewBox="0 0 100 100">
       <title id="mobile-menu-button-title">Mobile menu button</title>
       <desc id="mobile-menu-button-description">A button to open and close the mobile menu</desc>
