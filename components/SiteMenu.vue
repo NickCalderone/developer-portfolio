@@ -44,7 +44,7 @@ export default {
 		this.mobileMenuLast.addEventListener("keydown", this.focusTop);
 
 		// handle shift+tabbing into the navbar
-		this.button.addEventListener("focus", this.tabScrollHandler);
+		this.button.addEventListener("focus", this.tabHeaderHandler);
 
 		// handle header on scroll event listener
 		window.addEventListener("scroll", this.headerScrollHandler);
@@ -111,9 +111,7 @@ export default {
 
 		},
 
-		tabScrollHandler() {
-
-			console.log("firing");
+		tabHeaderHandler() {
 
 			// set up variables
 			let myHeader = this.header;
