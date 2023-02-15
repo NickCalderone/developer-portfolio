@@ -12,6 +12,7 @@ export default {
 			mobileMenuItems: undefined,
 			mobileMenuFirst: undefined,
 			mobileMenuLast: undefined,
+			contentFocusable: undefined,
 			header: undefined,
 			menu: undefined,
 			background: undefined,
@@ -38,12 +39,12 @@ export default {
 		this.modal = document.querySelector(".mobile-menu-wrapper");
 		this.body = document.body;
 
-		console.log(this.mobileMenuFirst);
-		// console.log(this.mobileMenuLast);
-		// console.log("items", this.mobileMenuItems);
-
+		// handle focus while mobile menu is open
 		this.mobileMenuFirst.addEventListener("keydown", this.focusBottom);
 		this.mobileMenuLast.addEventListener("keydown", this.focusTop);
+
+		// handle shift+tabbing into the navbar
+		this.button.addEventListener("focus", this.tabScrollHandler);
 
 		// handle header on scroll event listener
 		window.addEventListener("scroll", this.headerScrollHandler);
@@ -107,6 +108,33 @@ export default {
 
 			// update scroll position state
 			this.lastScrollPosition = currentScrollPosition;
+
+		},
+
+		tabScrollHandler() {
+
+			console.log("firing");
+
+			// set up variables
+			let myHeader = this.header;
+			let currentScrollPosition = window.pageYOffset;
+
+			// if at the top of the page, show top header 
+			if ( currentScrollPosition < 50 ) {
+
+				myHeader.classList.remove('js-header-hidden');
+				myHeader.classList.remove('js-header-scrolled');
+				myHeader.classList.add('js-header-top');
+
+			}
+
+			// show scrolled header
+			else {
+
+				myHeader.classList.remove('js-header-hidden');
+				myHeader.classList.add('js-header-scrolled');
+
+			}
 
 		},
 
@@ -303,7 +331,7 @@ export default {
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
 					<li class="mobile-menu-item">
-						<a class="js-mobile-focusable" tabindex="-1" @click="resetMenu" href="https://github.com/NickCalderone"
+						<a class="js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="https://github.com/NickCalderone"
 							aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
 							<GithubMark class="github-icon-mobile" title-id="mobile-github-title"
 								desc-id="mobile-github-desc" />
