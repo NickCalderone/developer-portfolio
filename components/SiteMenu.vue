@@ -461,7 +461,7 @@ header .js-header-scrolled {
 	align-items: center;
 	border-style: solid;
 	border-width: 2px;
-	border-color: var(--color-quinary);
+	border-color: var(--color-quaternary);
 	border-radius: 8px;
 	padding: 12px 14px;
 	font-family: var(--font-family-primary);
@@ -474,7 +474,7 @@ header .js-header-scrolled {
 	font-family: inherit;
 	font-size: inherit;
 	padding-bottom: 1px;
-	color: var(--color-quinary);
+	color: var(--color-quaternary);
 	cursor: pointer;
 }
 
@@ -583,7 +583,7 @@ header .js-header-scrolled {
 		align-items: center;
 		border-style: solid;
 		border-width: 2px;
-		border-color: var(--color-quinary);
+		border-color: var(--color-quaternary);
 		border-radius: 12px;
 		padding: 6px 12px;
 		font-family: var(--font-family-primary);
@@ -594,7 +594,7 @@ header .js-header-scrolled {
 		font-family: inherit;
 		font-size: inherit;
 		padding-bottom: 1px;
-		color: var(--color-quinary);
+		color: var(--color-quaternary);
 		cursor: pointer;
 	}
 

@@ -13,7 +13,7 @@
 
 <style>
 .new-tab-resume-path {
-	fill: var(--color-quinary);
-	stroke: var(--color-quinary);
+	fill: var(--color-quaternary);
+	stroke: var(--color-quaternary);
 }
 </style>
