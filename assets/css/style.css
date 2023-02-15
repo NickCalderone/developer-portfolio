@@ -39,8 +39,8 @@
 	--h2-font-size: 7.5rem;
 	--h3-font-size: 1.6rem;
 
-	--font-family-primary: 'Permanent Marker', Verdana;
-	--font-family-secondary: 'Varela', Arial;
+	--font-family-primary: 'Permanent Marker', Arial;
+	--font-family-secondary: 'Varela', sans-serif;
 
 	--canvas-stroke-width: 5px;
 
