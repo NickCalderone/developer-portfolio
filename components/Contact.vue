@@ -109,7 +109,7 @@ export default {
 		</div>
 		<div class="contact-text-wrapper">
 			<p class="contact-text">
-				Lets talk about your goals and how I can help. I’m available for freelance projects or to hear about
+				Let's talk about your goals and how I can help. I’m available for freelance projects or to hear about
 				new opportunities. Send a message if you have a question or just to say hi!
 			</p>
 		</div>
