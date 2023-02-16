@@ -146,7 +146,7 @@ export default {
 			<Face />
 		</div>
 		<div class="about-text">
-			<h3 class="about-subheader">Front-end developer</h3>
+			<h3 class="about-subheader">Front-end development</h3>
 			<p>
 				I started building things for the web to solve problems. Problems such as how to save and share my
 				favorite recipes, or how to quickly quiz myself on Spanish verb conjugations. Improving my life was a
