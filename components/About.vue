@@ -150,7 +150,7 @@ export default {
 			<p>
 				I started building things for the web to solve problems. Problems such as how to save and share my
 				favorite recipes, or how to quickly quiz myself on Spanish verb conjugations. Improving my life was a
-				great starting point, but I soon found myself taking on bigger challenges. I now spend my time
+				great starting point, but I soon began taking on bigger challenges. I now spend my time
 				understanding the goals of businesses and organizations and building ways to reach them. It is this
 				process of solving very human problems with technology that drives me as a programmer.<br><br>Is there
 				something getting in the way of you reaching your goals? <a href="#contact">Let me know</a> so we can
