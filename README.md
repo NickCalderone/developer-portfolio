@@ -2,7 +2,7 @@
 
 View at [nickcalderone.dev](https://nickcalderone.dev)
 
-built with [Nuxt 3](https://nuxt.com/) and [Vue 3](https://vuejs.org/)
+Built with Nuxt and Vue 3. Deployed on Netlify.
 
 ## Setup
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
