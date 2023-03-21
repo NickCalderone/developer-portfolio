@@ -5,7 +5,7 @@ export default {
 
 		return {
 
-			tools: ["Vue", "Svelte", "React", "WordPress", "Drupal", "Express", "MongoDB", "Accessibility", "Responsive Design", "Bootstrap", "Figma", "Git/Github", "Google Analytics"]
+			tools: ["Vue", "Svelte", "React", "WordPress", "Drupal", "Express", "MongoDB", "PostgreSQL", "Accessibility", "Responsive Design", "Bootstrap", "Figma", "Git/Github", "Google Analytics"]
 
 		}
 
