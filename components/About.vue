@@ -211,7 +211,7 @@ export default {
 .about-subheader {
 	color: var(--color-quinary);
 	font-family: var(--font-family-secondary);
-	font-size: 1.25rem;
+	font-size: 1.4rem;
 	line-height: 2;
 	margin-bottom: 20px;
 	margin-top: 10px;
