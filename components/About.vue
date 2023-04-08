@@ -157,7 +157,7 @@ export default {
 			<br>
 			<p>
 				I run my freelance business remotely from beautiful Carbondale, Colorado. While not building for the web,
-				I can be found climbing on rock cliffs near and far.
+				I can be found climbing rock cliffs near and far.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
