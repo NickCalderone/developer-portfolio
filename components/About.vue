@@ -146,15 +146,18 @@ export default {
 			<Face />
 		</div>
 		<div class="about-text">
-			<h3 class="about-subheader">Front-end development</h3>
+			<h3 class="about-subheader">Nick Calderone</h3>
 			<p>
-				I started building things for the web to solve problems. Problems such as how to save and share my
-				favorite recipes, or how to quickly quiz myself on Spanish verb conjugations. Improving my life was a
-				great starting point, but I soon began taking on bigger challenges. I now spend my time
-				understanding the goals of businesses and organizations and building ways to reach them. It is this
-				process of solving very human problems with technology that drives me as a programmer.<br><br>Is there
-				something getting in the way of you reaching your goals? <a href="#contact">Let me know</a> so we can
-				build the solution together.
+				I am a freelance front-end developer with a successful 4-year track record building web solutions for
+				clients
+				from small businesses to municipalities. My work has helped dozens of organizations reach their goals and
+				has been recognized by the U.S. Center for Digital Government Awards. It is the process of solving very
+				human problems with technology that drives me as a programmer.
+			</p>
+			<br>
+			<p>
+				I run my freelance business remotely from beautiful Carbondale, Colorado. While not building for the web,
+				I can be found climbing on rock cliffs near and far.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
