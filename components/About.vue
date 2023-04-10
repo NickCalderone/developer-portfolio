@@ -148,15 +148,14 @@ export default {
 		<div class="about-text">
 			<h3 class="about-subheader">Nick Calderone</h3>
 			<p>
-				I am a freelance front-end developer with a successful 4-year track record building web solutions for
-				clients
+				I am a front-end developer with a successful track record building web solutions for clients
 				from small businesses to municipalities. My work has helped dozens of organizations reach their goals and
 				has been recognized by the U.S. Center for Digital Government Awards. It is the process of solving very
 				human problems with technology that drives me as a programmer.
 			</p>
 			<br>
 			<p>
-				I run my freelance business remotely from beautiful Carbondale, Colorado. While not building for the web,
+				I run my business remotely from beautiful Carbondale, Colorado. While not building for the web,
 				I can be found climbing rock cliffs near and far.
 			</p>
 		</div>
