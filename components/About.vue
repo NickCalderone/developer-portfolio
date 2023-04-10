@@ -202,7 +202,6 @@ export default {
 }
 
 .about-img svg {
-	transform: scalex(-.92);
 	margin-bottom: -60px;
 	width: 100%;
 }
@@ -265,7 +264,6 @@ export default {
 	}
 
 	.about-img svg {
-		transform: scalex(-.92);
 		width: 80%;
 	}
 
