@@ -300,6 +300,14 @@ export default {
 									desc-id="desktop-github-desc" />
 							</a>
 						</li>
+						<li class="menu-item">
+							<a class="menu-linkedin-anchor" @click="resetMenu" href="https://www.linkedin.com/in/nick-calderone/"
+								aria-label="See Nick Calderone's LinkedIn profile" target="_blank"
+								rel="noreferrer noopener">
+								<LinkedInMark class="linkedin-icon-desktop" title-id="desktop-linkedin-title"
+									desc-id="desktop-linkedin-desc" />
+							</a>
+						</li>
 						<li class="menu-separator">
 							<p>/</p>
 						</li>
@@ -319,7 +327,7 @@ export default {
 							<a class="menu-anchor" href="#contact">Contact</a>
 						</li>
 						<li class="menu-item">
-							<a class="resume" href="/NickCalderone202302-8.pdf" target="_blank">
+							<a class="resume" href="/NickCalderone2023-9.pdf" target="_blank">
 								<span class="resume-text">Resume</span>
 								<NewTabResume title-id="desktop-new-tab-icon-title" desc-id="desktop-new-tab-icon-description" class="resume-new-tab" />
 							</a>
@@ -336,6 +344,11 @@ export default {
 							<GithubMark class="github-icon-mobile" title-id="mobile-github-title"
 								desc-id="mobile-github-desc" />
 						</a>
+						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="https://www.linkedin.com/in/nick-calderone/"
+							aria-label="See Nick Calderone's LinkedIn profile" target="_blank" rel="noreferrer noopener">
+							<LinkedInMark class="linkedin-icon-mobile" title-id="mobile-linkedin-title"
+								desc-id="mobile-linkedin-desc" />
+						</a>
 					</li>
 					<li class="mobile-menu-item">
 						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#work">Work</a>
@@ -347,7 +360,7 @@ export default {
 						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone202302-8.pdf" target="_blank">
+						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone2023-9.pdf" target="_blank">
 							<span class="resume-mobile-text">Resume</span>
 							<NewTabResume title-id="mobile-new-tab-icon-title" desc-id="mobile-new-tab-icon-description" class="resume-new-tab" />
 						</a>
@@ -455,6 +468,18 @@ header .js-header-scrolled {
 }
 
 .github-icon-desktop {
+	height: 22px;
+}
+
+.linkedin-icon-desktop path {
+	transition: fill .3s ease-in-out;
+}
+
+.menu-linkedin-anchor:hover .linkedin-icon-desktop path {
+	fill: var(--color-quinary);
+}
+
+.linkedin-icon-desktop {
 	height: 22px;
 }
 
@@ -577,6 +602,10 @@ header .js-header-scrolled {
 	}
 
 	.github-icon-mobile {
+		height: 30px;
+	}
+
+	.linkedin-icon-mobile {
 		height: 30px;
 	}
 

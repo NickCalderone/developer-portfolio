@@ -17,6 +17,6 @@ export default {
 
 <style>
 .github-icon path {
-	fill: var(--color-quaternary);
+	fill: white;
 }
 </style>
