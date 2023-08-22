@@ -1,7 +1,8 @@
 <script>
 export default {
 
-	data() {
+	data()
+	{
 
 		return {
 			parent: undefined,
@@ -15,7 +16,8 @@ export default {
 
 	},
 
-	mounted() {
+	mounted()
+	{
 
 		// set up canvas state variables
 		this.canvas = document.querySelector("#contact-canvas");
@@ -35,7 +37,8 @@ export default {
 		this.draw(w, h);
 
 		// redraw on resize with new drawing variables
-		const observer = new ResizeObserver(entries => {
+		const observer = new ResizeObserver(entries =>
+		{
 
 			let w = entries[0].contentRect.width;
 			let h = entries[0].contentRect.height;
@@ -49,7 +52,8 @@ export default {
 
 	methods: {
 
-		draw(w, h) {
+		draw(w, h)
+		{
 
 			// set up and get canvas context
 			let context = this.setContext(w, h, 5, 12);
@@ -78,7 +82,8 @@ export default {
 
 		},
 
-		setContext(w, h, lineWidth, radius) {
+		setContext(w, h, lineWidth, radius)
+		{
 
 			// setup canvas context
 			this.canvas.width = w;
@@ -108,15 +113,18 @@ export default {
 			<canvas id="contact-canvas">Red line used for flair</canvas>
 		</div>
 		<div class="contact-text-wrapper">
+			<h3 class="contact-subheader">Let's Connect</h3>
 			<p class="contact-text">
-				Let's talk about your goals and how I can help. I’m available for freelance projects or to hear about
-				new opportunities. Send a message if you have a question or just to say hi!
+				Working on an exciting project that is in need of a web developer? Have a great idea but need help forming
+				an actionable plan? Want to grow your network with developers in rural Colorado. No matter the reason,
+				I am always looking to connect with others. More often than not I'm pleasantly surprised by how our journey
+				overlap.
 			</p>
 		</div>
 		<a class="contact-button" href="mailto:calderonenick@gmail.com">
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
-				<p>Let's Talk</p>
+				<p>Start a Conversation</p>
 				<Mailto class="mailto-icon" />
 			</div>
 		</a>
@@ -152,6 +160,15 @@ export default {
 	height: 100%;
 	max-width: 100%;
 	position: absolute;
+}
+
+.contact-subheader {
+	color: var(--color-quinary);
+	line-height: 2;
+	margin-top: 0;
+	font-size: 2.2rem;
+	margin-bottom: 0px;
+	font-family: var(--font-family-primary)
 }
 
 .contact-button {
@@ -238,5 +255,4 @@ export default {
 	.contact-mailto p {
 		font-size: 1.25rem;
 	}
-}
-</style>
+}</style>

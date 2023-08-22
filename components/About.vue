@@ -1,7 +1,8 @@
 <script>
 export default {
 
-	data() {
+	data()
+	{
 
 		return {
 			parent: undefined,
@@ -15,7 +16,8 @@ export default {
 
 	},
 
-	mounted() {
+	mounted()
+	{
 
 		// set up canvas state variables
 		this.canvas = document.querySelector("#about-canvas");
@@ -35,7 +37,8 @@ export default {
 		this.draw(w, h);
 
 		// redraw on resize with new drawing variables
-		const observer = new ResizeObserver(entries => {
+		const observer = new ResizeObserver(entries =>
+		{
 
 			let w = entries[0].contentRect.width;
 			let h = entries[0].contentRect.height;
@@ -49,14 +52,17 @@ export default {
 
 	methods: {
 
-		draw(w, h) {
+		draw(w, h)
+		{
 
 			// choose what device layout to draw
-			if (window.matchMedia("(max-width:" + this.breakpoint + ")").matches) {
+			if (window.matchMedia("(max-width:" + this.breakpoint + ")").matches)
+			{
 
 				this.drawMobile(w, h);
 
-			} else {
+			} else
+			{
 
 				this.drawDesktop(w, h);
 
@@ -64,7 +70,8 @@ export default {
 
 		},
 
-		setContext(w, h, lineWidth, radius) {
+		setContext(w, h, lineWidth, radius)
+		{
 
 			// setup canvas context
 			this.canvas.width = w;
@@ -82,7 +89,8 @@ export default {
 
 		},
 
-		drawDesktop(w, h) {
+		drawDesktop(w, h)
+		{
 
 			// set canvas context
 			let context = this.setContext(w, h, 5, 12);
@@ -107,7 +115,8 @@ export default {
 
 		},
 
-		drawMobile(w, h) {
+		drawMobile(w, h)
+		{
 			// set canvas context
 			let context = this.setContext(w, h, 5, 12);
 
@@ -147,11 +156,12 @@ export default {
 		</div>
 		<div class="about-text">
 			<h3 class="about-subheader">Nick Calderone</h3>
+			<p class="about-subheader-tag">Solving very human problems with technology</p>
+			<br>
 			<p>
-				I am a front-end developer with a successful track record building web solutions for clients
+				I am a front-end web developer with a successful track record building solutions for clients
 				from small businesses to municipalities. My work has helped dozens of organizations reach their goals and
-				has been recognized by the U.S. Center for Digital Government Awards. It is the process of solving very
-				human problems with technology that drives me as a programmer.
+				has been recognized in the U.S. Center for Digital Government Awards.
 			</p>
 			<br>
 			<p>
@@ -208,11 +218,16 @@ export default {
 
 .about-subheader {
 	color: var(--color-quinary);
-	font-family: var(--font-family-secondary);
-	font-size: 1.4rem;
 	line-height: 2;
-	margin-bottom: 20px;
-	margin-top: 10px;
+	margin-top: 0;
+	font-size: 2.2rem;
+	margin-bottom: 0px;
+	font-family: var(--font-family-primary)
+}
+
+.about-subheader-tag {
+	font-size: 1.4rem;
+	font-family: var(--font-family-primary)
 }
 
 .about-text {
