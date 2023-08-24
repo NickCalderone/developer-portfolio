@@ -4,7 +4,7 @@
 			colorR="var(--color-stripe-medium)">
 			<div class="footer">
 				<p><a href="https://github.com/NickCalderone/developer-portfolio" rel="noopener noreferrer" target="_blank">Designed & Built by Nick Calderone</a><NewTabIcon /> / <a href="tel:+19709893545">970.989.3545</a> /
-					<a href="mailto:calderonenick@gmail.com">calderonenick@gmail.com</a></p>
+					<a href="mailto:nick@nickcalderone.dev">nick@nickcalderone.dev</a></p>
 			</div>
 		</Content>
 	</footer>
