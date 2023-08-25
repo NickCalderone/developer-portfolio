@@ -147,6 +147,7 @@ export default {
 	grid-row: 2;
 	grid-column: 1;
 	padding: var(--padding);
+	z-index: 10;
 }
 
 .contact-canvas-wrapper {
