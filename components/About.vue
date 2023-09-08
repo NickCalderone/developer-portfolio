@@ -159,7 +159,7 @@ export default {
 			<p class="about-subheader-tag">Solving very human problems with technology</p>
 			<br>
 			<p>
-				I am a front-end web developer with a successful track record building web solutions for businesses and
+				I am a front-end web developer with a successful track record building solutions for businesses and
 				municipalities. My work has helped dozens of organizations reach their goals and has been recognized in the
 				U.S. Center for Digital Government Awards.
 			</p>
