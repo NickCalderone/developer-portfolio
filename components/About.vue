@@ -165,7 +165,7 @@ export default {
 			</p>
 			<br>
 			<p>
-				I run my business remotely from beautiful Carbondale, Colorado. While not writing code, I can be found
+				I run my business remotely from beautiful Carbondale, Colorado. While not coding, I can be found
 				climbing rock cliffs near and far.
 			</p>
 		</div>
