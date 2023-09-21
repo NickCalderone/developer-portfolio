@@ -95,7 +95,7 @@ export default {
 
 			// draw directions
 			context.beginPath();
-			context.moveTo(width / 2, offset);
+			context.moveTo(width / 5 * 3 , offset);
 			context.lineTo(radius + offset, offset);
 			context.arcTo(offset, offset, offset, radius + offset, radius);
 			context.lineTo(offset, height - (radius + offset));
