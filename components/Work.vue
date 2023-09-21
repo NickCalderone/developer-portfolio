@@ -149,7 +149,7 @@ export default {
 				</canvas>
 			</div>
 			<div class="work-subheader">
-				<h3>A selection</h3>
+				<h3>A selection...</h3>
 			</div>
 			<Example class="example-1" img-name="covid" img-src="covid-700.webp" alt="Pitkin county covid website"
 				imgLink="https://covid19.pitkincounty.com" img-width="700" img-height="467" />
