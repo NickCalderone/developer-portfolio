@@ -119,7 +119,7 @@ export default {
 				network with developers in rural Colorado? No matter the reason, I am always happy to connect.
 			</p>
 		</div>
-		<a class="contact-button" href="mailto:calderonenick@gmail.com">
+		<a class="contact-button" href="mailto:nick@nickcalderone.dev">
 			<div class="contact-mailto">
 				<div class="background-hover"></div>
 				<p>Start a Conversation</p>
