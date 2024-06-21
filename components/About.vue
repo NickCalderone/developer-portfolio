@@ -159,7 +159,7 @@ export default {
 			<p class="about-subheader-tag">Solving human problems with technology</p>
 			<br>
 			<p>
-				I am a front-end developer building web solutions for businesses and municipalities. My work has helped
+				I am a front-end developer building web solutions for businesses, cities, and counties. My work has helped
 				dozens of organizations reach their goals and has been recognized in the U.S. Center for Digital Government
 				Awards.
 			</p>
