@@ -156,7 +156,7 @@ export default {
 		</div>
 		<div class="about-text">
 			<h3 class="about-subheader">Nick Calderone</h3>
-			<p class="about-subheader-tag">Solving very human problems with technology</p>
+			<p class="about-subheader-tag">Solving human problems with technology</p>
 			<br>
 			<p>
 				I am a front-end developer building web solutions for businesses and municipalities. My work has helped
