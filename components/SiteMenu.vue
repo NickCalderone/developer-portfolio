@@ -327,7 +327,7 @@ export default {
 							<a class="menu-anchor" href="#contact">Contact</a>
 						</li>
 						<li class="menu-item">
-							<a class="resume" href="/NickCalderone2023-10.pdf" target="_blank">
+							<a class="resume" href="/NickCalderone2023-11.pdf" target="_blank">
 								<span class="resume-text">Resume</span>
 								<NewTabResume title-id="desktop-new-tab-icon-title" desc-id="desktop-new-tab-icon-description" class="resume-new-tab" />
 							</a>
