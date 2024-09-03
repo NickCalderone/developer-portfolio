@@ -360,7 +360,7 @@ export default {
 						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone2023-10.pdf" target="_blank">
+						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone2023-11.pdf" target="_blank">
 							<span class="resume-mobile-text">Resume</span>
 							<NewTabResume title-id="mobile-new-tab-icon-title" desc-id="mobile-new-tab-icon-description" class="resume-new-tab" />
 						</a>
