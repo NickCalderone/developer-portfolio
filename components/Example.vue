@@ -62,12 +62,12 @@ export default {
 	left: 0;
 	position: absolute;
 	background-color: var(--color-primary);
-	opacity: 20%;
+	opacity: 0%;
 	transition: .25s opacity ease-in-out;
 }
 
 .example:hover::before {
-	opacity: 0%;
+	opacity: 10%;
 }
 
 .example-overlay {
@@ -120,7 +120,7 @@ export default {
 	}
 
 	.example:hover::before {
-		opacity: 20%;
+		opacity: 0%;
 	}
 
 }
