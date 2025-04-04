@@ -1,16 +1,25 @@
 <script>
 export default {
-
 	data() {
-
 		return {
-
-			tools: ["React", "Vue", "WordPress", "Drupal", "Express", "D3.js", "MongoDB", "Postgres", "Accessibility", "Responsive Design", "Bootstrap", "Figma", "Git/Github", "Google Analytics"]
-
+			tools: [
+				"React", 
+				"TypeScript",
+				"Node.js",
+				"Express", 
+				"Vue",
+				"Nuxt",
+				"Sass",
+				"Styled Components",
+				"ESLint",
+				"Meilisearch JS",
+				"Drupal", 
+				"WordPress", 
+				"Figma", 
+				"Git", 
+			]
 		}
-
 	}
-
 }
 </script>
 
