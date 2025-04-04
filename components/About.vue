@@ -159,9 +159,9 @@ export default {
 			<p class="about-subheader-tag">Solving human problems with technology</p>
 			<br>
 			<p>
-				I am a web developer who specializes in building scalable, accessible, and user-friendly web solutions for
-				government agencies, municipalities, and businesses. My work has delivers critical digital services to
-				the public and has earning recognition from the U.S. Center for Digital Government Awards.
+				I am a web developer who specializes in building scalable, performant, and user-friendly web solutions for
+				federal agencies, municipalities, and businesses. My work delivers critical digital services 
+				and has earning recognition from the U.S. Center for Digital Government Awards.
 			</p>
 			<br>
 			<p>
