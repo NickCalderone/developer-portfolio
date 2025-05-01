@@ -161,7 +161,7 @@ export default {
 			<p>
 				I am a web developer who specializes in building scalable, performant, and user-friendly web solutions for
 				federal agencies, municipalities, and businesses. My work delivers critical digital services 
-				and has earning recognition from the U.S. Center for Digital Government Awards.
+				and has earned recognition from the U.S. Center for Digital Government Awards.
 			</p>
 			<br>
 			<p>
