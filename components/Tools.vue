@@ -5,7 +5,7 @@ export default {
 			tools: [
 				"React", 
 				"TypeScript",
-				"Node.js",
+				"Node",
 				"Express", 
 				"Vue",
 				"Nuxt",
