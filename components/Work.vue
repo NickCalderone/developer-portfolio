@@ -152,7 +152,7 @@ export default {
 				<h3>A selection...</h3>
 			</div>
 			<Example class="example-1" img-name="sba" img-src="sba-700.webp" alt="Small Business Administration Business Search website"
-				imgLink="https://beta-search.certify.sba.gov" img-width="700" img-height="467" />
+				imgLink="https://search.certifications.sba.gov/" img-width="700" img-height="467" />
 			<Example class="example-2" img-name="telecoms" img-src="telecoms-700.webp"
 				alt="Pitkin County Telecoms Department website" imgLink="https://telecoms.pitkincounty.com/" img-width="700"
 				img-height="467" />
