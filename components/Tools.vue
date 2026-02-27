@@ -12,10 +12,7 @@ export default {
 				"Next",
 				"Sass",
 				"Styled Components",
-				"ESLint",
 				"Meilisearch JS",
-				"Drupal", 
-				"WordPress", 
 				"Figma", 
 				"Git", 
 			]
