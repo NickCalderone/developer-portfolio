@@ -156,8 +156,8 @@ export default {
 			<Example class="example-2" img-name="telecoms" img-src="telecoms-700.webp"
 				alt="Pitkin County Telecoms Department website" imgLink="https://telecoms.pitkincounty.com/" img-width="700"
 				img-height="467" />
-			<Example class="example-3" img-name="emergency" img-src="emergency-700.webp" alt="Pitkin Emergency website"
-				imgLink="https://www.pitkinemergency.org/" img-width="700" img-height="467" />
+			<!-- <Example class="example-3" img-name="emergency" img-src="emergency-700.webp" alt="Pitkin Emergency website"
+				imgLink="https://www.pitkinemergency.org/" img-width="700" img-height="467" /> -->
 			<Tools class="work-tools" />
 		</div>
 	</section>
@@ -178,8 +178,9 @@ export default {
 
 .work-wrapper {
 	display: grid;
-	grid-template-rows: auto 100px var(--canvas-stroke-width) 100px auto;
-	grid-template-columns: var(--spacing) 1fr 30px 1fr 30px 1fr;
+	grid-template-rows: auto 150px var(--canvas-stroke-width) 150px auto;
+	grid-template-columns: var(--spacing) 1fr 30px 1fr;
+	/* grid-template-columns: var(--spacing) 1fr 30px 1fr 30px 1fr; */
 }
 
 .work-canvas-wrapper {
@@ -219,11 +220,11 @@ export default {
 	position: relative;
 }
 
-.example-3 {
+/* .example-3 {
 	grid-row: 2 / 5;
 	grid-column: 6;
 	position: relative;
-}
+} */
 
 .work-tools {
 	grid-row: 5;
@@ -244,7 +245,7 @@ export default {
 	}
 
 	.work-wrapper {
-		grid-template-rows: auto 250px 40px 250px 40px 250px auto;
+		grid-template-rows: auto 250px 40px 250px auto;
 		grid-template-columns: 1fr;
 	}
 

@@ -30,7 +30,7 @@ export default {
 				(max-width: 500px) 500px,
 				(max-width: 600px) 600px,
 				(max-width: 700px) 700px,
-				(min-width: 701px) 300px" :src="imgSrc" 
+				(min-width: 701px) 700px" :src="imgSrc" 
 				:width="imgWidth"
 				:height="imgHeight"
 				loading="lazy"
