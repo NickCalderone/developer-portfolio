@@ -23,7 +23,7 @@ export default {
 
 <template>
 	<div class="tools-wrapper">
-		<h3>Some of my tools and skills</h3>
+		<h3>Some tools and skills</h3>
 		<div class="tools">
 			<div v-for="tool in tools" class="tool">
 				<p>
