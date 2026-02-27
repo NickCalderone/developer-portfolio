@@ -9,6 +9,7 @@ export default {
 				"Express", 
 				"Vue",
 				"Nuxt",
+				"Next",
 				"Sass",
 				"Styled Components",
 				"ESLint",
