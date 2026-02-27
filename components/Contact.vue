@@ -115,7 +115,7 @@ export default {
 		<div class="contact-text-wrapper">
 			<h3 class="contact-subheader">Let's Connect</h3>
 			<p class="contact-text">
-				Do you need a website? Are you looking for a web developer to round out your team? Want to grow your
+				Do you need a website? Are you looking for a developer to round out your team? Want to grow your
 				network with developers in rural Colorado? No matter the reason, I am always happy to connect.
 			</p>
 		</div>
