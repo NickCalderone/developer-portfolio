@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+	compatibilityDate: '2026-04-24',
 	css: ["~/assets/css/style.css"],
 	app: {
 		head: {
