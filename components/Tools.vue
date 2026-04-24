@@ -13,6 +13,10 @@ export default {
 				"Sass",
 				"Styled Components",
 				"Meilisearch JS",
+				"Python",
+				"TanStack (Table/Query)",
+				"Component Libraries/Design Systems",
+				"WCAG/ADA",
 				"Figma", 
 				"Git", 
 			]
