@@ -290,6 +290,7 @@ export default {
 						<p class="logo"><span class="logo-n">N</span><span class="logo-c">C</span></p>
 					</div>
 				</a>
+				<p class="header-availability">Available for contract & full-time roles</p>
 				<nav class="menu-wrapper">
 					<ul class="menu">
 						<li class="menu-item">
@@ -327,7 +328,7 @@ export default {
 							<a class="menu-anchor" href="#contact">Contact</a>
 						</li>
 						<li class="menu-item">
-							<a class="resume" href="/NickCalderone-Resume.pdf" target="_blank">
+							<a class="resume" href="/NickCalderone.pdf" target="_blank">
 								<span class="resume-text">Resume</span>
 								<NewTabResume title-id="desktop-new-tab-icon-title" desc-id="desktop-new-tab-icon-description" class="resume-new-tab" />
 							</a>
@@ -338,6 +339,9 @@ export default {
 			<Hamburger :menu-handler="menuHandler" class="hamburger-wrapper js-mobile-button js-mobile-menu-focusable" />
 			<nav class="mobile-menu-wrapper js-mobile-menu-wrapper">
 				<ul class="mobile-menu">
+					<li class="mobile-menu-item">
+						<p class="mobile-availability">Available for contract & full-time roles</p>
+					</li>
 					<li class="mobile-menu-item">
 						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="https://github.com/NickCalderone"
 							aria-label="See Nick Calderone's GitHub profile" target="_blank" rel="noreferrer noopener">
@@ -360,7 +364,7 @@ export default {
 						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone-Resume.pdf" target="_blank">
+						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone.pdf" target="_blank">
 							<span class="resume-mobile-text">Resume</span>
 							<NewTabResume title-id="mobile-new-tab-icon-title" desc-id="mobile-new-tab-icon-description" class="resume-new-tab" />
 						</a>
@@ -399,9 +403,9 @@ header .js-header-scrolled {
 }
 
 .header-inner {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
 	align-items: center;
-	justify-content: space-between;
 	width: 100%;
 	background-color: var(--color-stripe-medium);
 	opacity: .95;
@@ -413,7 +417,16 @@ header .js-header-scrolled {
 	display: none;
 }
 
+.header-availability {
+	justify-self: end;
+	font-family: var(--font-family-secondary);
+	font-size: 15px;
+	color: var(--color-quaternary);
+	white-space: nowrap;
+}
+
 .logo-anchor {
+	justify-self: start;
 	text-decoration: none;
 }
 
@@ -429,6 +442,10 @@ header .js-header-scrolled {
 
 .logo-c {
 	color: var(--color-quaternary);
+}
+
+.menu-wrapper {
+	justify-self: end;
 }
 
 .menu {
@@ -515,6 +532,14 @@ header .js-header-scrolled {
 	margin-left: 10px;
 }
 
+@media only screen and (max-width: 1300px) {
+
+	.header-availability {
+		display: none;
+	}
+
+}
+
 @media only screen and (max-width: 800px) {
 
 	.mobile-menu-wrapper {
@@ -591,6 +616,12 @@ header .js-header-scrolled {
 		list-style: none;
 		color: var(--color-quaternary);
 		font-size: 30px;
+	}
+
+	.mobile-availability {
+		font-family: var(--font-family-secondary);
+		font-size: 18px;
+		text-align: center;
 	}
 
 	.mobile-menu li .mobile-menu-anchor {
