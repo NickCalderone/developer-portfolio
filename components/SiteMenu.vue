@@ -420,7 +420,8 @@ header .js-header-scrolled {
 .header-availability {
 	justify-self: end;
 	font-family: var(--font-family-secondary);
-	font-size: 15px;
+	padding-left: 20px;
+	font-size: 14px;
 	color: var(--color-quaternary);
 	white-space: nowrap;
 }
@@ -452,6 +453,7 @@ header .js-header-scrolled {
 	display: flex;
 	gap: 20px;
 	align-items: center;
+	margin: 10px 0 10px;
 }
 
 .menu li {
@@ -532,7 +534,7 @@ header .js-header-scrolled {
 	margin-left: 10px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1050px) {
 
 	.header-availability {
 		display: none;

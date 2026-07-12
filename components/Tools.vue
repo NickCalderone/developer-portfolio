@@ -8,6 +8,7 @@ export default {
 				"Node",
 				"Express", 
 				"Vue",
+				"Nuxt",
 				"Next",
 				"Django",
 				"Python",

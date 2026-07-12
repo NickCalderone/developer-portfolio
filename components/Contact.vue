@@ -120,7 +120,7 @@ export default {
 			<br>
 			<p class="contact-text">
 				Do you need a website? Are you looking for a developer to round out your team? Want to grow your network
-				of developers in rural Colorado? Lets connect.
+				of developers in rural Colorado? Let's connect.
 			</p>
 		</div>
 		<a class="contact-button" href="mailto:nick@nickcalderone.dev">
