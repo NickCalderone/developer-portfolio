@@ -159,14 +159,13 @@ export default {
 			<p class="about-subheader-tag">Solving human problems with technology</p>
 			<br>
 			<p>
-				I am a web developer who specializes in building scalable, performant, and user-friendly web solutions for
-				federal agencies, municipalities, and businesses. My work delivers critical digital services 
+				I am a web developer building scalable, performant, and user-friendly web solutions for
+				government agencies, municipalities, and businesses. My work delivers critical digital services 
 				and has earned recognition from the U.S. Center for Digital Government Awards.
 			</p>
 			<br>
 			<p>
-				I run my business remotely from beautiful Carbondale, Colorado. While not coding, I can be found
-				climbing rock cliffs near and far.
+				I run my business remotely from beautiful Carbondale, Colorado.
 			</p>
 		</div>
 		<div class="about-canvas-wrapper">
