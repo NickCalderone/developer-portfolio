@@ -99,7 +99,6 @@ export default {
 			return this.ctx;
 
 		}
-
 	}
 }
 </script>
