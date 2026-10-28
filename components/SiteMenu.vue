@@ -328,7 +328,7 @@ export default {
 							<a class="menu-anchor" href="#contact">Contact</a>
 						</li>
 						<li class="menu-item">
-							<a class="resume" href="/NickCalderone.pdf" target="_blank">
+							<a class="resume" href="/NickCalderone.pdf" target="_blank" rel="noopener noreferrer">
 								<span class="resume-text">Resume</span>
 								<NewTabResume title-id="desktop-new-tab-icon-title" desc-id="desktop-new-tab-icon-description" class="resume-new-tab" />
 							</a>
@@ -364,7 +364,7 @@ export default {
 						<a class="mobile-menu-anchor js-mobile-menu-focusable" tabindex="-1" @click="resetMenu" href="#contact">Contact</a>
 					</li>
 					<li class="mobile-menu-item">
-						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone.pdf" target="_blank">
+						<a class="resume-mobile js-mobile-menu-focusable" tabindex="-1" href="/NickCalderone.pdf" target="_blank" rel="noopener noreferrer">
 							<span class="resume-mobile-text">Resume</span>
 							<NewTabResume title-id="mobile-new-tab-icon-title" desc-id="mobile-new-tab-icon-description" class="resume-new-tab" />
 						</a>

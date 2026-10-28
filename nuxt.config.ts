@@ -2,6 +2,20 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2026-04-24',
 	css: ["~/assets/css/style.css"],
+	$production: {
+		routeRules: {
+			"/**": {
+				headers: {
+					// Nuxt injects an inline config script whose buildId changes every build, so hashes aren't practical
+					"Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+					"X-Frame-Options": "DENY",
+					"X-Content-Type-Options": "nosniff",
+					"Referrer-Policy": "strict-origin-when-cross-origin",
+					"Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+				}
+			}
+		}
+	},
 	app: {
 		head: {
 			title: "Nick Calderone | Full-Stack Web Developer",
